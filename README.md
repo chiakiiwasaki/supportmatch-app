@@ -9,11 +9,13 @@
 - 支援する側・される側いずれも女性限定とすることで、依頼者は生理用品の種類や下着のサイズ、化粧品など細かな希望も含めた依頼がしやすくなります
 - コミュニティ機能も備えており、被災下の不安や悩みや困りごとなどを会員間で共有・相談できます
 
+
 ### サイトテーマ
 
 **Survive together**
 
 助け合うことで災害時の生活を改善するためのマッチングサイト
+
 
 ### テーマを選んだ理由
 
@@ -36,11 +38,13 @@
 また不安や悩みや困りごとを共有する場所として利用してもらい、被災下の孤独感や問題の解消につながればと考えています。
 
 
+
 ### ターゲットユーザ
 
 - 被災して支援を依頼したい女性や、被災しておらず支援したいが何をすればいいのかわからない女性
 - 被災して悩みや困りごとを周囲に相談できず困っている女性
 - 被災者のニーズを把握したい行政・企業など
+
 
 
 ## 設計書
@@ -49,6 +53,7 @@
 - ER図<https://drive.google.com/file/d/1Q6K_SY_tvTUosS7zTfJP8M6uILOiuU-A/view?usp=sharing>
 - テーブル定義書<https://docs.google.com/spreadsheets/d/1DIKNc0RZxmG3-hrE_V1sbrTD7_tAhxm1SSyMcKbAl1k/edit?usp=sharing>
 - アプリケーション詳細設計<https://docs.google.com/spreadsheets/d/11o15hrfZVM_wNU5SKUcY3N2HVLePS8z1b8TeEU9QH6U/edit?usp=sharing>
+
 
 
 ## チャレンジ要素一覧
