@@ -38,7 +38,6 @@
 また不安や悩みや困りごとを共有する場所として利用してもらい、被災下の孤独感や問題の解消につながればと考えています。
 
 
-
 ### ターゲットユーザー
 
 - 被災して支援を依頼したい女性や、被災しておらず支援したいが何をすればいいのかわからない女性
@@ -46,14 +45,12 @@
 - 被災者のニーズを把握したい行政・企業など
 
 
-
 ## 設計書
 
-- UI Flows（<https://drive.google.com/file/d/1R4oIfvaZ4VUC5iA95cqhyqkUk1CoF44e/view?usp=sharing>）
+- UI Flows（https://drive.google.com/file/d/1R4oIfvaZ4VUC5iA95cqhyqkUk1CoF44e/view?usp=sharing）
 - ER図（https://drive.google.com/file/d/1Q6K_SY_tvTUosS7zTfJP8M6uILOiuU-A/view?usp=sharing）
-- テーブル定義書<https://docs.google.com/spreadsheets/d/1DIKNc0RZxmG3-hrE_V1sbrTD7_tAhxm1SSyMcKbAl1k/edit?usp=sharing>
-- アプリケーション詳細設計<https://docs.google.com/spreadsheets/d/11o15hrfZVM_wNU5SKUcY3N2HVLePS8z1b8TeEU9QH6U/edit?usp=sharing>
-
+- テーブル定義書（https://docs.google.com/spreadsheets/d/1DIKNc0RZxmG3-hrE_V1sbrTD7_tAhxm1SSyMcKbAl1k/edit?usp=sharing）
+- アプリケーション詳細設計（https://docs.google.com/spreadsheets/d/11o15hrfZVM_wNU5SKUcY3N2HVLePS8z1b8TeEU9QH6U/edit?usp=sharing）
 
 
 ## チャレンジ要素一覧
