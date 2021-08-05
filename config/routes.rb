@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations'
   }
 
-  namespace :admin do
+  namespace :admins do
     resources :requests, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show, :update]
     resources :users, only: [:index, :show, :edit, :update]
