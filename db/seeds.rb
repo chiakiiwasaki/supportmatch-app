@@ -8,3 +8,7 @@
 
 Admin.create!(email: "admin@email.com",
               password: "aaaaaa")
+
+User.create!(name: "山田花子",
+             email: "example@email.com",
+             password: "aaaaaa")

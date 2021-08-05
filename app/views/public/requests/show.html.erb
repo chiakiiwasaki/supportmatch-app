@@ -1,1 +1,69 @@
-<h1>依頼詳細画面</h1>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12'>
+      <h4>依頼詳細</h4>
+      <table cellpadding="10">
+        <tr>
+          <th>依頼人</th>
+          <td colspan="3"><%= @request.user.name %></td>
+        </tr>
+        <tr>
+          <th>依頼日</th>
+          <td colspan="3"><%= @request.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+        </tr>
+        <tr>
+          <th>緊急性</th>
+          <td colspan="3"><%= @request.urgency %></td>
+        </tr>
+        <tr>
+          <th>物品名</th>
+          <td colspan="3"><%= @request.item %></td>
+        </tr>
+        <tr>
+          <th>数量</th>
+          <td colspan="3"><%= @request.quantity %></td>
+        </tr>
+        <tr>
+          <th>コメント</th>
+          <td colspan="3"><%= @request.comment %></td>
+        </tr>
+        <tr>
+          <th>郵便番号</th>
+          <td colspan="3"><%= @request.postal_code %></td>
+        </tr>
+        <tr>
+          <th>宛先</th>
+          <td colspan="3"><%= @request.location %></td>
+        </tr>
+        <tr>
+          <th>宛名</th>
+          <td colspan="3"><%= @request.name %></td>
+        </tr>        <tr>
+          <th>電話番号</th>
+          <td colspan="3"><%= @request.phone_number %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td colspan="3"><%= @request.email %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  table{
+    table-layout: fixed;
+    width: 70%;
+    margin-top: 20px;
+  }
+  tr{
+    border-width: 1px 0;
+    border-color: #CCCCCC;
+    border-style: solid;
+  }
+  td{
+    overflow-wrap : break-word;
+  }
+</style>
