@@ -3,7 +3,7 @@
     <div class='col-md-12 col-lg-12 px-sm-0, content'>
     <h4><span class="title">　マイページ　</span></h4>
     <br>
-    <div><%= link_to '編集する', users_edit_path(current_user), class: "btn btn-outline-success" %></div>
+    <div><%= link_to '編集する', users_edit_path(@user), class: "btn btn-outline-success" %></div>
 
     <table cellpadding="10" border="1">
       <!--colgroupはtdでcolspanを適用させるために記載-->
@@ -15,20 +15,20 @@
       </colgroup>
       <tr>
         <td class="item">アイコン</td>
-        <td colspan="3"><%= attachment_image_tag current_user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %></td>
+        <td colspan="3"><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %></td>
       </tr>
       <tr>
         <td class="item">氏名</td>
         <!--&emsp;は空白の役割-->
-        <td colspan="3"><%= current_user.name %></td>
+        <td colspan="3"><%= @user.name %></td>
       </tr>
       <tr>
         <td class="item">メールアドレス</td>
-        <td colspan="3"><%= current_user.email %></td>
+        <td colspan="3"><%= @user.email %></td>
       </tr>
       <tr>
         <td class="item">一言</td>
-        <td colspan="3"><%= current_user.introduction %></td>
+        <td colspan="3"><%= @user.introduction %></td>
       </tr>
     </table>
 
