@@ -10,7 +10,7 @@
         <!--ユーザーがログインしている場合-->
         <% if user_signed_in? %>
           <li><%= link_to 'About', '#', class: 'nav-link' %></li>
-          <li><%= link_to 'Mypage', '#', class: 'nav-link' %></li>
+          <li><%= link_to 'Mypage', users_my_page_path, class: 'nav-link' %></li>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
           <li><%= link_to 'Contact', '#', class: 'nav-link' %></li>
         <!--管理者がログインしている場合  -->
