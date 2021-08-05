@@ -1,1 +1,63 @@
-<h1>ユーザー編集画面</h1>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12 px-sm-0, content'>
+    <span>　会員情報編集　</span>
+    <%= form_with model: @user, url: users_edit_path, local: true do |f| %>
+      <table cellpadding="10">
+        <!--colgroupはtdでcolspanを適用させるために記載-->
+        <colgroup>
+          <col style="width: 25%;">
+          <col style="width: 25%;">
+          <col style="width: 25%;">
+          <col style="width: 25%;">
+        </colgroup>
+        <tr>
+          <td>アイコン</td>
+          <td><%= f.attachment_field :image %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>氏名</td>
+          <td><%= f.text_field :name %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= f.text_field :email %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>一言</td>
+          <td><%= f.text_area :introduction, :size => "45*30" %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit "　編集内容を保存　", class: "btn btn-outline-success" %></td>
+          <td></td>
+          <td><%= link_to "　退会する　", users_unsubscribe_path, class: "btn btn-outline-danger" %></td>
+        </tr>
+      </table>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<style>
+  .content{
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  span{
+    margin-left: 30px;
+    background-color: #EEEEEE;
+    font-size: 20px;
+    font-family: serif;
+  }
+  table{
+    margin-top: 20px;
+    width: 90%;
+  }
+</style>

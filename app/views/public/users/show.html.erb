@@ -1,1 +1,68 @@
-<h1>ユーザ詳細画面</h1>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12 px-sm-0, content'>
+    <h4><span class="title">　マイページ　</span></h4>
+    <br>
+    <div><%= link_to '編集する', users_edit_path(current_user), class: "btn btn-outline-success" %></div>
+
+    <table cellpadding="10" border="1">
+      <!--colgroupはtdでcolspanを適用させるために記載-->
+      <colgroup>
+        <col style="width: 25%;">
+        <col style="width: 25%;">
+        <col style="width: 25%;">
+        <col style="width: 25%;">
+      </colgroup>
+      <tr>
+        <td class="item">アイコン</td>
+        <td colspan="3"><%= attachment_image_tag current_user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %></td>
+      </tr>
+      <tr>
+        <td class="item">氏名</td>
+        <!--&emsp;は空白の役割-->
+        <td colspan="3"><%= current_user.name %></td>
+      </tr>
+      <tr>
+        <td class="item">メールアドレス</td>
+        <td colspan="3"><%= current_user.email %></td>
+      </tr>
+      <tr>
+        <td class="item">一言</td>
+        <td colspan="3"><%= current_user.introduction %></td>
+      </tr>
+    </table>
+
+    <br>
+    <div class="buttons">
+    <div class="button"><%= link_to 'チャット一覧', '#', class: "btn btn-outline-primary" %></div>
+    <div class="button"><%= link_to '依頼履歴一覧', '#', class: "btn btn-outline-info" %></div>
+    <div class="button"><%= link_to 'フォロー一覧', '#', class: "btn btn-outline-warning" %></div>
+    <div class="button"><%= link_to 'フォロワー一覧', '#', class: "btn btn-outline-danger" %></div>
+    </div>
+
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .content{
+    padding-top: 30px;
+  }
+  .title{
+    background-color: #EEEEEE;
+  }
+  table{
+    width: 60%;
+    margin-top: 20px;
+  }
+  .item{
+    background-color: #EEEEEE;
+  }
+  .buttons{
+    display: flex;
+  }
+  .button{
+    margin-right: 20px;
+  }
+</style>
