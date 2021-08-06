@@ -1,16 +1,11 @@
 <div class='container'>
   <div class='row'>
-    <div class='col-md-12 col-lg-12 px-sm-0, content'>
-    <h4>　会員情報編集　</h4>
+    <div class='col-md-12 col-lg-12'>
+    <h4>会員情報編集</h4>
+    <br>
+    <br>
     <%= form_with model: @user, url: users_edit_path, local: true do |f| %>
       <table cellpadding="10">
-        <!--colgroupはtdでcolspanを適用させるために記載-->
-        <colgroup>
-          <col style="width: 25%;">
-          <col style="width: 25%;">
-          <col style="width: 25%;">
-          <col style="width: 25%;">
-        </colgroup>
         <tr>
           <td>アイコン</td>
           <td><%= f.attachment_field :image %></td>
@@ -31,13 +26,13 @@
         </tr>
         <tr>
           <td>一言</td>
-          <td><%= f.text_area :introduction, :size => "45*30" %></td>
+          <td colspan="3"><%= f.text_area :introduction, :size => "45" %></td>
         </tr>
         <tr>
           <td></td>
           <td><%= f.submit "　編集内容を保存　", class: "btn btn-outline-success" %></td>
-          <td></td>
           <td><%= link_to "　退会する　", users_unsubscribe_path, class: "btn btn-outline-danger" %></td>
+          <td></td>
         </tr>
       </table>
     <% end %>
@@ -46,12 +41,8 @@
 </div>
 
 <style>
-  .content{
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
   table{
-    margin-top: 20px;
-    width: 90%;
+    table-layout: fixed;
+    width: 100%;
   }
 </style>

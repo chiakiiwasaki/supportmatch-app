@@ -1,1 +1,47 @@
-<h1>実績</h1>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12'>
+    <h4>完了依頼一覧</h4>
+    <table cellpadding="10" class='table table-hover table-inverse'>
+      <thead>
+        <tr style="background-color: #EEEEEE;">
+          <th colspan="1">依頼日</th>
+          <th>物品名</th>
+          <th>数量</th>
+          <th>緊急性</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @requests.each do |request| %>
+        <tr>
+          <td><%= request.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+          <td><%= request.item %></td>
+          <td><%= request.quantity %></td>
+          <td><%= request.urgency %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="pagination"><%= paginate @requests %></div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  table{
+    table-layout: fixed;
+    width: 100%;
+    margin-top: 20px;
+  }
+  tr{
+    /*上下だけ囲む時の記述*/
+    border-width: 1px 0;
+    border-color: #CCCCCC;
+    border-style: solid;
+  }
+  .pagination{
+    justify-content: center;
+    padding-top: 10px;
+  }
+</style>
