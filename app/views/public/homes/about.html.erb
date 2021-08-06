@@ -1,1 +1,40 @@
-<h1>about</h1>
+<div class='container'>
+  <div class="row content">
+    <div class="col-md-1 col-lg-1"></div>
+    <div class="col-md-10 col-lg-10">
+      <h1>About</h1>
+      <br>
+      <h4>説明文---------------------------------------------------------------------------------------------------------------------</h4>
+    </div>
+  </div>
+  <div class="row content">
+    <div class="col-md-1 col-lg-1"></div>
+    <div class="col-md-10 col-lg-10">
+      <h1>Usage</h1>
+      <br>
+      <h4>説明文---------------------------------------------------------------------------------------------------------------------</h4>
+      <br>
+      <div class="text-center">
+        <span style="margin-right: 30px;"><%= link_to 'Request', new_request_path, class: "btn btn-outline-danger" %></span>
+        <span><%= link_to 'Support', requests_path, class: "btn btn-outline-success" %></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row content">
+    <div class="col-md-1 col-lg-1"></div>
+    <div class="col-md-10 col-lg-10">
+      <h1>Results</h1>
+      <br>
+      <h4>説明文---------------------------------------------------------------------------------------------------------------------</h4>
+      <br>
+      <div><%= link_to 'More', requests_path, class: "btn btn-outline-warning" %></div>
+  </div>
+</div>
+
+<style>
+  .content{
+    margin: 100px auto;
+    text-align: center;
+  }
+</style>
