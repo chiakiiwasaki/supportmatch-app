@@ -1,98 +1,46 @@
-<!--<div class='container'>-->
-<!--  <h4 class="m-5">新規会員登録</h4>-->
-<!--  <div class='row'>-->
-<!--    <div class="col-md-2 col-lg-2"></div>-->
-<!--    <div class="field col-md-10 col-lg-10">-->
-<!--      <table cellpadding="10">-->
-<!--        <%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>-->
-<!--        <%#= render "users/shared/error_messages", resource: resource %>-->
-<!--        <tr>-->
-<!--          <td><%#= f.label :name, "名前" %></td>-->
-<!--          <td><%#= f.text_field :name, autofocus: true, :size => "45", autocomplete: "name" %></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--          <td><%#= f.label :email, "メールアドレス" %></td>-->
-<!--          <td><%#= f.email_field :email, autofocus: true, :size => "45", autocomplete: "email" %></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--          <td><%#= f.label :password, "パスワード" %>-->
-<!--            <%# if @minimum_password_length %>-->
-<!--              <em>(<%#= @minimum_password_length %>文字以上)</em>-->
-<!--            <%# end %>-->
-<!--          </td>-->
-<!--          <td><%#= f.password_field :password, :size => "45", autocomplete: "new-password" %></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--          <td><%#= f.label :password_confirmation, "パスワード（確認用）" %></td>-->
-<!--          <td><%#= f.password_field :password_confirmation, :size => "45", autocomplete: "new-password" %></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--          <td></td>-->
-<!--          <td class="actions"><%#= f.submit "新規登録", class: "btn btn-outline-success" %></td>-->
-<!--          <td></td>-->
-<!--        </tr>-->
-<!--        <%# end %>-->
-<!--      </table>-->
-<!--      <%#= render "users/shared/links" %>-->
-<!--    </div>-->
-<!--  </div>-->
-
-<!--  <style>-->
-<!--    table{-->
-<!--      table-layout: fixed;-->
-<!--      width: 80%;-->
-<!--      margin-top: 20px;-->
-<!--    }-->
-<!--  </style>-->
-
-
-<div class="container" style="margin-top: 50px;">
-  <h4 class="m-5"><span class="bg-light">新規会員登録</span></h4>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="row">
-    <p class="col-sm-2"></p>
-    <p class="col-sm-2">名前</p>
-    <div class="field col-sm-8">
-      <%= f.text_field :name, autofocus: true, :size => "45*30" %>
+<div class='container'>
+  <h4 class="m-5">新規会員登録</h4>
+  <div class='row'>
+    <div class="col-md-2 col-lg-2"></div>
+    <div class="field col-md-10 col-lg-10">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+      <table cellpadding="10">
+        <tr>
+          <td><%= f.label :name, "名前" %></td>
+          <td><%= f.text_field :name, autofocus: true, :size => "45", autocomplete: "name" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :email, "メールアドレス" %></td>
+          <td><%= f.email_field :email, autofocus: true, :size => "45", autocomplete: "email" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password, "パスワード" %>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %>文字以上)</em>
+            <% end %>
+          </td>
+          <td><%= f.password_field :password, :size => "45", autocomplete: "new-password" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password_confirmation, "パスワード（確認用）" %></td>
+          <td><%= f.password_field :password_confirmation, :size => "45", autocomplete: "new-password" %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class><%= f.submit "新規登録", class: "btn btn-outline-success" %></td>
+          <td></td>
+        </tr>
+      </table>
+      <% end %>
+      <%= render "users/shared/links" %>
     </div>
   </div>
 
-  <div class="row">
-    <p class="col-sm-2"></p>
-    <p class="col-sm-2">メールアドレス</p>
-    <div class="field col-sm-8">
-      <%= f.email_field :email, autofocus: true, :size => "45*30" %>
-    </div>
-  </div>
-
-  <div class="row">
-    <p class="col-sm-2"></p>
-    <p class="col-sm-2">パスワード(<%= @minimum_password_length %>字以上)</p>
-    <div class="field col-sm-8">
-      <%= f.password_field :password, :size => "45*30", autocomplete: "new-password" %>
-    </div>
-  </div>
-
-  <div class="row">
-    <p class="col-sm-2"></p>
-    <p class="col-sm-2">パスワード(確認用)</p>
-    <div class="field col-sm-8">
-      <%= f.password_field :password_confirmation, :size => "45*30", autocomplete: "new-password" %>
-    </div>
-  </div>
-
-  <div class="row mt-4">
-    <p class="col-sm-4"></p>
-    <div class="actions col-sm-8">
-      <%= f.submit "新規登録", class: "btn btn-outline-success" %>
-    </div>
-  </div>
-  <% end %>
-  <br>
-  <div class="row">
-    <p class="col-sm-2"></p>
-    <p class="col"><%= render "users/shared/links" %></p>
-  </div>
-</div>
+  <style>
+    table{
+      table-layout: fixed;
+      width: 80%;
+      margin-top: 20px;
+    }
+  </style>
