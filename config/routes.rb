@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     patch 'users/withdraw' => 'users#withdraw'
 
     resources :contacts, only: [:new, :create]
-    resources :rooms, only: [:create, :show]
+    resources :rooms, only: [:create, :show, :index]
     resources :messages, only: [:create]
     resources :requests, only: [:new, :create, :index, :show, :update]
     resources :posts, only: [:new, :create, :index, :show]

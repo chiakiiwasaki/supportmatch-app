@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   attachment :image
   has_many :requests
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
 end
