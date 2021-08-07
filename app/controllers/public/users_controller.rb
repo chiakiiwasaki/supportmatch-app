@@ -3,7 +3,6 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = current_user
-    @rooms = Room.where(user_id: current_user)
   end
 
   def edit

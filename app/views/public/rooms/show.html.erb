@@ -1,5 +1,6 @@
 <div class='container'>
-  <h4><% @entries.each do |e| %><%= e.user.name %>さん&emsp;<% end %>のチャットルーム</h4>
+  <!--<h4><%# @entries.each do |e| %><%#= e.user.name %>さん&emsp;<%# end %>のチャットルーム</h4>-->
+  <h4><%= @entries.find{ |e| e.user_id != current_user.id }.user.name %>さんとのチャットルーム</h4>
   <hr>
   <div>
     <% if @messages.present? %>
