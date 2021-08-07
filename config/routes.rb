@@ -27,9 +27,10 @@ Rails.application.routes.draw do
     resources :rooms, only: [:create, :show, :index]
     resources :messages, only: [:create]
     resources :requests, only: [:new, :create, :index, :show, :update]
-    resources :posts, only: [:new, :create, :index, :show]
-    # resources :post_comments, only: [:create, :destroy]
-    # resources :favorites, only: [:create, :destroy]
+    resources :posts, only: [:new, :create, :index, :show, :destroy] do
+      resources :post_comments, only: [:create, :destroy]
+    end
+    # resource :favorites, only: [:create, :destroy]
     resources :relationships, only: [:create, :destroy]
   end
 
