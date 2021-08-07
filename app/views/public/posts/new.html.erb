@@ -1,1 +1,38 @@
-<h1>新規投稿</h1>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12'>
+
+    <h4>新規投稿</h4>
+    <%= form_with model: @post, local: true do |f| %>
+      <table cellpadding="10">
+        <tr>
+          <td>タイトル</td>
+          <td><%= f.text_field :title %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>内容</td>
+          <td><%= f.text_area :content, :size=>"70" %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit "投稿", class: "btn btn-outline-success" %></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<style>
+  table{
+    table-layout: fixed;
+    margin-top: 20px;
+    width: 90%;
+  }
+</style>
