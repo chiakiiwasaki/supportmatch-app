@@ -17,8 +17,8 @@
         <tr>
           <td><%= link_to post.created_at.strftime("%Y-%m-%d %H:%M"), post_path(post), class: "btn btn-link request_#{post.id}" %></td>
           <td><%= post.user.name %></td>
-          <td><%= post.title %></td>
-          <td><%= post.content %></td>
+          <td><%= truncate(post.title) %></td>
+          <td><%= truncate(post.content) %></td>
         </tr>
         <% end %>
       </tbody>
