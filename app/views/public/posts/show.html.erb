@@ -24,17 +24,9 @@
     <div class='col-md-12 col-lg-12 text'><%= @post.content %></div>
   </div>
   <br>
-  <% if @post.favorited_by?(current_user) %>
-    <%= link_to post_favorites_path(@post), method: :delete do %>
-      <i class="fas fa-heart"></i><%= @post.favorites.count %>
-    <% end %>
-  <% else %>
-    <%= link_to post_favorites_path(@post), method: :post do %>
-      <i class="far fa-heart"></i><%= @post.favorites.count %>
-    <% end %>
-  <% end %>
+  <div id="likes_buttons_<%= @post.id %>"><%= render 'public/favorites/btn', post: @post %></div>
   <br>
-  <div><%= render 'public/post_comments/index', post: @post %></div>
+  <div class="post_comments"><%= render 'public/post_comments/index', post: @post %></div>
   <br>
   <br>
   <div class='row'>

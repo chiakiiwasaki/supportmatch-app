@@ -21,15 +21,7 @@
           <td colspan="3"><%= truncate(post.title) %></td>
           <td colspan="3"><%= truncate(post.content) %></td>
           <td>
-            <% if post.favorited_by?(current_user) %>
-              <%= link_to post_favorites_path(post), method: :delete do %>
-               <i class="fas fa-heart"></i><%= post.favorites.count %>
-              <% end %>
-            <% else %>
-              <%= link_to post_favorites_path(post), method: :post do %>
-                <i class="far fa-heart"></i><%= post.favorites.count %>
-              <% end %>
-            <% end %>
+            <div id="likes_buttons_<%= post.id %>"><%= render 'public/favorites/btn', post: post %></div>
           </td>
         </tr>
         <% end %>
