@@ -1,0 +1,7 @@
+ja:
+  enums:
+    request:
+      urgency:
+        high: '高い'
+        middle: 'やや高い'
+        low: '低い'

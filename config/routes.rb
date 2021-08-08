@@ -25,7 +25,10 @@ Rails.application.routes.draw do
       get 'followers' => 'relationships#followers', as: 'followers'
     end
 
-    resources :contacts, only: [:new, :create]
+    get 'contact' => 'contacts#new'
+    post 'contact/confirm' => 'contacts#confirm'
+    post 'contact/thanks' => 'contacts#thanks'
+
     resources :rooms, only: [:create, :show, :index]
     resources :messages, only: [:create]
     get 'requests/my_requests' => 'requests#my_requests'
