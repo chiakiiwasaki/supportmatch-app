@@ -15,10 +15,10 @@
           <li><%= link_to 'Contact', contact_path, class: 'nav-link' %></li>
         <!--管理者がログインしている場合  -->
         <% elsif admin_signed_in? %>
-          <li><%= link_to 'About', about_path, class: 'nav-link' %></li>
-          <li><%= link_to 'Mypage', '#', class: 'nav-link' %></li>
+          <li><%= link_to 'Users', admins_users_path, class: 'nav-link' %></li>
+          <li><%= link_to 'Requests', '#', class: 'nav-link' %></li>
+          <li><%= link_to 'Posts', '#', class: 'nav-link' %></li>
           <li><%= link_to 'Logout', destroy_admin_session_path, method: :delete, class: 'nav-link' %></li>
-          <li><%= link_to 'Contact', contact_path, class: 'nav-link' %></li>
         <!--ユーザー・管理者いずれもログインしていない場合-->
         <% else %>
           <li><%= link_to 'About', about_path, class: 'nav-link' %></li>
