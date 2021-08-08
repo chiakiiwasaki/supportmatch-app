@@ -18,7 +18,7 @@
           <td><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), request_path(request), class: "btn btn-link request_#{request.id}" %></td>
           <td><%= request.item %></td>
           <td><%= request.quantity %></td>
-          <td><%= request.urgency %></td>
+          <td><%= request.urgency_i18n %></td>
           <td>
             <% if request.is_done %>
               <div>お届け完了</div>
