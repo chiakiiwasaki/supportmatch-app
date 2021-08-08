@@ -1,0 +1,80 @@
+<!--<div class="page-header">-->
+<!--  <h1>お問い合わせ</h1>-->
+<!--</div>-->
+
+<!--<%#= form_for @contact, :url => contact_thanks_path do |f| %>-->
+<!--  <table class="table">-->
+<!--    <tr>-->
+<!--      <th>名前</th>-->
+<!--      <td>-->
+<!--        <%#= f.hidden_field :name %>-->
+<!--        <%#= @contact.name %>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <th>メールアドレス</th>-->
+<!--      <td>-->
+<!--        <%#= f.hidden_field :email %>-->
+<!--        <%#= @contact.email %>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <th>お問い合わせ内容</th>-->
+<!--      <td>-->
+<!--        <%#= f.hidden_field :message %>-->
+<!--        <%#= simple_format(@contact.message) %>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--  </table>-->
+<!--  <%#= f.submit '送信', :class => 'btn btn-primary' %>-->
+<!--<%# end %>-->
+
+
+
+
+<div class='container'>
+  <h4 class="m-5">お問い合わせ</h4>
+  <div class='row'>
+    <div class="col-md-1 col-lg-1"></div>
+    <div class="field col-md-11 col-lg-11">
+      <%= form_for @contact, :url => contact_thanks_path do |f| %>
+      <table cellpadding="10">
+        <tr>
+          <td>名前</td>
+          <td colspan="4">
+            <%= f.hidden_field :name %>
+            <%= @contact.name %>
+          </td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td colspan="4">
+            <%= f.hidden_field :email %>
+            <%= @contact.email %>
+          </td>
+        </tr>
+        <tr>
+          <td>お問い合わせ内容</td>
+          <td colspan="4">
+            <%= f.hidden_field :message %>
+            <%= simple_format(@contact.message) %>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class><%= f.submit "送信", class: "btn btn-outline-primary" %></td>
+          <td></td>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+
+  <style>
+    table{
+      table-layout: fixed;
+      width: 80%;
+      margin-top: 20px;
+      overflow-wrap : break-word;
+    }
+  </style>
