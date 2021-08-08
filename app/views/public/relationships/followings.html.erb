@@ -1,28 +1,32 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-    <h4>依頼一覧</h4>
+    <h4>フォロー一覧</h4>
+    <% if @users.exists? %>
     <table cellpadding="10" class='table table-hover table-inverse'>
       <thead>
         <tr style="background-color: #EEEEEE;">
-          <th colspan="1">依頼日</th>
-          <th>物品名</th>
-          <th>数量</th>
-          <th>緊急性</th>
+          <th>名前</th>
+          <th>一言</th>
+          <th>フォロー数</th>
+          <th>フォロワー数</th>
         </tr>
       </thead>
       <tbody>
-        <% @requests.each do |request| %>
+    　　<% @users.each do |user| %>
         <tr>
-          <td><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), request_path(request), class: "btn btn-link request_#{request.id}" %></td>
-          <td><%= request.item %></td>
-          <td><%= request.quantity %></td>
-          <td><%= request.urgency %></td>
+          <td><%= link_to user.name, '#', class: "btn btn-link" %></td>
+          <td><%= user.introduction %></td>
+          <td><%= user.followings.count %></td>
+          <td><%= user.followers.count %></td>
         </tr>
         <% end %>
       </tbody>
     </table>
-    <div class="pagination"><%= paginate @requests %></div>
+    <div class="pagination"><%#= paginate @requests %></div>
+    <% else %>
+      <p>ユーザーはいません</p>
+    <% end %>
     </div>
   </div>
 </div>

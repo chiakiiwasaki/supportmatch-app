@@ -18,10 +18,16 @@ Rails.application.routes.draw do
     get '/result' => 'homes#result'
 
     get 'users/my_page' => 'users#show'
-    get 'users/edit' => 'users#edit'
-    patch 'users/edit' => 'users#update'
+    # get 'users/edit' => 'users#edit'
+    # patch 'users/edit' => 'users#update'
     get 'users/unsubscribe' => 'users#unsubscribe'
     patch 'users/withdraw' => 'users#withdraw'
+
+    resources :users, only: [:edit, :update] do
+      resources :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+    end
 
     resources :contacts, only: [:new, :create]
     resources :rooms, only: [:create, :show, :index]
@@ -31,7 +37,6 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
-    resources :relationships, only: [:create, :destroy]
   end
 
   devise_for :users, controllers: {

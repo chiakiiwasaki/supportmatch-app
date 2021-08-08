@@ -37,6 +37,12 @@
       <% end %>
     </div>
   </div>
+  <br>
+  <% if current_user.following?(@post.user) %>
+    <%= link_to "Unfollow", user_relationship_path(@post.user.id), method: :delete, class: "btn btn-outline-danger" %>
+  <% else %>
+    <%= link_to "Follow", user_relationships_path(@post.user.id), method: :post, class: "btn btn-outline-danger" %>
+  <% end %>
 </div>
 
 
