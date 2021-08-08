@@ -9,6 +9,7 @@
           <th>物品名</th>
           <th>数量</th>
           <th>緊急性</th>
+          <th>ステータス</th>
         </tr>
       </thead>
       <tbody>
@@ -18,6 +19,13 @@
           <td><%= request.item %></td>
           <td><%= request.quantity %></td>
           <td><%= request.urgency %></td>
+          <td>
+            <% if request.is_done %>
+              <div>お届け完了</div>
+            <% else %>
+              <div>依頼中</div>
+            <% end %>
+          </td>
         </tr>
         <% end %>
       </tbody>

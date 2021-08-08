@@ -39,11 +39,22 @@ class Public::RequestsController < ApplicationController
     end
   end
 
+  def edit
+    @request = Request.find(params[:id])
+  end
+
   def update
+    @request = Request.find(params[:id])
+    @request.update(request_params)
+    redirect_to requests_my_requests_path
+  end
+
+  def my_requests
+    @requests = Request.where(user_id: current_user.id).page(params[:page]).reverse_order
   end
 
   private
     def request_params
-      params.require(:request).permit(:urgency, :item, :quantity, :comment, :postal_code, :location, :phone_number, :email, :name)
+      params.require(:request).permit(:urgency, :item, :quantity, :comment, :postal_code, :location, :phone_number, :email, :name, :is_done)
     end
 end
