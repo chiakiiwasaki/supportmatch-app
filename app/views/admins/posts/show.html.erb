@@ -1,0 +1,32 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12 text-right'>
+      <%= link_to 'Posts', admins_posts_path, class: "btn btn-outline-info" %>
+    </div>
+  </div>
+  <br>
+  <h4><strong><%= @post.title %></strong></h4>
+  <br>
+  <div class='row'>
+    <div class='col-md-2 col-lg-2  d-flex align-items-center justify-content-center'><%= attachment_image_tag @post.user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %></div>
+    <div class='col-md-10 col-lg-10'><%= @post.user.name %>さん<br><%= @post.created_at.strftime("%Y-%m-%d %H:%M") %></div>
+  </div>
+  <br>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12 text'><%= @post.content %></div>
+  </div>
+  <br>
+  <div><i class="fas fa-heart"></i><%= @post.favorites.count %></div>
+  <br>
+  <div class="post_comments"><%= render 'public/post_comments/index', post: @post %></div>
+  <br>
+  <br>
+  <br>
+</div>
+
+
+<style>
+  h4, .text{
+    overflow-wrap : break-word;
+  }
+</style>

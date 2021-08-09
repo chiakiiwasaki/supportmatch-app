@@ -1,0 +1,88 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12'>
+    <h4>依頼情報編集</h4>
+    <br>
+    <br>
+    <%= form_with model: @request, local: true do |f| %>
+      <table cellpadding="10">
+        <tr>
+          <td>緊急性</td>
+          <td colspan="3">
+            <span><%= f.radio_button :urgency, :high %><%= f.label :high, "高い" %></span>&emsp;&emsp;
+            <span><%= f.radio_button :urgency, :middle %><%= f.label :middle, "やや高い" %></span>&emsp;&emsp;
+            <span><%= f.radio_button :urgency, :low %><%= f.label :low, "低い" %></span>
+          </td>
+        </tr>
+        <tr>
+          <td>物品名</td>
+          <td><%= f.text_field :item %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>数量</td>
+          <td><%= f.text_field :quantity %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>コメント</td>
+          <td><%= f.text_area :comment, :size=>"70" %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>郵便番号</td>
+          <td><%= f.text_field :postal_code %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td colspan="3"><%= f.text_field :location, :size=>"70" %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= f.text_field :phone_number %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= f.text_field :email %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>担当者名</td>
+          <td><%= f.text_field :name %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>ステータス</td>
+          <td colspan="2">
+            <span><%= f.radio_button :is_done, :false %><%= f.label :false, "依頼中" %></span>&emsp;&emsp;
+            <span><%= f.radio_button :is_done, :true %><%= f.label :true, "お届け完了" %></span>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit "変更を保存", class: "btn btn-outline-success" %></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<style>
+  table{
+    table-layout: fixed;
+    width: 100%;
+  }
+</style>

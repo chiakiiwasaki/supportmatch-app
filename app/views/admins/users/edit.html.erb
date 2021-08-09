@@ -1,0 +1,53 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12'>
+    <h4>会員情報編集</h4>
+    <br>
+    <br>
+    <%= form_with model: @user,url: admins_user_path(@user), local: true do |f| %>
+      <table cellpadding="10">
+        <tr>
+          <td>アイコン</td>
+          <td colspan="3"><%= f.attachment_field :image %></td>
+        </tr>
+        <tr>
+          <td>会員ID</td>
+          <td><%= @user.name %></td>
+        </tr>        <tr>
+          <td>氏名</td>
+          <td colspan="3"><%= f.text_field :name %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td colspan="3"><%= f.text_field :email %></td>
+        </tr>
+        <tr>
+          <td>一言</td>
+          <td colspan="3"><%= f.text_area :introduction, :size => "45" %></td>
+        </tr>
+        <tr>
+          <td>ステータス</td>
+          <td colspan="2">
+            <span><%= f.radio_button :is_valid, :true %><%= f.label :true, "有効" %></span>&emsp;&emsp;
+            <span><%= f.radio_button :is_valid, :false %><%= f.label :false, "退会" %></span>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit "　編集内容を保存　", class: "btn btn-outline-success" %></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<style>
+  table{
+    table-layout: fixed;
+    width: 100%;
+  }
+</style>

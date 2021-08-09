@@ -1,0 +1,53 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12 text-right'>
+      <%= link_to 'Posts', posts_path, class: "btn btn-outline-info" %>
+    </div>
+  </div>
+  <% if @post.user == current_user %>
+    <br>
+    <div class='row'>
+      <div class='col-md-12 col-lg-12 text-right'>
+        <%= link_to 'Destroy Post', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-danger destroy_post_#{@post.id}", local: true %>
+      </div>
+    </div>
+  <% end %>
+  <br>
+  <h4><strong><%= @post.title %></strong></h4>
+  <br>
+  <div class='row'>
+    <div class='col-md-2 col-lg-2  d-flex align-items-center justify-content-center'><%= attachment_image_tag @post.user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %></div>
+    <div class='col-md-10 col-lg-10'><%= @post.user.name %>さん<br><%= @post.created_at.strftime("%Y-%m-%d %H:%M") %></div>
+  </div>
+  <br>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12 text'><%= @post.content %></div>
+  </div>
+  <br>
+  <div id="likes_buttons_<%= @post.id %>"><%= render 'public/favorites/btn', post: @post %></div>
+  <br>
+  <div class="post_comments"><%= render 'public/post_comments/index', post: @post %></div>
+  <br>
+  <br>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12'>
+      <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
+        <%= f.text_area :content, class: 'form-control' %><br>
+        <%= f.submit "Submit Comment", class: 'btn btn-outline-warning' %>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <% if current_user.following?(@post.user) %>
+    <%= link_to "Unfollow", user_relationship_path(@post.user.id), method: :delete, class: "btn btn-outline-danger" %>
+  <% else %>
+    <%= link_to "Follow", user_relationships_path(@post.user.id), method: :post, class: "btn btn-outline-danger" %>
+  <% end %>
+</div>
+
+
+<style>
+  h4, .text{
+    overflow-wrap : break-word;
+  }
+</style>

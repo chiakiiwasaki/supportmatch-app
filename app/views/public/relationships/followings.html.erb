@@ -1,0 +1,50 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12'>
+    <h4>フォロー一覧</h4>
+    <% if @users.exists? %>
+    <table cellpadding="10" class='table table-hover table-inverse'>
+      <thead>
+        <tr style="background-color: #EEEEEE;">
+          <th>名前</th>
+          <th>一言</th>
+          <th>フォロー数</th>
+          <th>フォロワー数</th>
+        </tr>
+      </thead>
+      <tbody>
+    　　<% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user.name, '#', class: "btn btn-link" %></td>
+          <td><%= user.introduction %></td>
+          <td><%= user.followings.count %></td>
+          <td><%= user.followers.count %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="pagination"><%#= paginate @users %></div>
+    <% else %>
+      <p>ユーザーはいません</p>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  table{
+    table-layout: fixed;
+    width: 100%;
+    margin-top: 20px;
+  }
+  tr{
+    border-width: 1px 0;
+    border-color: #CCCCCC;
+    border-style: solid;
+  }
+  .pagination{
+    justify-content: center;
+    padding-top: 10px;
+  }
+</style>
