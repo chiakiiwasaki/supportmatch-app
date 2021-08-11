@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   namespace :admins do
     resources :requests, only: [:index, :show, :edit, :update]
-    resources :posts, only: [:index, :show, :update]
+    resources :posts, only: [:index, :show, :update] do
+      resources :post_comments, only: [:update]
+    end
     resources :users, only: [:index, :show, :edit, :update]
   end
 
