@@ -1,4 +1,6 @@
 class Admins::RequestsController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @requests = Request.all.page(params[:page])
   end
