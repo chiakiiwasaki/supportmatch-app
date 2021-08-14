@@ -14,6 +14,7 @@ class RoomChannel < ApplicationCable::Channel
     # stream_from "some_channel"
     # 接続された時
     stream_from 'room_channel'
+    # stream_from "room_channel_#{params['room']}"
   end
 
   def unsubscribed
@@ -23,8 +24,12 @@ class RoomChannel < ApplicationCable::Channel
 
   def speak(message)
     Message.create!(content: message['message'][0], user_id: message['message'][1].to_i, room_id: message['message'][2].to_i)
-    ActionCable.server.broadcast 'room_channel', message: message['message'][0]
+    # ActionCable.server.broadcast 'room_channel', message: message['message'][0]
    # redirect_back(fallback_location: root_path)
+  # Message.create! content: message['message']
+  # Message.create! content: message['message'], user_id: message.user.id, room_id: params['room']
+  # Message.create!(content: message['message'], user_id: message['message'], room_id: message['message'])
+
 
   end
 end
