@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
 
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
@@ -46,5 +47,4 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
-
 end
