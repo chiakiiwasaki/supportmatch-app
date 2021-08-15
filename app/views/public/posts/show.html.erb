@@ -24,25 +24,29 @@
     <div class='col-md-12 col-lg-12 text'><%= @post.content %></div>
   </div>
   <br>
-  <div id="likes_buttons_<%= @post.id %>"><%= render 'public/favorites/btn', post: @post %></div>
+  <div id="likes_buttons_<%= @post.id %>">
+    <%= render 'public/favorites/btn', post: @post %>
+  </div>
   <br>
-  <div class="post_comments"><%= render 'public/post_comments/index', post: @post %></div>
+  <div id="post_comments">
+    <%= render 'public/post_comments/index', post: @post %>
+  </div>
   <br>
   <br>
   <div class='row'>
-    <div class='col-md-12 col-lg-12'>
-      <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
-        <%= f.text_area :content, class: 'form-control' %><br>
-        <%= f.submit "Submit Comment", class: 'btn btn-outline-warning' %>
-      <% end %>
+    <div class='col-md-12 col-lg-12' id="post_comments_form">
+      <%= render 'public/post_comments/form', post: @post, post_comment: @post_comment %>
     </div>
   </div>
   <br>
-  <% if current_user.following?(@post.user) %>
-    <%= link_to "Unfollow", user_relationship_path(@post.user.id), method: :delete, class: "btn btn-outline-danger" %>
-  <% else %>
-    <%= link_to "Follow", user_relationships_path(@post.user.id), method: :post, class: "btn btn-outline-danger" %>
-  <% end %>
+  <div id="follow_button">
+    <%#= render 'public/relationships/btn', post: @post %>
+    <% if current_user.following?(@post.user) %>
+      <%= link_to "Unfollow", user_relationship_path(@post.user.id), method: :delete, class: "btn btn-outline-danger" %>
+    <% else %>
+      <%= link_to "Follow", user_relationships_path(@post.user.id), method: :post, class: "btn btn-outline-danger" %>
+    <% end %>
+  </div>
 </div>
 
 
