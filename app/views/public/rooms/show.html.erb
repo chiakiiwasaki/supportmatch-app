@@ -2,19 +2,26 @@
   <!--<h4><%# @entries.each do |e| %><%#= e.user.name %>さん&emsp;<%# end %>のチャットルーム</h4>-->
   <h4><%= @entries.find{ |e| e.user_id != current_user.id }.user.name %>さんとのチャットルーム</h4>
   <hr>
+  <!--<a href="#jump">最新メッセージへ</a>-->
+  <button type="button" class="btn btn-link" onclick="hoge();">最新メッセージへ</button>
   <div id="messages">
     <%= render @messages %>
   </div>
   <br>
-  <form>
+  <!--<a name="jump"></a>-->
+  <div class='row'>
+    <div class='col-md-10 col-lg-10 text-right'>
+    <form>
     <%#= form_for @message do |f| %>
       <%#= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
       <%#= f.hidden_field :room_id, value: @room.id %>
       <%#= f.submit "投稿",class: 'form-submit'%>
     <%# end %>
-   <label>メッセージを送る:</label><br>
-   <input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room="<%= @room.id %>">
+   <label>新規メッセージ(Enterで送信):</label><br>
+   <input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room="<%= @room.id %>" size="50">
    </form>
+   </div>
+  </div>
 </div>
 
 <style>
@@ -22,13 +29,14 @@
    position: relative;
    display: inline-block;
    padding: 10px;
-   min-width: 120px;
+   /*min-width: 120px;*/
    max-width: 45%;
    color: #555;
    font-size: 15px;
    background: #e0edff;
    border-radius: 15px;
    overflow-wrap : break-word;
+   text-align: left;
  }
  .date{
    font-size: 10px;
@@ -37,3 +45,13 @@
    margin-top: 30px;
  }
 </style>
+
+<script>
+function hoge(){
+  var elm = document.documentElement;
+  //scrollHeight ページの高さ clientHeight ブラウザの高さ
+  var bottom = elm.scrollHeight - elm.clientHeight;
+  //垂直方向へ移動
+  window.scroll(0, bottom);
+}
+</script>
