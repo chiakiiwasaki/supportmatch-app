@@ -1,5 +1,6 @@
 class Public::RequestsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_q, only: [:index, :search]
 
   def new
     @request = Request.new
@@ -55,7 +56,15 @@ class Public::RequestsController < ApplicationController
     @requests = Request.where(user_id: current_user.id).page(params[:page]).reverse_order
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
+    def set_q
+      @q = Request.ransack(params[:q])
+    end
+
     def request_params
       params.require(:request).permit(:urgency, :item, :quantity, :comment, :postal_code, :location, :phone_number, :email, :name, :is_done)
     end

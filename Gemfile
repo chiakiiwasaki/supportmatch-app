@@ -80,3 +80,5 @@ group :production do
 end
 
 gem 'cancancan'
+
+gem 'ransack'
