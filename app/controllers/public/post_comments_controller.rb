@@ -6,7 +6,9 @@ class Public::PostCommentsController < ApplicationController
     @post_comment = PostComment.new(post_comment_params)
     @post_comment.user_id = current_user.id
     @post_comment.post_id = @post.id
-    @post_comment.save
+    if @post_comment.save
+      @post_comment = PostComment.new
+    end
     # redirect_to post_path(@post)
   end
 
