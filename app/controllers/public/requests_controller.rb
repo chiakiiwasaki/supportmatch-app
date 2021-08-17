@@ -1,7 +1,6 @@
 class Public::RequestsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_q, only: [:index, :search]
-  impressionist :actions=> [:show]
 
   def new
     @request = Request.new
@@ -42,7 +41,7 @@ class Public::RequestsController < ApplicationController
         @entry = Entry.new
       end
     end
-    impressionist(@request, nil)
+    impressionist(@request, nil, unique: [:session_hash.to_s])
   end
 
   def edit
