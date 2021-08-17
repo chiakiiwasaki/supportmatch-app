@@ -35,7 +35,11 @@ Rails.application.routes.draw do
     resources :rooms, only: [:create, :show, :index]
     resources :messages, only: [:create]
     get 'requests/my_requests' => 'requests#my_requests'
-    resources :requests, only: [:new, :create, :index, :show, :edit, :update]
+    resources :requests, only: [:new, :create, :index, :show, :edit, :update] do
+      collection do
+        get 'search'
+      end
+    end
     resources :posts, only: [:new, :create, :index, :show, :destroy] do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]

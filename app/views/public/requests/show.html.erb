@@ -1,6 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
+      <div class='col-md-12 col-lg-12 text-right'><%= link_to 'Requests', requests_path, class: "btn btn-outline-info" %></div>
       <h4>依頼詳細</h4>
       <table cellpadding="10">
         <tr>
@@ -50,8 +51,9 @@
       <br>
       <!--<div class="text-center"><%#= link_to 'チャットを始める', '#', class: "btn btn-outline-success" %></div>-->
 
-      <% unless @user.id == current_user.id %>
-        <%# if (current_user.followed_by? @user) && (@user.followed_by? current_user)  %>
+      <% if @user.id == current_user.id %>
+        <div><%= link_to '編集する', edit_request_path(@request), class: "btn btn-outline-success" %></div>
+      <% else %>
           <% if @is_room == true %>
             <p class="user-show-room"><a href="/rooms/<%= @room_id %>" class="btn btn-outline-primary">チャットへ</a>
           <% else %>
@@ -62,12 +64,8 @@
               <%= f.submit "チャットを始める", class:"btn btn-outline-primary user-show-chat"%>
             <% end %>
           <% end %>
-        <%# end %>
       <% end %>
 
-      <% if @user.id == current_user.id %>
-        <div><%= link_to '編集する', edit_request_path(@request), class: "btn btn-outline-success" %></div>
-      <% end %>
 
     </div>
   </div>

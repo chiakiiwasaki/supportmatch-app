@@ -1,14 +1,21 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
+    <div class="text-right">
+      <%= search_form_for @q, url: search_requests_path do |f| %>
+        <%= f.search_field :item_or_location_or_name_or_postal_code_or_comment_cont, placeholder: "(例)神奈川県横浜市" %>
+        <%= f.submit '検索' %>
+      <% end %>
+    </div>
     <h4>依頼一覧</h4>
     <table cellpadding="10" class='table table-hover table-inverse'>
       <thead>
         <tr style="background-color: #EEEEEE;">
-          <th colspan="1">依頼日</th>
+          <th><%= sort_link(@q, :created_at, "依頼日", default_order: :desc) %></th>
           <th>物品名</th>
           <th>数量</th>
-          <th>緊急性</th>
+          <th><%= sort_link(@q, :urgency, "緊急性", default_order: :desc) %></th>
+         <th><%= sort_link(@q, :impressions_count, "閲覧数", default_order: :desc) %></th>
         </tr>
       </thead>
       <tbody>
@@ -18,6 +25,7 @@
           <td><%= request.item %></td>
           <td><%= request.quantity %></td>
           <td><%= request.urgency_i18n %></td>
+          <td><%= request.impressions_count %></td>
         </tr>
         <% end %>
       </tbody>
