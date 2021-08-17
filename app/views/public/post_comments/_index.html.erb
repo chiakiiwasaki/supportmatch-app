@@ -7,7 +7,7 @@
     <div class='col-md-8 col-lg-8'><%= post_comment.user.name %>さん<br><%= post_comment.created_at.strftime("%Y-%m-%d %H:%M") %></div>
     <% if post_comment.user == current_user %>
       <div class='col-md-2 col-lg-2 text-right'>
-        <%= link_to 'Destroy Comment', post_post_comment_path(post_comment.post, post_comment), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-danger destroy_post_comment_#{post_comment.id}", local: true %>
+        <%= link_to 'Destroy Comment', post_post_comment_path(post_comment.post, post_comment), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-danger destroy_post_comment_#{post_comment.id}", remote: true %>
       </div>
     <% end %>
   </div>

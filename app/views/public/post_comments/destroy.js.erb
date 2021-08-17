@@ -1,1 +1,1 @@
-$('#post-comments').html("<%= j(render partial: 'public/post_comments/index', locals: {post_comment: @post_comment}) %>");
+$('#post_comments').html("<%= j(render partial: 'public/post_comments/index', locals: {post: @post}) %>");

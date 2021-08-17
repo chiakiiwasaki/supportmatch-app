@@ -12,3 +12,17 @@ Admin.create!(email: "admin@email.com",
 User.create!(name: "山田花子",
              email: "example@email.com",
              password: "aaaaaa")
+
+User.create!(name: "田中ようこ",
+             email: "yoko@email.com",
+             password: "aaaaaa")
+
+15.times do |n|
+    Request.create!(
+      user_id: 1,
+      urgency: 0,
+      quantity: 1,
+      item: "テストアイテム#{n + 1}",
+      email: "test#{n + 1}@test.com",
+    )
+  end
