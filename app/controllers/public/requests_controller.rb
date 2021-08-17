@@ -1,6 +1,7 @@
 class Public::RequestsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_q, only: [:index, :search]
+  impressionist :actions=> [:show]
 
   def new
     @request = Request.new
@@ -17,7 +18,8 @@ class Public::RequestsController < ApplicationController
   end
 
   def index
-    @requests = Request.where(is_done: false).page(params[:page]).reverse_order
+    # @requests = Request.where(is_done: false).page(params[:page]).reverse_order
+    @requests = @q.result.where(is_done: false).page(params[:page])
   end
 
   def show
@@ -40,6 +42,7 @@ class Public::RequestsController < ApplicationController
         @entry = Entry.new
       end
     end
+    impressionist(@request, nil)
   end
 
   def edit

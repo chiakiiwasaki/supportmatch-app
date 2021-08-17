@@ -82,3 +82,4 @@ end
 gem 'cancancan'
 
 gem 'ransack'
+gem 'impressionist', '~> 1.6.1'
