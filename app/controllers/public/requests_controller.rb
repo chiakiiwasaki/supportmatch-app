@@ -1,5 +1,6 @@
 class Public::RequestsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_q, only: [:index, :search]
 
   def new
     @request = Request.new
@@ -16,7 +17,8 @@ class Public::RequestsController < ApplicationController
   end
 
   def index
-    @requests = Request.where(is_done: false).page(params[:page]).reverse_order
+    # @requests = Request.where(is_done: false).page(params[:page]).reverse_order
+    @requests = @q.result.where(is_done: false).page(params[:page])
   end
 
   def show
@@ -39,6 +41,7 @@ class Public::RequestsController < ApplicationController
         @entry = Entry.new
       end
     end
+    impressionist(@request, nil, unique: [:session_hash.to_s])
   end
 
   def edit
@@ -55,7 +58,15 @@ class Public::RequestsController < ApplicationController
     @requests = Request.where(user_id: current_user.id).page(params[:page]).reverse_order
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
+    def set_q
+      @q = Request.ransack(params[:q])
+    end
+
     def request_params
       params.require(:request).permit(:urgency, :item, :quantity, :comment, :postal_code, :location, :phone_number, :email, :name, :is_done)
     end
