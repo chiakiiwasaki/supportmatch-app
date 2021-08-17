@@ -1,25 +1,21 @@
-<%# if message.present? %>
-  <%# message.each do |m| %>
-    <% if message.user == current_user %>
-      <div class='row'>
-        <div class='col-md-10 col-lg-10 text-right'>
-          <p class="balloon"><%= message.content %></p>
-          <p class="date"><%= message.created_at.strftime("%Y-%m-%d %H:%M")%></p>
-        </div>
-        <div class='col-md-1 col-lg-1 d-flex align-items-center justify-content-center'>
-          <%= attachment_image_tag message.user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %>
-        </div>
-      </div>
-    <% else %>
-      <div class='row'>
-        <div class='col-md-1 col-lg-1 d-flex align-items-center justify-content-center'>
-          <%= attachment_image_tag message.user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %>
-        </div>
-        <div class='col-md-10 col-lg-10 text-left'>
-          <p class="balloon"><%= message.content %></p>
-          <p class="date"><%= message.created_at.strftime("%Y-%m-%d %H:%M")%></p>
-        </div>
-      </div>
-    <% end %>
-  <%# end %>
-<%# end %>
+<% if message.user == current_user %>
+  <div class='row'>
+    <div class='col-md-10 col-lg-10 text-right'>
+      <p class="balloon"><%= message.content %></p>
+      <p class="date"><%= message.created_at.strftime("%Y-%m-%d %H:%M")%></p>
+    </div>
+    <div class='col-md-1 col-lg-1 d-flex align-items-center justify-content-center'>
+      <%= attachment_image_tag message.user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %>
+    </div>
+  </div>
+<% else %>
+  <div class='row'>
+    <div class='col-md-1 col-lg-1 d-flex align-items-center justify-content-center'>
+      <%= attachment_image_tag message.user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %>
+    </div>
+    <div class='col-md-10 col-lg-10 text-left'>
+      <p class="balloon"><%= message.content %></p>
+      <p class="date"><%= message.created_at.strftime("%Y-%m-%d %H:%M")%></p>
+    </div>
+  </div>
+<% end %>
