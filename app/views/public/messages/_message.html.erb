@@ -1,7 +1,9 @@
 <% if message.user == current_user %>
-  <div class='row'>
+  <div class='row message-user' data-user-id="<%= current_user.id %>" data-message-id="<%= message.user.id %>">
     <div class='col-md-10 col-lg-10 text-right'>
       <p class="balloon"><%= message.content %></p>
+      <p class="balloon"><%= message.user.name %></p>
+
       <p class="date"><%= message.created_at.strftime("%Y-%m-%d %H:%M")%></p>
     </div>
     <div class='col-md-1 col-lg-1 d-flex align-items-center justify-content-center'>
@@ -9,13 +11,23 @@
     </div>
   </div>
 <% else %>
-  <div class='row'>
+  <div class='row message-user' data-user-id="<%= current_user.id %>" data-message-id="<%= message.user.id %>">
     <div class='col-md-1 col-lg-1 d-flex align-items-center justify-content-center'>
       <%= attachment_image_tag message.user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %>
     </div>
     <div class='col-md-10 col-lg-10 text-left'>
       <p class="balloon"><%= message.content %></p>
+      <p class="balloon"><%= message.user.name %></p>
       <p class="date"><%= message.created_at.strftime("%Y-%m-%d %H:%M")%></p>
     </div>
   </div>
 <% end %>
+
+<script>
+  console.log($('.message-user').data()['messageId'])
+  console.log("<%= current_user.id %>")
+  if (<%= message.user.id %> == "<%= current_user.id %>") {
+    console.log('current_user == message_user')
+    $('.message-user').addClass('test-right2');
+  }
+</script>
