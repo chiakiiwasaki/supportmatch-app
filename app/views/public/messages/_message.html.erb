@@ -27,8 +27,10 @@
     console.log("<%= current_user.id %>")
 if ($('.message-user')[$('.message-user').length - 1].dataset.messageId == "<%= current_user.id %>") {
   console.log('current_user == message_user')
-  $('.msg')[$('.message-user').length - 1].removeClass('text-right').addClass('text-left');
+  $('.msg')[$('.msg').length - 1].classList.remove('text-right');
+  $('.msg')[$('.msg').length - 1].classList.add('text-right');
 } else {
-  $('.msg')[$('.message-user').length - 1].removeClass('text-right').addClass('text-right');
+  $('.msg')[$('.msg').length - 1].classList.remove('text-right');
+  $('.msg')[$('.msg').length - 1].classList.add('text-left');
 }
   </script>
