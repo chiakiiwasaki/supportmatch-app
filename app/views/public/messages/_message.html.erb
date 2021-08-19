@@ -24,7 +24,7 @@
 
   <script>
     console.log(`messageId: ${$('.message-user')[$('.message-user').length - 1].dataset.messageId}`)
-    console.log("current_user: <%= current_user.id %>")
+    console.log("current_user: <%= current_user.inspect %>")
     document.addEventListener("keypress", function() {
       if ($('.message-user')[$('.message-user').length - 1].dataset.messageId == "<%= current_user.id %>") {
         console.log('current_user == message_user')
