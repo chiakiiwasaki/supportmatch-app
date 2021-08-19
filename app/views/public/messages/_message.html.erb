@@ -25,7 +25,7 @@
   <script>
     console.log($('.message-user').data()['messageId'])
     console.log("<%= current_user.id %>")
-if ($('.message-user').data()['messageId'] == "<%= current_user.id %>") {
+if ($('.message-user')[$('.message-user').length - 1].dataset.messageId == "<%= current_user.id %>") {
   console.log('current_user == message_user')
   $('.message').addClass('text-left');
 } else {
