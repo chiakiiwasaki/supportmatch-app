@@ -1,33 +1,31 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-    <div class="text-right"><%= link_to 'New', new_post_path, class: "btn btn-outline-warning" %></div>
-    <h4>投稿一覧</h4>
+    <h4><%= @user.name %>さんの投稿一覧</h4>
     <table cellpadding="10" class='table table-hover table-inverse'>
       <thead>
         <tr style="background-color: #EEEEEE;">
           <th colspan="2">投稿日</th>
-          <th colspan="2">投稿者</th>
-          <th colspan="3">タイトル</th>
-          <th colspan="3">内容</th>
-          <th></th>
+          <th colspan="2">タイトル</th>
+          <th colspan="2">内容</th>
+          <th>コメント数</th>
+          <th>いいね数</th>
         </tr>
       </thead>
       <tbody>
+        <% if @posts.present? %>
         <% @posts.each do |post| %>
         <tr>
           <td colspan="2"><%= link_to post.created_at.strftime("%Y-%m-%d %H:%M"), post_path(post), class: "btn btn-link request_#{post.id}" %></td>
-          <td colspan="2"><%= post.user.name %></td>
-          <td colspan="3"><%= truncate(post.title) %></td>
-          <td colspan="3"><%= truncate(post.content) %></td>
-          <td>
-            <div id="likes_buttons_<%= post.id %>"><%= render 'public/favorites/btn', post: post %></div>
-          </td>
+          <td colspan="2"><%= truncate(post.title) %></td>
+          <td colspan="2"><%= truncate(post.content) %></td>
+          <td><%= post.post_comments.where(is_valid: true).count %></td>
+          <td><%= post.favorites.count %></td>
         </tr>
+        <% end %>
         <% end %>
       </tbody>
     </table>
-    <!--<div class="pagination"><%#= paginate @posts %></div>-->
     </div>
   </div>
 </div>
@@ -38,7 +36,6 @@
     table-layout: fixed;
     width: 100%;
     margin-top: 20px;
-    overflow-wrap : break-word;
   }
   tr{
     border-width: 1px 0;

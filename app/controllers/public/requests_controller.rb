@@ -18,7 +18,7 @@ class Public::RequestsController < ApplicationController
 
   def index
     # @requests = Request.where(is_done: false).page(params[:page]).reverse_order
-    @requests = @q.result.where(is_done: false).page(params[:page])
+    @requests = @q.result.where(is_done: false)
   end
 
   def show
@@ -54,8 +54,9 @@ class Public::RequestsController < ApplicationController
     redirect_to requests_my_requests_path
   end
 
-  def my_requests
-    @requests = Request.where(user_id: current_user.id).page(params[:page]).reverse_order
+  def her_requests
+    @user = User.find(params[:id])
+    @requests = Request.where(user_id: @user.id)
   end
 
   def search
