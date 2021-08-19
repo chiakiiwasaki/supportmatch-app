@@ -23,14 +23,16 @@
 <% end %>
 
   <script>
-    console.log($('.message-user').data()['messageId'])
-    console.log("<%= current_user.id %>")
-if ($('.message-user')[$('.message-user').length - 1].dataset.messageId == "<%= current_user.id %>") {
-  console.log('current_user == message_user')
-  $('.msg')[$('.msg').length - 1].classList.remove('text-right');
-  $('.msg')[$('.msg').length - 1].classList.add('text-right');
-} else {
-  $('.msg')[$('.msg').length - 1].classList.remove('text-right');
-  $('.msg')[$('.msg').length - 1].classList.add('text-left');
-}
+    console.log(`messageId: ${$('.message-user')[$('.message-user').length - 1].dataset.messageId}`)
+    console.log("current_user: <%= current_user.id %>")
+    document.addEventListener("keypress", function() {
+      if ($('.message-user')[$('.message-user').length - 1].dataset.messageId == "<%= current_user.id %>") {
+        console.log('current_user == message_user')
+        $('.msg')[$('.msg').length - 1].classList.remove('text-right');
+        $('.msg')[$('.msg').length - 1].classList.add('text-right');
+      } else {
+        $('.msg')[$('.msg').length - 1].classList.remove('text-right');
+        $('.msg')[$('.msg').length - 1].classList.add('text-left');
+      }
+    })
   </script>
