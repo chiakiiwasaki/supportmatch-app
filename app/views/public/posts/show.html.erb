@@ -39,6 +39,7 @@
     </div>
   </div>
   <br>
+  <% unless @post.user == current_user %>
   <div id="follow_button">
     <%#= render 'public/relationships/btn', post: @post %>
     <% if current_user.following?(@post.user) %>
@@ -47,6 +48,7 @@
       <%= link_to "Follow", user_relationships_path(@post.user.id), method: :post, class: "btn btn-outline-danger" %>
     <% end %>
   </div>
+  <% end %>
 </div>
 
 
