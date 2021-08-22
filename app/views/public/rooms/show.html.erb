@@ -1,22 +1,16 @@
 <div class='container'>
-  <!--<h4><%# @entries.each do |e| %><%#= e.user.name %>さん&emsp;<%# end %>のチャットルーム</h4>-->
   <h4><%= @entries.find{ |e| e.user_id != current_user.id }.user.name %>さんとのチャットルーム</h4>
   <hr>
-  <!--<a href="#jump">最新メッセージへ</a>-->
   <button type="button" class="btn btn-link" onclick="hoge();">最新メッセージへ</button>
+
+  <!--<div id="userID" data-user="<%#= current_user.id %>"></div>-->
   <div id="messages">
     <%= render @messages %>
   </div>
   <br>
-  <!--<a name="jump"></a>-->
   <div class='row'>
     <div class='col-md-10 col-lg-10 text-right'>
     <form>
-    <%#= form_for @message do |f| %>
-      <%#= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
-      <%#= f.hidden_field :room_id, value: @room.id %>
-      <%#= f.submit "投稿",class: 'form-submit'%>
-    <%# end %>
    <label>新規メッセージ(Enterで送信):</label><br>
    <input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room="<%= @room.id %>" size="50">
    </form>
