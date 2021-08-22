@@ -35,4 +35,7 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
     end
   end
+
+  validates :name, uniqueness: true, length: { minimum: 2, maximum: 20 }
+  validates :introduction, length: { maximum: 50 }
 end
