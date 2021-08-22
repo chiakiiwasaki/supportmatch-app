@@ -9,7 +9,7 @@
           <th colspan="2">投稿者</th>
           <th colspan="3">タイトル</th>
           <th colspan="3">内容</th>
-          <th>ステータス</th>
+          <th colspan="2">ステータス</th>
         </tr>
       </thead>
       <tbody>
@@ -19,7 +19,7 @@
           <td colspan="2"><%= post.user.name %></td>
           <td colspan="3"><%= truncate(post.title) %></td>
           <td colspan="3"><%= truncate(post.content) %></td>
-          <td>
+          <td colspan="2">
             <% if post.is_valid %>
               <div style="color: green;">表示中</div>
             <% else %>

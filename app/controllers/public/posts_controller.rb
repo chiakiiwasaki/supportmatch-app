@@ -14,7 +14,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.where(is_valid: true).page(params[:page]).reverse_order
+    @posts = Post.where(is_valid: true)
   end
 
   def show
@@ -27,6 +27,12 @@ class Public::PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path
   end
+
+  def her_posts
+    @user = User.find(params[:id])
+    @posts = Post.where(user_id: @user.id, is_valid: true)
+  end
+
 
   private
     def post_params

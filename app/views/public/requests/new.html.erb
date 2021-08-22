@@ -6,7 +6,7 @@
     <%= form_with model: @request, local: true do |f| %>
       <table cellpadding="10">
         <tr>
-          <td>緊急性</td>
+          <td>緊急性（必須）</td>
           <td colspan="3">
             <span><%= f.radio_button :urgency, :high %><%= f.label :high, "高い" %></span>&emsp;&emsp;
             <span><%= f.radio_button :urgency, :middle %><%= f.label :middle, "やや高い" %></span>&emsp;&emsp;
@@ -14,49 +14,49 @@
           </td>
         </tr>
         <tr>
-          <td>物品名</td>
+          <td>物品名（必須）</td>
           <td><%= f.text_field :item %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <td>数量</td>
+          <td>数量（必須）</td>
           <td><%= f.text_field :quantity %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <td>コメント</td>
+          <td>コメント（任意）</td>
           <td><%= f.text_area :comment, :size=>"70" %></td>
           <td></td>
           <td></td>
         </tr>
 
         <tr>
-          <td>郵便番号</td>
-          <td><%= f.text_field :postal_code %></td>
+          <td>郵便番号（ハイフンなし）（任意）</td>
+          <td><%= f.text_field :postal_code, placeholder: "0000000" %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <td>住所</td>
-          <td colspan="3"><%= f.text_field :location, :size=>"70" %></td>
+          <td>宛先（任意）</td>
+          <td colspan="3"><%= f.text_field :location, :size=>"70", placeholder: "東京都渋谷区代々木神園町0-0" %></td>
         </tr>
         <tr>
-          <td>電話番号</td>
+          <td>電話番号（任意）</td>
           <td><%= f.text_field :phone_number %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <td>メールアドレス</td>
+          <td>メールアドレス（任意）</td>
           <td><%= f.text_field :email %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <td>担当者名</td>
-          <td><%= f.text_field :name %></td>
+          <td>宛名（任意）</td>
+          <td><%= f.text_field :name, placeholder: "令和道子" %></td>
           <td></td>
           <td></td>
         </tr>

@@ -34,8 +34,13 @@ Rails.application.routes.draw do
 
     resources :rooms, only: [:create, :show, :index]
     resources :messages, only: [:create]
-    get 'requests/my_requests' => 'requests#my_requests'
-    resources :requests, only: [:new, :create, :index, :show, :edit, :update]
+    get 'requests/her_requests/:id' => 'requests#her_requests', as: 'her_requests'
+    resources :requests, only: [:new, :create, :index, :show, :edit, :update] do
+      collection do
+        get 'search'
+      end
+    end
+    get 'posts/her_posts/:id' => 'posts#her_posts', as: 'her_posts'
     resources :posts, only: [:new, :create, :index, :show, :destroy] do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
@@ -43,9 +48,9 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    passwords: 'users/passwords',
-    registrations: 'users/registrations',
+    sessions: 'public/sessions',
+    # passwords: 'public/passwords',
+    registrations: 'public/registrations',
     omniauth_callbacks: 'public/omniauth_callbacks'
   }
 end
