@@ -20,14 +20,16 @@
       </thead>
       <tbody>
         <% @requests.each do |request| %>
-        <tr>
-          <td><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), request_path(request), class: "btn btn-link request_#{request.id}" %></td>
-          <td><%= request.item %></td>
-          <td><%= request.quantity %></td>
-          <td><%= request.urgency_i18n %></td>
-          <td><%= request.impressions_count %></td>
-        </tr>
-        <% end %>
+          <% if request.user.is_valid? %>
+          <tr>
+            <td><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), request_path(request), class: "btn btn-link request_#{request.id}" %></td>
+            <td><%= request.item %></td>
+            <td><%= request.quantity %></td>
+            <td><%= request.urgency_i18n %></td>
+            <td><%= request.impressions_count %></td>
+          </tr>
+          <% end %>
+      <% end %>
       </tbody>
     </table>
     <!--<div class="pagination"><%#= paginate @requests %></div>-->
