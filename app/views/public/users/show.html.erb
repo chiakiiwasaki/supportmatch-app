@@ -1,19 +1,13 @@
 <div class='container'>
+  <div class='row' style="margin-bottom: 50px;"><h4>マイページ</h4></div>
   <div class='row'>
-    <div class='col-md-12 col-lg-12'>
-      <h4>マイページ</h4>
-      <br>
-      <br>
-      <div><%= link_to '編集する', edit_user_path(@user), class: "btn btn-outline-success" %></div>
-    </div>
-  </div>
-  <br>
-  <div class='row'>
-    <div class='col-md-2 col-lg-2 d-flex align-items-center justify-content-center'>
-      <div><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %></div>
-    </div>
-    <div class='col-md-10 col-lg-10'>
+    <div class='col-md-3 col-lg-3'>
       <table cellpadding="10">
+        <tr>
+        <div class='d-flex align-items-center justify-content-center'>
+        <div><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %></div>
+        </div>
+        </tr>
         <tr class="item">
           <td>氏名</td>
           <td colspan="3"><%= @user.name %></td>
@@ -27,12 +21,20 @@
           <td colspan="3"><%= @user.introduction %></td>
         </tr>
       </table>
+      <br>
+      <div><%= link_to '編集する', edit_user_path(@user), class: "btn btn-outline-success" %></div>
+    </div>
+
+    <div class='col-md-8 col-lg-8'>
+
+    </div>
+
+  </div>
+
     </div>
   </div>
   <br>
   <br>
-  <div class="row">
-    <div class='col-md-12 col-lg-12'>
     <span class="button"><%= link_to 'チャット一覧', rooms_path, class: "btn btn-outline-primary" %></span>
     <span class="button"><%= link_to '依頼履歴一覧', her_requests_path(@user), class: "btn btn-outline-info" %></span>
     <span class="button"><%= link_to 'フォロー一覧', user_followings_path(@user), class: "btn btn-outline-warning" %></span>
@@ -45,8 +47,8 @@
 <style>
   table{
     table-layout: fixed;
-    width: 70%;
-    margin-top: 20px;
+    width: 100%;
+    margin-top: 50px;
   }
   tr{
     border-width: 1px 0;
@@ -57,3 +59,17 @@
     margin-right: 30px;
   }
 </style>
+
+
+
+<!--<div class="dropdown">-->
+      <!--  <button type="button" id="dropdown1" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>-->
+      <!--  <div class="dropdown-menu" aria-labelledby="dropdown1">-->
+      <!--    <div class="dropdown-item"><%#= link_to 'マイページ', users_my_page_path, class: 'nav-link' %></div>-->
+      <!--    <div class="dropdown-item"><%#= link_to 'チャット履歴', rooms_path, class: 'nav-link' %></div>-->
+      <!--    <div class="dropdown-item"><%#= link_to '依頼履歴', her_requests_path(@user), class: 'nav-link' %></div>-->
+      <!--    <div class="dropdown-item"><%#= link_to '投稿履歴', her_posts_path(@user), class: 'nav-link' %></div>-->
+      <!--    <div class="dropdown-item"><%#= link_to 'フォロー', user_followings_path(@user), class: 'nav-link' %></div>-->
+      <!--    <div class="dropdown-item"><%#= link_to 'フォロワー', user_followers_path(@user), class: 'nav-link' %></div>-->
+      <!--  </div>-->
+      <!--</div>-->

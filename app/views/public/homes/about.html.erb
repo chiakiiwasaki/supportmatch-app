@@ -1,30 +1,27 @@
+<div class="top">
+  <img src="assets/daisy.jpg" alt="topimage">
+  <p id="animation">About</p>
+</div>
 <div class='container'>
   <div class="row content">
-    <div class="col-md-1 col-lg-1"></div>
-    <div class="col-md-10 col-lg-10">
-      <h1>About</h1>
+    <!--<div class="col-md-1 col-lg-1"></div>-->
+    <div class="col-md-12 col-lg-12">
+      <h1 class="text-center">Vision</h1>
       <br>
-      <h5>説明文---------------------------------------------------------------------------------------------------------------------</h5>
+      <p class="vision"><%= render 'public/homes/intro' %></p>
     </div>
   </div>
   <div class="row content">
-    <div class="col-md-1 col-lg-1"></div>
-    <div class="col-md-10 col-lg-10">
-      <h1>Usage</h1>
-      <br>
-      <h5>説明文---------------------------------------------------------------------------------------------------------------------</h5>
-      <br>
-      <div class="text-center">
-        <span style="margin-right: 30px;"><%= link_to 'Request', new_request_path, class: "btn btn-outline-danger" %></span>
-        <span><%= link_to 'Support', requests_path, class: "btn btn-outline-success" %></span>
-      </div>
+    <div class="col-md-12 col-lg-12">
+      <h1 class="text-center">Usage</h1>
     </div>
+    <div><%= render 'public/homes/usage' %></div>
   </div>
 
   <div class="row content">
     <div class="col-md-1 col-lg-1"></div>
     <div class="col-md-10 col-lg-10">
-      <h1>Results</h1>
+      <h1 class="text-center">Results</h1>
       <br>
       <h5>説明文---------------------------------------------------------------------------------------------------------------------</h5>
       <br>
@@ -33,8 +30,47 @@
 </div>
 
 <style>
+  .top{
+    position: relative;
+  }
+
+  .top p{
+    position: absolute;
+    color: white;
+    top: 70%;
+    left: 46%;
+    font-size: 40px;
+    animation-name: fade;
+    animation-duration: 3s;
+  }
+
+  @keyframes fade{
+    0%{
+      opacity: 0;
+    }
+    100%{
+    opacity: 1;
+    }
+  }
+
+  .top img{
+    width: 92vw;
+    height: 600px;
+    object-fit: cover;
+  }
   .content{
     margin: 100px auto;
-    text-align: center;
+    /*text-align: center;*/
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+  .vision{
+	  columns: 2;
+	  /*column-rule: 1px solid #cdcdcd;*/
+	  column-gap: 2em;
+  }
+  h1{
+    color: #75c5b5;
   }
 </style>

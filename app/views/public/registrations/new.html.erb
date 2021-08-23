@@ -7,11 +7,11 @@
       <%= render "public/shared/error_messages", resource: resource %>
       <table cellpadding="10">
         <tr>
-          <td><%= f.label :name, "名前" %></td>
+          <td><%= f.label :name, "サイト上の表示名（公開されます）" %></td>
           <td><%= f.text_field :name, autofocus: true, :size => "45", autocomplete: "name" %></td>
         </tr>
         <tr>
-          <td><%= f.label :email, "メールアドレス" %></td>
+          <td><%= f.label :email, "メールアドレス（非公開です）" %></td>
           <td><%= f.email_field :email, autofocus: true, :size => "45", autocomplete: "email" %></td>
         </tr>
         <tr>

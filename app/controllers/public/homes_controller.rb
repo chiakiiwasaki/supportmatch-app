@@ -4,6 +4,8 @@ class Public::HomesController < ApplicationController
   end
 
   def about
+    @requests = Request.all
+    @requests_done = Request.where(is_done: true)
   end
 
   def result
