@@ -1,54 +1,83 @@
 <div class='container'>
-  <div class='row' style="margin-bottom: 50px;"><h4>マイページ</h4></div>
-  <div class='row'>
-    <div class='col-md-3 col-lg-3'>
-      <table cellpadding="10">
-        <tr>
-        <div class='d-flex align-items-center justify-content-center'>
-        <div><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %></div>
-        </div>
-        </tr>
+  <div style="margin-bottom: 50px;"><h4><%= @user.name %>さんのマイページ</h4></div>
+  <div class="text-right"><%= link_to '編集する', edit_user_path(@user), class: "btn btn-outline-secondary" %></div>
+  <div class='row user-table'>
+    <div class='col-md-4 col-lg-4 d-flex align-items-center justify-content-center'>
+      <%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %>
+    </div>
+    <div class='col-md-8 col-lg-8'>
+      <table cellpadding="10" class="user-info">
         <tr class="item">
-          <td>氏名</td>
-          <td colspan="3"><%= @user.name %></td>
+          <td>表示名</td>
+          <td colspan="2"><%= @user.name %></td>
         </tr>
         <tr>
-          <td>メールアドレス</td>
-          <td colspan="3"><%= @user.email %></td>
+          <td>メールアドレス（非公開）</td>
+          <td colspan="2"><%= @user.email %></td>
         </tr>
         <tr class="item">
           <td>一言</td>
-          <td colspan="3"><%= @user.introduction %></td>
+          <td colspan="2"><%= @user.introduction %></td>
         </tr>
       </table>
-      <br>
-      <div><%= link_to '編集する', edit_user_path(@user), class: "btn btn-outline-success" %></div>
-    </div>
-
-    <div class='col-md-8 col-lg-8'>
-
-    </div>
-
-  </div>
-
     </div>
   </div>
-  <br>
-  <br>
-    <span class="button"><%= link_to 'チャット一覧', rooms_path, class: "btn btn-outline-primary" %></span>
-    <span class="button"><%= link_to '依頼履歴一覧', her_requests_path(@user), class: "btn btn-outline-info" %></span>
-    <span class="button"><%= link_to 'フォロー一覧', user_followings_path(@user), class: "btn btn-outline-warning" %></span>
-    <span class="button"><%= link_to 'フォロワー一覧', user_followers_path(@user), class: "btn btn-outline-danger" %></span>
-    <span class="button"><%= link_to '投稿一覧', her_posts_path(@user), class: "btn btn-outline-success posts_my_posts_#{@user.id}" %></span>
+
+  <div class='row'>
+    <div class='col-md-12 col-lg-12 flowers'>
+      <div class="img">
+        <%= link_to rooms_path do %>
+          <%= image_tag "pinkflower2.jpg" %>
+          <div class="mask">
+            <p>チャット一覧</p>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="img">
+        <%= link_to her_requests_path(@user) do %>
+          <%= image_tag "greenflower.jpg" %>
+          <div class="mask">
+            <p>依頼履歴一覧</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="img">
+        <%= link_to her_posts_path(@user) do %>
+          <%= image_tag "blueflower.jpg" %>
+          <div class="mask">
+            <p>投稿一覧</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="img">
+        <%= link_to user_followings_path(@user) do %>
+          <%= image_tag "yellowflower.jpg" %>
+          <div class="mask">
+            <p>フォロー一覧</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="img">
+        <%= link_to user_followers_path(@user) do %>
+          <%= image_tag "orangeflower.jpg" %>
+          <div class="mask">
+            <p>フォロワー一覧</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 
 
 <style>
-  table{
+  .user-table{
+    margin-top: 50px;
+  }
+  .user-info{
     table-layout: fixed;
     width: 100%;
-    margin-top: 50px;
   }
   tr{
     border-width: 1px 0;
@@ -58,8 +87,42 @@
   .button{
     margin-right: 30px;
   }
+  .flowers{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .flowers img{
+    height: 180px;
+    width: 180px;
+    border-radius: 130px;
+    object-fit: cover;
+    overflow:	hidden;
+	  position: relative;
+  }
+  .flowers .img p{
+	  text-align: center;
+	  padding-top: 80px;
+	  color: #fff;
+  }
+  .mask {
+	  width: 180px;
+	  height:	180px;
+    border-radius: 130px;
+	  position: absolute;
+	  top: 0;
+	  left: 15;
+	  opacity: 0;
+	  background-color:	rgba(0,0,0,0.4);
+	  -webkit-transition:	all 0.2s ease;
+	  transition:		all 0.2s ease;
+  }
+  .img:hover .mask {
+	  opacity: 1;
+  }
 </style>
-
 
 
 <!--<div class="dropdown">-->
