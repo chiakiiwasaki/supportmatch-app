@@ -1,8 +1,12 @@
+<div class="belt"></div>
+
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-    <h4><%= @user.name %>さんの依頼一覧</h4>
-    <table cellpadding="10" class='table table-hover table-inverse'>
+    <h4><%= @user.name %>'s Requests</h4>
+    <% if @requests.exists? %>
+    <div class="jscroll">
+    <table cellpadding="10" class='table table-hover table-inverse content'>
       <thead>
         <tr style="background-color: #EEEEEE;">
           <th colspan="1">依頼日</th>
@@ -30,6 +34,10 @@
         <% end %>
       </tbody>
     </table>
+    </div>
+    <% else %>
+      <p>依頼はありません</p>
+    <% end %>
     <!--<div class="pagination"><%#= paginate @requests %></div>-->
     </div>
   </div>
@@ -52,3 +60,4 @@
     padding-top: 10px;
   }
 </style>
+

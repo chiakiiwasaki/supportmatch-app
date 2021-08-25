@@ -1,9 +1,11 @@
+<div class="belt"></div>
+
 <div class='container'>
-  <div style="margin-bottom: 50px;"><h4><%= @user.name %>さんのマイページ</h4></div>
+  <h4>MyPage</h4>
   <div class="text-right"><%= link_to '編集する', edit_user_path(@user), class: "btn btn-outline-secondary" %></div>
   <div class='row user-table'>
     <div class='col-md-4 col-lg-4 d-flex align-items-center justify-content-center'>
-      <%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %>
+      <%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
     </div>
     <div class='col-md-8 col-lg-8'>
       <table cellpadding="10" class="user-info">
@@ -74,6 +76,12 @@
 <style>
   .user-table{
     margin-top: 50px;
+  }
+  .user-img{
+    height: 80px;
+    width: 80px;
+    /*border-radius: 130px;*/
+    object-fit: cover;
   }
   .user-info{
     table-layout: fixed;

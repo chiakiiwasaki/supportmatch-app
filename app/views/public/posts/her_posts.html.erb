@@ -1,7 +1,10 @@
+<div class="belt"></div>
+
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-    <h4><%= @user.name %>さんの投稿一覧</h4>
+    <h4><%= @user.name %>'s Posts</h4>
+    <% if @posts.exists? %>
     <table cellpadding="10" class='table table-hover table-inverse'>
       <thead>
         <tr style="background-color: #EEEEEE;">
@@ -26,6 +29,9 @@
         <% end %>
       </tbody>
     </table>
+    <% else %>
+      <p>投稿はありません</p>
+    <% end %>
     </div>
   </div>
 </div>

@@ -1,7 +1,9 @@
+<div class="belt"></div>
+
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-    <h4>会員情報編集</h4>
+    <h4>EditMypage</h4>
     <br>
     <br>
     <%= form_with model: @user do |f| %>
@@ -10,7 +12,7 @@
           <td>
             <div class="item-image text-center">
               <%#= attachment_image_tag @user, :image, class: "img-square", fallback: "no_image.jpg", size:"50x50" %>
-              <%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %>
+              <%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
             </div>
           </td>
           <td><%= f.attachment_field :image %></td>
@@ -46,11 +48,17 @@
 </div>
 
 <style>
+  .user-img{
+    height: 80px;
+    width: 80px;
+    /*border-radius: 130px;*/
+    object-fit: cover;
+  }
   table{
     table-layout: fixed;
     width: 100%;
   }
   .item-image{
-    height: 100px;
+    height: 150px;
   }
 </style>
