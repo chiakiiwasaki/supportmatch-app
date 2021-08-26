@@ -5,20 +5,26 @@
     <div class='col-md-12 col-lg-12'>
     <h4>Requests</h4>
     <div class="text-right buttons"><%= link_to '依頼する', new_request_path, class: "btn btn-outline-secondary" %></div>
-    <div class="text-left search-btn">
-      <%= search_form_for @q, url: search_requests_path do |f| %>
-        <%= f.label :genre, '<種別>' %>
-        <%= f.radio_button :genre, '' %>指定しない&emsp;
-        <%= f.radio_button :genre, :other %><%= f.label :other, "その他" %>&emsp;
-        <%= f.radio_button :genre, :sanitary %><%= f.label :sanitary, "生理用品" %>&emsp;
-        <%= f.radio_button :genre, :cloth %><%= f.label :cloth, "下着・衣類" %>&emsp;
-        <%= f.radio_button :genre, :hygiene %><%= f.label :hygiene, "衛生用品・化粧品" %>&emsp;
-        <%= f.radio_button :genre, :child %><%= f.label :child, "子ども用品" %><br>
-        <%= f.search_field :item_or_location_or_name_or_postal_code_or_comment_cont, placeholder: "検索ワードを入力" %>
-        <%= f.submit 'Search' %>
-      <% end %>
+    <br>
+    <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';" class="text-right">
+      <a style="cursor:pointer;"><i class="fas fa-search"></i></a>
     </div>
-    <table cellpadding="10" class='table table-hover table-inverse'>
+    <div id="open" style="display:none;clear:both;">
+      <div class="text-right search-btn">
+        <%= search_form_for @q, url: search_requests_path do |f| %>
+          <%= f.label :genre, '<種別>' %>
+          <%= f.radio_button :genre, '' %>指定しない&emsp;
+          <%= f.radio_button :genre, :other %><%= f.label :other, "その他" %>&emsp;
+          <%= f.radio_button :genre, :sanitary %><%= f.label :sanitary, "生理用品" %>&emsp;
+          <%= f.radio_button :genre, :cloth %><%= f.label :cloth, "下着・衣類" %>&emsp;
+          <%= f.radio_button :genre, :hygiene %><%= f.label :hygiene, "衛生用品・化粧品" %>&emsp;
+          <%= f.radio_button :genre, :child %><%= f.label :child, "子ども用品" %><br>
+          <%= f.search_field :item_or_location_or_name_or_postal_code_or_comment_cont, placeholder: "検索ワードを入力" %>
+          <%= f.submit 'Search' %>
+        <% end %>
+      </div>
+    </div>
+    <table cellpadding="10" class='table table-hover table-inverse jscroll'>
       <thead>
         <tr style="background-color: #EEEEEE;">
           <th><%= sort_link(@q, :created_at, "依頼日", default_order: :desc) %></th>
@@ -66,5 +72,9 @@
   }
   .search-btn{
     margin-top: 10px;
+  }
+  i{
+    color: #75c5b5;
+    font-size: 30px;
   }
 </style>
