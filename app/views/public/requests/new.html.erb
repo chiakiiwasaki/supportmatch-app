@@ -1,8 +1,10 @@
+<div class="belt"></div>
+
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
 
-    <h4>新規依頼登録</h4>
+    <h4>New Request</h4>
     <%= form_with model: @request, local: true do |f| %>
       <table cellpadding="10">
         <tr>
@@ -15,47 +17,47 @@
         </tr>
         <tr>
           <td>物品名（必須）</td>
-          <td><%= f.text_field :item %></td>
+          <td><%= f.text_field :item, placeholder: "生理用品" %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>数量（必須）</td>
-          <td><%= f.text_field :quantity %></td>
+          <td><%= f.text_field :quantity, placeholder: "10パック" %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <td>コメント（任意）</td>
-          <td><%= f.text_area :comment, :size=>"70" %></td>
+          <td>コメント</td>
+          <td><%= f.text_area :comment, :size=>"70", placeholder: "羽付き、多い日の昼用を希望。メーカー不問。" %></td>
           <td></td>
           <td></td>
         </tr>
 
         <tr>
-          <td>郵便番号（ハイフンなし）（任意）</td>
+          <td>郵便番号（ハイフンなし）</td>
           <td><%= f.text_field :postal_code, placeholder: "0000000" %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <td>宛先（任意）</td>
-          <td colspan="3"><%= f.text_field :location, :size=>"70", placeholder: "東京都渋谷区代々木神園町0-0" %></td>
+          <td>宛先</td>
+          <td colspan="3"><%= f.text_field :location, :size=>"70", placeholder: "東京都渋谷区代々木神南0-0" %></td>
         </tr>
         <tr>
-          <td>電話番号（任意）</td>
-          <td><%= f.text_field :phone_number %></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>メールアドレス（任意）</td>
-          <td><%= f.text_field :email %></td>
+          <td>電話番号</td>
+          <td><%= f.text_field :phone_number, placeholder: "09012345678" %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <td>宛名（任意）</td>
+          <td>メールアドレス</td>
+          <td><%= f.text_field :email, placeholder: "michiko@email.com" %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>宛名</td>
           <td><%= f.text_field :name, placeholder: "令和道子" %></td>
           <td></td>
           <td></td>
@@ -63,7 +65,7 @@
 
         <tr>
           <td></td>
-          <td><%= f.submit "依頼を投稿", class: "btn btn-outline-success" %></td>
+          <td><%= f.submit "依頼を投稿", class: "btn btn-outline-secondary" %></td>
           <td></td>
           <td></td>
         </tr>

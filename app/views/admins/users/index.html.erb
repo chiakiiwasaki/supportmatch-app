@@ -1,13 +1,17 @@
+<div class="belt-admin"></div>
+
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-    <h4>ユーザー一覧</h4>
+    <h4>Users</h4>
     <table cellpadding="10" class='table table-hover table-inverse'>
       <thead>
         <tr style="background-color: #EEEEEE;">
           <th>会員ID</th>
-          <th>名前</th>
-          <th>メールアドレス</th>
+          <th colspan="2">名前</th>
+          <th colspan="2">メールアドレス</th>
+          <th>依頼数</th>
+          <th>投稿数</th>
           <th>ステータス</th>
         </tr>
       </thead>
@@ -15,11 +19,13 @@
     　　<% @users.each do |user| %>
         <tr>
           <td><%= user.id %></td>
-          <td><%= link_to user.name, admins_user_path(user), class: "btn btn-link" %></td>
-          <td><%= user.email %></td>
+          <td colspan="2"><%= link_to truncate(user.name, length:25), admins_user_path(user), class: "btn btn-link" %></td>
+          <td colspan="2"><%= truncate(user.email, length:25) %></td>
+          <td><%= user.requests.count %></td>
+          <td><%= user.posts.count %></td>
           <td>
             <% if user.is_valid %>
-              <div style="color: green;">有効</div>
+              <div>有効</div>
             <% else %>
               <div style="color: gray;">退会</div>
             <% end %>
@@ -28,7 +34,7 @@
         <% end %>
       </tbody>
     </table>
-    <div class="pagination"><%= paginate @users %></div>
+    <!--<div class="pagination"><%#= paginate @users %></div>-->
     </div>
   </div>
 </div>
@@ -38,15 +44,15 @@
   table{
     table-layout: fixed;
     width: 100%;
-    margin-top: 20px;
+    /*margin-top: 20px;*/
   }
   tr{
     border-width: 1px 0;
     border-color: #CCCCCC;
     border-style: solid;
   }
-  .pagination{
-    justify-content: center;
-    padding-top: 10px;
-  }
+  /*.pagination{*/
+  /*  justify-content: center;*/
+  /*  padding-top: 10px;*/
+  /*}*/
 </style>

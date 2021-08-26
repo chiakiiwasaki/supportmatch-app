@@ -1,19 +1,21 @@
+<div class="belt"></div>
+
 <div class='container'>
   <div class='row'>
-    <div class='col-md-12 col-lg-12 text-right'>
-      <%= link_to 'Posts', posts_path, class: "btn btn-outline-info" %>
+    <div class='col-md-12 col-lg-12 text-right buttons'>
+      <%= link_to '一覧へ戻る', posts_path, class: "btn btn-outline-secondary" %>
     </div>
   </div>
   <% if @post.user == current_user %>
     <br>
     <div class='row'>
       <div class='col-md-12 col-lg-12 text-right'>
-        <%= link_to 'Destroy Post', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-danger destroy_post_#{@post.id}", local: true %>
+        <%= link_to '投稿を削除', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-danger destroy_post_#{@post.id}", local: true %>
       </div>
     </div>
   <% end %>
   <br>
-  <h4><strong><%= @post.title %></strong></h4>
+  <h5><strong><%= @post.title %></strong></h5>
   <br>
   <div class='row'>
     <div class='col-md-2 col-lg-2  d-flex align-items-center justify-content-center'><%= attachment_image_tag @post.user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %></div>
@@ -43,9 +45,9 @@
   <div id="follow_button">
     <%#= render 'public/relationships/btn', post: @post %>
     <% if current_user.following?(@post.user) %>
-      <%= link_to "Unfollow", user_relationship_path(@post.user.id), method: :delete, class: "btn btn-outline-danger" %>
+      <%= link_to "Unfollow", user_relationship_path(@post.user.id), method: :delete, class: "btn btn-outline-secondary" %>
     <% else %>
-      <%= link_to "Follow", user_relationships_path(@post.user.id), method: :post, class: "btn btn-outline-danger" %>
+      <%= link_to "Follow", user_relationships_path(@post.user.id), method: :post, class: "btn btn-outline-secondary" %>
     <% end %>
   </div>
   <% end %>

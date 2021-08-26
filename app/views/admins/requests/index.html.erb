@@ -1,7 +1,9 @@
+<div class="belt-admin"></div>
+
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-    <h4>依頼一覧</h4>
+    <h4>Requests</h4>
     <table cellpadding="10" class='table table-hover table-inverse'>
       <thead>
         <tr style="background-color: #EEEEEE;">
@@ -23,16 +25,16 @@
           <td><%= request.urgency_i18n %></td>
           <td>
             <% if request.is_done %>
-              <div style="color: green;">お届け完了</div>
+              <div style="color: gray;">お届け完了</div>
             <% else %>
-              <div style="color: red;">依頼中</div>
+              <div>依頼中</div>
             <% end %>
           </td>
         </tr>
         <% end %>
       </tbody>
     </table>
-    <div class="pagination"><%= paginate @requests %></div>
+    <!--<div class="pagination"><%#= paginate @requests %></div>-->
     </div>
   </div>
 </div>
@@ -49,8 +51,8 @@
     border-color: #CCCCCC;
     border-style: solid;
   }
-  .pagination{
-    justify-content: center;
-    padding-top: 10px;
-  }
+  /*.pagination{*/
+  /*  justify-content: center;*/
+  /*  padding-top: 10px;*/
+  /*}*/
 </style>

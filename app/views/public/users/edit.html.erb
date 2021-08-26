@@ -1,19 +1,26 @@
+<div class="belt"></div>
+
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-    <h4>会員情報編集</h4>
+    <h4>Edit Mypage</h4>
     <br>
     <br>
-    <%= form_with model: @user, local: true do |f| %>
+    <%= form_with model: @user do |f| %>
       <table cellpadding="10">
         <tr>
-          <td>アイコン</td>
+          <td>
+            <div class="item-image text-center">
+              <%#= attachment_image_tag @user, :image, class: "img-square", fallback: "no_image.jpg", size:"50x50" %>
+              <%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
+            </div>
+          </td>
           <td><%= f.attachment_field :image %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <td>氏名</td>
+          <td>表示名</td>
           <td><%= f.text_field :name %></td>
           <td></td>
           <td></td>
@@ -30,8 +37,8 @@
         </tr>
         <tr>
           <td></td>
-          <td><%= f.submit "　編集内容を保存　", class: "btn btn-outline-success" %></td>
-          <td><%= link_to "　退会する　", users_unsubscribe_path, class: "btn btn-outline-danger" %></td>
+          <td><%= f.submit "　編集内容を保存　", class: "btn btn-outline-secondary" %></td>
+          <td><%= link_to "　退会する　", users_unsubscribe_path, class: "btn btn-outline-secondary" %></td>
           <td></td>
         </tr>
       </table>
@@ -41,8 +48,17 @@
 </div>
 
 <style>
+  .user-img{
+    height: 80px;
+    width: 80px;
+    /*border-radius: 130px;*/
+    object-fit: cover;
+  }
   table{
     table-layout: fixed;
     width: 100%;
+  }
+  .item-image{
+    height: 150px;
   }
 </style>

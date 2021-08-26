@@ -1,8 +1,16 @@
-<div class='container'>
-  <h4><%= @entries.find{ |e| e.user_id != current_user.id }.user.name %>さんとのチャットルーム</h4>
-  <hr>
-  <button type="button" class="btn btn-link" onclick="hoge();">最新メッセージへ</button>
+<div class="belt"></div>
 
+<div class='container'>
+  <h4>Chatting with <%= @entries.find{ |e| e.user_id != current_user.id }.user.name %></h4>
+  <% if @entries.find{ |e| e.user_id != current_user.id }.user.introduction.present? %>
+    <div class="balloon"><%= @entries.find{ |e| e.user_id != current_user.id }.user.introduction %></div><br>
+  <% end %>
+  <button type="button" class="btn btn-link" onclick="hoge();">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-arrow-down fa-stack-1x fa-inverse"></i>
+    </span>
+  </button>
 
   <!--<div id="userID" data-user="<%#= current_user.id %>"></div>-->
 
@@ -11,7 +19,7 @@
   </div>
   <br>
   <div class='row'>
-    <div class='col-md-10 col-lg-10 text-right'>
+    <div class='col-md-10 col-lg-10'>
     <form>
    <label>新規メッセージ(Enterで送信):</label><br>
    <input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room="<%= @room.id %>" size="50">
@@ -24,22 +32,54 @@
   .balloon {
    position: relative;
    display: inline-block;
+   margin-left: 240px;
    padding: 10px;
-   /*min-width: 120px;*/
-   max-width: 45%;
+   max-width: 75%;
    color: #555;
    font-size: 15px;
-   background: #e0edff;
+   background: #EEEEEE;
    border-radius: 15px;
    overflow-wrap : break-word;
    text-align: left;
  }
+
+ .balloon:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 30px;
+  margin-left: -15px;
+  border: 10px solid transparent;
+  border-bottom: 10px solid #EEEEEE;
+}
+
  .date{
-   font-size: 10px;
+  font-size: 10px;
  }
- .row{
-   margin-top: 30px;
+
+ .chat-box{
+  padding: 50px;
  }
+
+ .chat-box:not(:last-child){
+  border-bottom: solid 1px #75c5b5;
+ }
+
+ .chat-box p{
+  overflow-wrap : break-word;
+ }
+
+ .user-img{
+  height: 50px;
+  width: 50px;
+  /*border-radius: 130px;*/
+  object-fit: cover;
+ }
+
+ i{
+  color: #75c5b5;
+ }
+
 </style>
 
 <script>

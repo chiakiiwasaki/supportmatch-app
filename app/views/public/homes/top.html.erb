@@ -1,41 +1,183 @@
+<div class="top">
+  <img src="assets/topimage.jpg" alt="topimage">
+  <p id="animation">Survive Together</p>
+</div>
 <div class='container'>
-  <div class="row content">
+  <div class="row">
     <div class="col-md-1 col-lg-1"></div>
-    <h1 class="col-md-5 col-lg-5">Supportmatch</h1>
-    <div class="col-md-5 col-lg-5">
-      <h5>説明文---------------------------------------------------------------------------------------------------------------------</h5>
-      <br>
-      <div class="text-right"><%= link_to 'More', about_path, class: "btn btn-outline-primary" %></div>
+    <div class="col-md-10 col-lg-10 top2">
+      <p>SupportMatchは女性を対象とした
+      <br>災害時の「支援したい」「支援が必要」をつなぐ<br>マッチングサービスです
+      <br><%= link_to 'More', about_path, class: "btn btn-outline-secondary" %></p>
     </div>
   </div>
-  <div class="row content">
-    <div class="col-md-1 col-lg-1"></div>
-    <h1 class="col-md-5 col-lg-5">OurService</h1>
-    <div class="col-md-5 col-lg-5">
-      <h5>説明文---------------------------------------------------------------------------------------------------------------------</h5>
-      <br>
-      <div class="text-right">
-        <span style="margin-right: 30px;"><%= link_to 'Requests', requests_path, class: "btn btn-outline-success" %></span>
-        <span><%= link_to 'New', new_request_path, class: "btn btn-outline-danger" %></span>
+  <div class="row">
+    <div class="col-md-12 col-lg-12 main">
+      <div class="content-left">
+        <div class="icons fade-in fade-in-left">
+          <span class="fa-stack fa-3x">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-hands-helping fa-stack-1x fa-inverse"></i>
+          </span>
+        </div>
+        <p>「支援が必要」な方は依頼内容をお寄せください。「支援したい」方は依頼一覧をご覧いただき、依頼者とチャット上でやり取りをした上で、伝えられた希望配送先にご郵送ください。</p>
+        <br>
+        <div class="text-center">
+          <span style="margin-right: 30px;"><%= link_to 'Support', requests_path, class: "btn btn-outline-secondary" %></span>
+          <span><%= link_to 'Request', new_request_path, class: "btn btn-outline-secondary" %></span>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="row content">
-    <div class="col-md-1 col-lg-1"></div>
-    <h1 class="col-md-5 col-lg-5">Community</h1>
-    <div class="col-md-5 col-lg-5">
-      <h5>説明文---------------------------------------------------------------------------------------------------------------------</h5>
-      <br>
-      <div class="text-right">
-        <span style="margin-right: 30px;"><%= link_to 'Posts', posts_path, class: "btn btn-outline-info" %></span>
-        <span><%= link_to 'New', new_post_path, class: "btn btn-outline-warning" %></span>
+      <div class="content-center">
+        <div class="icons fade-in fade-in-left">
+          <span class="fa-stack fa-3x">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-comments fa-stack-1x fa-inverse"></i>
+          </span>
+        </div>
+        <p>被災下の孤独感や問題の解消につなげる場として、不安や悩み、困りごとなどを共有・相談いただけます。平時は、これまでの災害で感じたことや体験を共有する場としてもご活用いただけます。</p>
+        <br>
+        <div class="text-center">
+          <span style="margin-right: 30px;"><%= link_to 'Posts', posts_path, class: "btn btn-outline-secondary" %></span>
+          <span><%= link_to 'New', new_post_path, class: "btn btn-outline-secondary" %></span>
+        </div>
+      </div>
+      <div class="content-right">
+        <div class="icons fade-in fade-in-left">
+          <span class="fa-stack fa-3x">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+          </span>
+        </div>
+        <p>SupportMatchはハラスメントと疑われる行為や差別的な言葉に対し、厳しく対応いたします。そうした言動が見受けられましたら、管理者までご連絡ください。ほか、ご不明点やご懸念なども気軽にお寄せください。</p>
+        <br>
+        <div class="text-center">
+          <span><%= link_to 'Contact', contact_path, class: "btn btn-outline-secondary" %></span>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+
 <style>
+  .top{
+    position: relative;
+  }
+
+  .top p{
+    position: absolute;
+    color: white;
+    top: 70%;
+    left: 39%;
+    font-size: 40px;
+    animation-name: fade;
+    animation-duration: 5s;
+  }
+
+  @keyframes fade{
+    0%{
+      opacity: 0;
+    }
+    100%{
+    opacity: 1;
+    }
+  }
+
+  .top img{
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+  }
+
   .content{
     margin: 100px auto;
   }
+
+  .top2{
+    height: 400px;
+    font-size: 20px;
+    line-height: 3em;
+    /*width: 100%;*/
+    text-align: center;
+    /*display: flex;*/
+    /*align-items: center*/
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+
+  .top2 p{
+    margin: 0
+    font-size: 30px;
+  }
+
+  .main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 200px;
+  }
+
+  .icons{
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+
+  i{
+    color: #75c5b5;
+  }
+
+  .content-left, .content-center, .content-right{
+    width: 30%;
+    /*margin-right: 30px;*/
+  }
+
+  .content-right{
+    /*margi-right: 0;*/
+  }
+
+  .fade-in {
+  opacity: 0;
+  transition-duration: 500ms;
+  transition-property: opacity, transform;
+  }
+
+  .fade-in-up {
+    transform: translate(0, 50px);
+  }
+
+/*.fade-in-down {*/
+/*  transform: translate(0, -50px);*/
+/*}*/
+
+/*.fade-in-left {*/
+/*  transform: translate(-50px, 0);*/
+/*}*/
+
+/*.fade-in-right {*/
+/*  transform: translate(50px, 0);*/
+/*}*/
+
+  .scroll-in {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 </style>
+
+<script>
+  let fadeInTarget = document.querySelectorAll('.fade-in');
+  window.addEventListener('scroll', () => {
+    for (let i = 0; i < fadeInTarget.length; i++){
+      const rect = fadeInTarget[i].getBoundingClientRect().top;
+      const scroll = window.pageYOffset || document.documentElement.scrollTop;
+      const offset = rect + scroll;
+      const windowHeight = window.innerHeight; // 現在のブラウザの高さ
+      if (scroll > offset - windowHeight + 150) {
+        fadeInTarget[i].classList.add('scroll-in');
+      }
+    }
+  });
+</script>

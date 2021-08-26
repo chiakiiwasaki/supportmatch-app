@@ -1,0 +1,90 @@
+<div class="belt-admin"></div>
+
+<div class='container'>
+  <h4>Chatting with <%= @entries.find{ |e| e.user_id != @user.id }.user.name %></h4>
+  <% if @entries.find{ |e| e.user_id != @user.id }.user.introduction.present? %>
+    <div class="balloon"><%= @entries.find{ |e| e.user_id != @user.id }.user.introduction %></div><br>
+  <% end %>
+  <button type="button" class="btn btn-link" onclick="hoge();">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-arrow-down fa-stack-1x fa-inverse"></i>
+    </span>
+  </button>
+  <% @messages.each do |message| %>
+  <div class='row chat-box'>
+    <div class='col-md-2 col-lg-2 d-flex align-items-center justify-content-center'>
+      <%= attachment_image_tag message.user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
+    </div>
+    <div class='col-md-10 col-lg-10 text-left'>
+      <span><strong><%= message.user.name %></strong></span>
+      <span class="date"><%= message.created_at.strftime("%Y-%m-%d %H:%M")%></span>
+      <p><%= message.content %></p>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<style>
+  .balloon {
+   position: relative;
+   display: inline-block;
+   margin-left: 240px;
+   padding: 10px;
+   max-width: 75%;
+   color: #555;
+   font-size: 15px;
+   background: #EEEEEE;
+   border-radius: 15px;
+   overflow-wrap : break-word;
+   text-align: left;
+ }
+
+ .balloon:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 30px;
+  margin-left: -15px;
+  border: 10px solid transparent;
+  border-bottom: 10px solid #EEEEEE;
+}
+
+ .date{
+  font-size: 10px;
+ }
+
+ .chat-box{
+  padding: 50px;
+ }
+
+ .chat-box:not(:last-child){
+  border-bottom: solid 1px #75c5b5;
+ }
+
+ .chat-box p{
+  overflow-wrap : break-word;
+ }
+
+ .user-img{
+  height: 50px;
+  width: 50px;
+  /*border-radius: 130px;*/
+  object-fit: cover;
+ }
+
+ i{
+  color: #75c5b5;
+ }
+
+</style>
+
+<script>
+function hoge(){
+  var elm = document.documentElement;
+  //scrollHeight ページの高さ clientHeight ブラウザの高さ
+  var bottom = elm.scrollHeight - elm.clientHeight;
+  //垂直方向へ移動
+  window.scroll(0, bottom);
+}
+</script>

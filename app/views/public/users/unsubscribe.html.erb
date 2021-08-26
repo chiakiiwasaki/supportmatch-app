@@ -1,3 +1,5 @@
+<div class="belt"></div>
+
 <div class="container">
   <div class="row">
     <div class="col-md-12 col-lg-12" style="text-align:center; margin-top: 100px;">
@@ -5,13 +7,13 @@
       <br>
       <br>
       <p>退会すると、会員情報や</p>
-      <p>これまでの依頼履歴が閲覧できなくなります。</p>
+      <p>依頼、投稿などが閲覧できなくなります。</p>
       <p>退会する場合は、「退会する」をクリックしてください。</p>
       <br>
       <br>
-      <%= link_to '　退会しない　', root_path, class: "btn btn-outline-primary" %>
+      <%= link_to '　退会しない　', root_path, class: "btn btn-outline-secondary" %>
       &emsp;
-      <%= link_to '　退会する　', users_withdraw_path, method: :patch, class: "btn btn-outline-danger" %>
+      <%= link_to '　退会する　', users_withdraw_path, method: :patch, class: "btn btn-outline-secondary" %>
     </div>
   </div>
 </div>
