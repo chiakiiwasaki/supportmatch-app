@@ -5,14 +5,14 @@
 <div class='container'>
   <div class="row">
     <div class="col-md-1 col-lg-1"></div>
-    <div class="col-md-10 col-lg-10 top2">
+    <div class="col-md-10 col-lg-10 top-content">
       <p>SupportMatchは女性を対象とした
       <br>災害時の「支援したい」「支援が必要」をつなぐ<br>マッチングサービスです
       <br><%= link_to 'More', about_path, class: "btn btn-outline-secondary" %></p>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12 col-lg-12 main">
+    <div class="col-md-12 col-lg-12 top-content2">
       <div class="content-left">
         <div class="icons fade-in fade-in-left">
           <span class="fa-stack fa-3x">
@@ -87,36 +87,30 @@
     width: 100%;
     height: 650px;
     object-fit: cover;
+    margin-bottom: 50px;
   }
 
-  .content{
-    margin: 100px auto;
-  }
-
-  .top2{
-    height: 400px;
+  .top-content{
+    height: 300px;
     font-size: 20px;
     line-height: 3em;
-    /*width: 100%;*/
     text-align: center;
-    /*display: flex;*/
-    /*align-items: center*/
     display: flex;
     align-items: center;
     justify-content: center
   }
 
-  .top2 p{
+  .top-content p{
     margin: 0
     font-size: 30px;
   }
 
-  .main{
+  .top-content2{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    margin-bottom: 200px;
+    margin-bottom: 50px;
   }
 
   .icons{
@@ -132,12 +126,8 @@
 
   .content-left, .content-center, .content-right{
     width: 30%;
-    /*margin-right: 30px;*/
   }
 
-  .content-right{
-    /*margi-right: 0;*/
-  }
 
   .fade-in {
   opacity: 0;
@@ -148,18 +138,6 @@
   .fade-in-up {
     transform: translate(0, 50px);
   }
-
-/*.fade-in-down {*/
-/*  transform: translate(0, -50px);*/
-/*}*/
-
-/*.fade-in-left {*/
-/*  transform: translate(-50px, 0);*/
-/*}*/
-
-/*.fade-in-right {*/
-/*  transform: translate(50px, 0);*/
-/*}*/
 
   .scroll-in {
     opacity: 1;
@@ -174,7 +152,7 @@
       const rect = fadeInTarget[i].getBoundingClientRect().top;
       const scroll = window.pageYOffset || document.documentElement.scrollTop;
       const offset = rect + scroll;
-      const windowHeight = window.innerHeight; // 現在のブラウザの高さ
+      const windowHeight = window.innerHeight;
       if (scroll > offset - windowHeight + 150) {
         fadeInTarget[i].classList.add('scroll-in');
       }
