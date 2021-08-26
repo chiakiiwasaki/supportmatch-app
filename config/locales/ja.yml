@@ -5,3 +5,9 @@ ja:
         high: '高い'
         middle: 'やや高い'
         low: '低い'
+      genre:
+        other: 'その他'
+        sanitary: '生理用品'
+        cloth: '下着・衣類'
+        hygiene: '衛生用品・化粧品'
+        child: '子ども用品'

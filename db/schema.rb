@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(version: 2021_08_17_083400) do
     t.string "name"
     t.boolean "is_done", default: false, null: false
     t.integer "impressions_count", default: 0, null: false
+    t.integer "genre", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

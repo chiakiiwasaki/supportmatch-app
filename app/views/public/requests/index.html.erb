@@ -5,9 +5,16 @@
     <div class='col-md-12 col-lg-12'>
     <h4>Requests</h4>
     <div class="text-right buttons"><%= link_to '依頼する', new_request_path, class: "btn btn-outline-secondary" %></div>
-    <div class="text-right search-btn">
+    <div class="text-left search-btn">
       <%= search_form_for @q, url: search_requests_path do |f| %>
-        <%= f.search_field :item_or_location_or_name_or_postal_code_or_comment_cont, placeholder: "(例)神奈川県横浜市" %>
+        <%= f.label :genre, '<種別>' %>
+        <%= f.radio_button :genre, '' %>指定しない&emsp;
+        <%= f.radio_button :genre, :other %><%= f.label :other, "その他" %>&emsp;
+        <%= f.radio_button :genre, :sanitary %><%= f.label :sanitary, "生理用品" %>&emsp;
+        <%= f.radio_button :genre, :cloth %><%= f.label :cloth, "下着・衣類" %>&emsp;
+        <%= f.radio_button :genre, :hygiene %><%= f.label :hygiene, "衛生用品・化粧品" %>&emsp;
+        <%= f.radio_button :genre, :child %><%= f.label :child, "子ども用品" %><br>
+        <%= f.search_field :item_or_location_or_name_or_postal_code_or_comment_cont, placeholder: "検索ワードを入力" %>
         <%= f.submit 'Search' %>
       <% end %>
     </div>

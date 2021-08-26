@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     root 'homes#top'
     get '/about' => 'homes#about'
     get '/result' => 'homes#result'
+    get '/privacy_policy' => 'homes#privacy'
     get 'users/my_page' => 'users#show'
     get 'users/unsubscribe' => 'users#unsubscribe'
     patch 'users/withdraw' => 'users#withdraw'

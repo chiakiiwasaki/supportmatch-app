@@ -14,6 +14,8 @@ class CreateRequests < ActiveRecord::Migration[5.2]
       t.string :name
       t.boolean :is_done, null: false, default: false
       t.integer :impressions_count, null: false, default: 0
+      t.integer :genre, null: false, default: 0
+
       t.timestamps
     end
   end
