@@ -17,14 +17,14 @@
 
 @font-face {
   font-family: 'LemonMilk';
-  src: url('/assets/fonts/LemonMilkMedium-mLZYV.otf') format('opentype');
+  src: font-url('/assets/LemonMilkMedium-mLZYV.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'LemonMilkLightItalic';
-  src: url('/assets/fonts/LemonMilkLightItalic-7BjPE.otf') format('opentype');
+  src: font-url('/assets/LemonMilkLightItalic-7BjPE.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
