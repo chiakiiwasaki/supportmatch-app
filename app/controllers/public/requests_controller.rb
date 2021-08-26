@@ -69,6 +69,6 @@ class Public::RequestsController < ApplicationController
     end
 
     def request_params
-      params.require(:request).permit(:urgency, :item, :quantity, :comment, :postal_code, :location, :phone_number, :email, :name, :is_done)
+      params.require(:request).permit(:urgency, :item, :quantity, :comment, :postal_code, :location, :phone_number, :email, :name, :is_done, :genre)
     end
 end

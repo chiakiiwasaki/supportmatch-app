@@ -15,6 +15,16 @@
           </td>
         </tr>
         <tr>
+          <td>種別</td>
+          <td colspan="3">
+            <span><%= f.radio_button :genre, :other %><%= f.label :other, "その他" %></span>&emsp;&emsp;
+            <span><%= f.radio_button :genre, :sanitary %><%= f.label :sanitary, "生理用品" %></span>&emsp;&emsp;
+            <span><%= f.radio_button :genre, :cloth %><%= f.label :cloth, "下着・衣類" %></span>&emsp;&emsp;
+            <span><%= f.radio_button :genre, :hygiene %><%= f.label :hygiene, "衛生用品・化粧品" %></span>&emsp;&emsp;
+            <span><%= f.radio_button :genre, :child %><%= f.label :child, "子ども用品" %></span>
+          </td>
+        </tr>
+        <tr>
           <td>物品名</td>
           <td><%= f.text_field :item %></td>
           <td></td>
@@ -39,7 +49,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>住所</td>
+          <td>宛先</td>
           <td colspan="3"><%= f.text_field :location, :size=>"70" %></td>
         </tr>
         <tr>
@@ -55,7 +65,7 @@
           <td></td>
         </tr>
         <tr>
-          <td>担当者名</td>
+          <td>宛名</td>
           <td><%= f.text_field :name %></td>
           <td></td>
           <td></td>
