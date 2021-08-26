@@ -11,4 +11,8 @@ class Public::HomesController < ApplicationController
   def result
     @requests = Request.where(is_done: true).page(params[:page]).reverse_order
   end
+
+  def privacy
+  end
+
 end
