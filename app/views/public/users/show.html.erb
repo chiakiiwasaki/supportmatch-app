@@ -9,7 +9,7 @@
     </div>
     <div class='col-md-8 col-lg-8'>
       <table cellpadding="10" class="user-info">
-        <tr class="item">
+        <tr>
           <td>表示名</td>
           <td colspan="2"><%= @user.name %></td>
         </tr>
@@ -17,7 +17,7 @@
           <td>メールアドレス（非公開）</td>
           <td colspan="2"><%= @user.email %></td>
         </tr>
-        <tr class="item">
+        <tr>
           <td>一言</td>
           <td colspan="2"><%= @user.introduction %></td>
         </tr>
@@ -35,7 +35,6 @@
           </div>
         <% end %>
       </div>
-
       <div class="img">
         <%= link_to her_requests_path(@user) do %>
           <%= image_tag "greenflower.jpg" %>
@@ -74,6 +73,9 @@
 
 
 <style>
+  td{
+   overflow-wrap : break-word;
+  }
   .user-table{
     margin-top: 50px;
   }

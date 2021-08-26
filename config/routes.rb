@@ -8,11 +8,18 @@ Rails.application.routes.draw do
   }
 
   namespace :admins do
+    get 'requests/her_requests/:id' => 'requests#her_requests', as: 'her_requests'
     resources :requests, only: [:index, :show, :edit, :update]
+    get 'posts/her_posts/:id' => 'posts#her_posts', as: 'her_posts'
     resources :posts, only: [:index, :show, :update] do
       resources :post_comments, only: [:update]
     end
-    resources :users, only: [:index, :show, :edit, :update]
+    get 'users/:id/rooms' => 'rooms#index', as: 'her_rooms'
+    get 'users/:id/rooms/:id' => 'rooms#show', as: 'her_room'
+    resources :users, only: [:index, :show, :edit, :update] do
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+    end
   end
 
   scope module: :public do

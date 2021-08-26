@@ -15,7 +15,7 @@
     </div>
   <% end %>
   <br>
-  <h4><strong><%= @post.title %></strong></h4>
+  <h5><strong><%= @post.title %></strong></h5>
   <br>
   <div class='row'>
     <div class='col-md-2 col-lg-2  d-flex align-items-center justify-content-center'><%= attachment_image_tag @post.user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %></div>
