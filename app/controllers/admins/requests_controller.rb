@@ -2,7 +2,7 @@ class Admins::RequestsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @requests = Request.all.page(params[:page])
+    @requests = Request.all
   end
 
   def show
@@ -17,6 +17,11 @@ class Admins::RequestsController < ApplicationController
     @request = Request.find(params[:id])
     @request.update(request_params)
     redirect_to admins_requests_path
+  end
+  
+  def her_requests
+    @user = User.find(params[:id])
+    @requests = Request.where(user_id: @user.id)
   end
 
   private

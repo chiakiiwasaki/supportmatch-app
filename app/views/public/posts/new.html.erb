@@ -1,8 +1,9 @@
+<div class="belt"></div>
+
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-
-    <h4>新規投稿</h4>
+    <h4>New Post</h4>
     <%= form_with model: @post, local: true do |f| %>
       <table cellpadding="10">
         <tr>
@@ -19,7 +20,7 @@
         </tr>
         <tr>
           <td></td>
-          <td><%= f.submit "投稿", class: "btn btn-outline-success" %></td>
+          <td><%= f.submit "投稿", class: "btn btn-outline-secondary" %></td>
           <td></td>
           <td></td>
         </tr>

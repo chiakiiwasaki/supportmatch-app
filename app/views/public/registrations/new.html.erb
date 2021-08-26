@@ -1,44 +1,43 @@
+<div class="belt"></div>
+
 <div class='container'>
-  <h4 class="m-4">新規会員登録</h4>
+  <h4 class="m-4">Signup by email address</h4>
   <div class='row'>
     <div class="col-md-2 col-lg-2"></div>
     <div class="field col-md-10 col-lg-10">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "users/shared/error_messages", resource: resource %>
+      <%= render "public/shared/error_messages", resource: resource %>
       <table cellpadding="10">
         <tr>
-          <td><%= f.label :name, "名前" %></td>
+          <td><%= f.label :name, "表示名(公開されます)" %></td>
           <td><%= f.text_field :name, autofocus: true, :size => "45", autocomplete: "name" %></td>
         </tr>
         <tr>
-          <td><%= f.label :email, "メールアドレス" %></td>
+          <td><%= f.label :email, "メールアドレス(非公開)" %></td>
           <td><%= f.email_field :email, autofocus: true, :size => "45", autocomplete: "email" %></td>
         </tr>
         <tr>
-          <td><%= f.label :password, "パスワード" %>
-            <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %>文字以上)</em>
-            <% end %>
+          <td><%= f.label :password, "パスワード(6文字以上)" %>
           </td>
           <td><%= f.password_field :password, :size => "45", autocomplete: "new-password" %></td>
         </tr>
         <tr>
-          <td><%= f.label :password_confirmation, "パスワード（確認用）" %></td>
+          <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
           <td><%= f.password_field :password_confirmation, :size => "45", autocomplete: "new-password" %></td>
         </tr>
         <tr>
           <td></td>
-          <td class><%= f.submit "新規登録", class: "btn btn-outline-success" %></td>
+          <td class><%= f.submit "新規登録", class: "btn btn-outline-secondary" %></td>
           <td></td>
         </tr>
       </table>
       <% end %>
     </div>
   </div>
-  <h4 class="m-4">Googleでログイン</h4>
+  <h4 class="m-4">Signup by SNS</h4>
   <div class='row'>
     <div class='col-md-2 col-lg-2'></div>
-    <div class='col-md-10 col-lg-10'><%= render "users/shared/links" %></div>
+    <div class='col-md-10 col-lg-10'><%= render "public/shared/links" %></div>
   </div>
 </div>
 

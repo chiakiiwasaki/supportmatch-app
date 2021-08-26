@@ -1,0 +1,51 @@
+<div class="belt-admin"></div>
+
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12'>
+    <h4>Chats</h4>
+    <% if @entries.exists? %>
+    <table cellpadding="10" class='table table-hover table-inverse'>
+      <thead>
+        <tr style="background-color: #EEEEEE;">
+          <th colspan="1">更新日</th>
+          <th>名前</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @entries.each do |entry| %>
+        <tr>
+          <td><%= entry.room.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+          <td><%= entry.room.entries.find{ |e| e.user_id != @user.id }.user.name %>さん</td>
+          <!--<td><%#= entry.room.messages.content.order(created_at: :desc).limit(1) %></td>-->
+          <td><%= link_to 'チャットへ', admins_her_room_path(entry.room), class: "btn btn-link request_#{entry.room.id}" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% else %>
+      <p>チャットはありません</p>
+    <% end %>
+    <!--<div class="pagination"><%#= paginate @entries %></div>-->
+    </div>
+  </div>
+</div>
+
+
+<style>
+  table{
+    table-layout: fixed;
+    width: 100%;
+    margin-top: 20px;
+  }
+  tr{
+    border-width: 1px 0;
+    border-color: #CCCCCC;
+    border-style: solid;
+  }
+  .pagination{
+    justify-content: center;
+    padding-top: 10px;
+  }
+</style>

@@ -1,8 +1,10 @@
+<div class="belt"></div>
+
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-      <div class='col-md-12 col-lg-12 text-right'><%= link_to 'Requests', requests_path, class: "btn btn-outline-info" %></div>
-      <h4>依頼詳細</h4>
+      <h4>Request Info</h4>
+      <div class='text-right buttons'><%= link_to '一覧へ戻る', requests_path, class: "btn btn-outline-secondary" %></div>
       <table cellpadding="10">
         <tr>
           <th>依頼人</th>
@@ -49,24 +51,20 @@
         </tr>
       </table>
       <br>
-      <!--<div class="text-center"><%#= link_to 'チャットを始める', '#', class: "btn btn-outline-success" %></div>-->
-
       <% if @user.id == current_user.id %>
-        <div><%= link_to '編集する', edit_request_path(@request), class: "btn btn-outline-success" %></div>
+        <div><%= link_to '編集する', edit_request_path(@request), class: "btn btn-outline-secondary" %></div>
       <% else %>
           <% if @is_room == true %>
-            <p class="user-show-room"><a href="/rooms/<%= @room_id %>" class="btn btn-outline-primary">チャットへ</a>
+            <p class="user-show-room"><a href="/rooms/<%= @room_id %>" class="btn btn-outline-secondary">チャットへ</a>
           <% else %>
             <%= form_for @room do |f| %>
               <%= fields_for @entry do |e| %>
                 <%= e.hidden_field :user_id, value: @user.id %>
               <% end %>
-              <%= f.submit "チャットを始める", class:"btn btn-outline-primary user-show-chat"%>
+              <%= f.submit "チャットを始める", class:"btn btn-outline-secondary user-show-chat"%>
             <% end %>
           <% end %>
       <% end %>
-
-
     </div>
   </div>
 </div>
@@ -84,5 +82,8 @@
   }
   td{
     overflow-wrap : break-word;
+  }
+  .buttons{
+    margin-top: 10px;
   }
 </style>

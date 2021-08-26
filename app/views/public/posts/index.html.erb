@@ -1,8 +1,10 @@
+<div class="belt"></div>
+
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-    <div class="text-right"><%= link_to 'New', new_post_path, class: "btn btn-outline-warning" %></div>
-    <h4>投稿一覧</h4>
+    <h4>Posts</h4>
+    <div class="text-right buttons"><%= link_to '投稿する', new_post_path, class: "btn btn-outline-secondary" %></div>
     <table cellpadding="10" class='table table-hover table-inverse'>
       <thead>
         <tr style="background-color: #EEEEEE;">
@@ -27,7 +29,7 @@
         <% end %>
       </tbody>
     </table>
-    <div class="pagination"><%= paginate @posts %></div>
+    <!--<div class="pagination"><%#= paginate @posts %></div>-->
     </div>
   </div>
 </div>

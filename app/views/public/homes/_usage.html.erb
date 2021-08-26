@@ -1,0 +1,80 @@
+<div class='row contents'>
+  <div class='col-md-4 col-lg-4'>
+    <div class="icons fade-in fade-in-left">
+      <span class="fa-stack fa-3x">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-hand-paper fa-stack-1x fa-inverse"></i>
+      </span>
+    </div>
+  </div>
+  <div class="col-md-8 col-lg-8">
+    <p>
+      <strong>「支援が必要」な方</strong><br>
+      Requestから依頼をお寄せください。
+      依頼内容はサイト上で公開されます。緊急性、物品名、数量以外の項目への入力は任意です。公開しても差し支えない範囲で入力してください。
+      「支援したい」との申し出はチャットを通じて来ます。合意できる場合は、その旨をチャットでご返信ください。
+      依頼時に宛先など無記載の場合は、チャットで個別に支援者に伝えてください。
+      配送が完了しましたら、依頼編集画面（マイページ→依頼履歴一覧→依頼詳細からアクセスしてください）で依頼ステータスを「完了」にしてください。
+      ご利用には会員登録が必要です。
+    </p>
+    <div class="text-right"><%= link_to 'Request', new_request_path, class: "btn btn-outline-secondary" %></div>
+  </div>
+</div>
+
+<div class='row contents'>
+  <div class='col-md-4 col-lg-4'>
+    <div class="icons fade-in fade-in-left">
+      <span class="fa-stack fa-3x">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-hand-holding-heart fa-stack-1x fa-inverse"></i>
+      </span>
+    </div>
+  </div>
+  <div class="col-md-8 col-lg-8">
+    <p>
+      <strong>「支援したい」方</strong><br>
+      Supportから支援したい依頼を選択し、依頼詳細ページから依頼者とのチャットをスタートさせてください。
+      支援したい旨を伝え、依頼者と合意しましたら、詳細ページ記載の宛先（記載がない場合はチャット上で伝えられた宛先）に郵送してください。
+      配送料は支援者がご負担ください。
+      ご利用には会員登録が必要です。
+    </p>
+    <div class="text-right"><%= link_to 'Support', requests_path, class: "btn btn-outline-secondary" %></div>
+  </div>
+</div>
+
+<div class='row contents'>
+  <div class='col-md-4 col-lg-4'>
+    <div class="icons fade-in fade-in-left">
+      <span class="fa-stack fa-3x">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-people-carry fa-stack-1x fa-inverse"></i>
+      </span>
+    </div>
+  </div>
+  <div class="col-md-8 col-lg-8">
+    <p>
+      SupportMatchではこれまでに<%= @requests.count %>件の依頼が寄せられました。<br>
+      うち<%= @requests_done.count %>件が支援者の方々により解決しています。<br>
+      Moreから会員登録なしで依頼完了一覧をご覧いただけます。
+    </p>
+    <div class="text-right"><%= link_to 'More', result_path, class: "btn btn-outline-secondary" %></div>
+  </div>
+</div>
+
+
+<style>
+.contents{
+  margin-top: 100px;
+  height:  250px;
+}
+
+.icons{
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+i{
+  color: #75c5b5;
+}
+</style>

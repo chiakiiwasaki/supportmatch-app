@@ -1,27 +1,29 @@
+<div class="belt-admin"></div>
+
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-    <h4>投稿一覧</h4>
+    <h4>Posts</h4>
     <table cellpadding="10" class='table table-hover table-inverse'>
       <thead>
         <tr style="background-color: #EEEEEE;">
-          <th colspan="2">投稿日</th>
-          <th colspan="2">投稿者</th>
-          <th colspan="3">タイトル</th>
-          <th colspan="3">内容</th>
+          <th>投稿日</th>
+          <th>投稿者</th>
+          <th>タイトル</th>
+          <th>内容</th>
           <th>ステータス</th>
         </tr>
       </thead>
       <tbody>
         <% @posts.each do |post| %>
         <tr>
-          <td colspan="2"><%= link_to post.created_at.strftime("%Y-%m-%d %H:%M"), admins_post_path(post), class: "btn btn-link admins_post_#{post.id}" %></td>
-          <td colspan="2"><%= post.user.name %></td>
-          <td colspan="3"><%= truncate(post.title) %></td>
-          <td colspan="3"><%= truncate(post.content) %></td>
+          <td><%= link_to post.created_at.strftime("%Y-%m-%d %H:%M"), admins_post_path(post), class: "btn btn-link admins_post_#{post.id}" %></td>
+          <td><%= post.user.name %></td>
+          <td><%= truncate(post.title, length:25) %></td>
+          <td><%= truncate(post.content, length:25) %></td>
           <td>
             <% if post.is_valid %>
-              <div style="color: green;">表示中</div>
+              <div>表示中</div>
             <% else %>
               <div style="color: gray;">非表示</div>
             <% end %>
@@ -30,7 +32,7 @@
         <% end %>
       </tbody>
     </table>
-    <div class="pagination"><%= paginate @posts %></div>
+    <!--<div class="pagination"><%#= paginate @posts %></div>-->
     </div>
   </div>
 </div>

@@ -1,0 +1,55 @@
+<div class="belt"></div>
+
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12'>
+    <h4><%= @user.name %>'s Posts</h4>
+    <% if @posts.exists? %>
+    <table cellpadding="10" class='table table-hover table-inverse'>
+      <thead>
+        <tr style="background-color: #EEEEEE;">
+          <th colspan="2">投稿日</th>
+          <th colspan="2">タイトル</th>
+          <th colspan="2">内容</th>
+          <th>コメント数</th>
+          <th>いいね数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @posts.present? %>
+        <% @posts.each do |post| %>
+        <tr>
+          <td colspan="2"><%= link_to post.created_at.strftime("%Y-%m-%d %H:%M"), post_path(post), class: "btn btn-link request_#{post.id}" %></td>
+          <td colspan="2"><%= truncate(post.title) %></td>
+          <td colspan="2"><%= truncate(post.content) %></td>
+          <td><%= post.post_comments.where(is_valid: true).count %></td>
+          <td><%= post.favorites.count %></td>
+        </tr>
+        <% end %>
+        <% end %>
+      </tbody>
+    </table>
+    <% else %>
+      <p>投稿はありません</p>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  table{
+    table-layout: fixed;
+    width: 100%;
+    margin-top: 20px;
+  }
+  tr{
+    border-width: 1px 0;
+    border-color: #CCCCCC;
+    border-style: solid;
+  }
+  .pagination{
+    justify-content: center;
+    padding-top: 10px;
+  }
+</style>

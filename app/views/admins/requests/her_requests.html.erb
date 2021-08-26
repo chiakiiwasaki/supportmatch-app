@@ -1,8 +1,12 @@
+<div class="belt-admin"></div>
+
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-    <h4><%= current_user.name %>さんの依頼一覧</h4>
-    <table cellpadding="10" class='table table-hover table-inverse'>
+    <h4><%= @user.name %>'s Requests</h4>
+    <% if @requests.exists? %>
+    <div class="jscroll">
+    <table cellpadding="10" class='table table-hover table-inverse content'>
       <thead>
         <tr style="background-color: #EEEEEE;">
           <th colspan="1">依頼日</th>
@@ -15,22 +19,26 @@
       <tbody>
         <% @requests.each do |request| %>
         <tr>
-          <td><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), request_path(request), class: "btn btn-link request_#{request.id}" %></td>
+          <td><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), admins_request_path(request), class: "btn btn-link request_#{request.id}" %></td>
           <td><%= request.item %></td>
           <td><%= request.quantity %></td>
           <td><%= request.urgency_i18n %></td>
           <td>
             <% if request.is_done %>
-              <div style="color: green;">お届け完了</div>
+              <div style="color: gray;">お届け完了</div>
             <% else %>
-              <div style="color: red;">依頼中</div>
+              <div>依頼中</div>
             <% end %>
           </td>
         </tr>
         <% end %>
       </tbody>
     </table>
-    <div class="pagination"><%= paginate @requests %></div>
+    </div>
+    <% else %>
+      <p>依頼はありません</p>
+    <% end %>
+    <!--<div class="pagination"><%#= paginate @requests %></div>-->
     </div>
   </div>
 </div>
@@ -52,3 +60,4 @@
     padding-top: 10px;
   }
 </style>
+
