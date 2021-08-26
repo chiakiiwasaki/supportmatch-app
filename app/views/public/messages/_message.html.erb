@@ -55,3 +55,42 @@
 <!--    $('.message-user').addClass('test-right2');-->
 <!--  }-->
 <!--</script>-->
+=======
+<% if message.user == current_user %>
+  <div class='row message-user' data-user-id="<%= current_user.id %>" data-message-id="<%= message.user.id %>">
+    <div class='col-md-10 col-lg-10 text-right msg'>
+      <p class="balloon"><%= message.content %></p>
+      <p class="balloon"><%= message.user.name %></p>
+      <p class="date"><%= message.created_at.strftime("%Y-%m-%d %H:%M")%></p>
+    </div>
+    <div class='col-md-1 col-lg-1 d-flex align-items-center justify-content-center'>
+      <%= attachment_image_tag message.user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %>
+    </div>
+  </div>
+<% else %>
+  <div class='row message-user' data-user-id="<%= current_user.id %>" data-message-id="<%= message.user.id %>">
+    <div class='col-md-1 col-lg-1 d-flex align-items-center justify-content-center'>
+      <%= attachment_image_tag message.user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %>
+    </div>
+    <div class='col-md-10 col-lg-10 text-left msg'>
+      <p class="balloon"><%= message.content %></p>
+      <p class="balloon"><%= message.user.name %></p>
+      <p class="date"><%= message.created_at.strftime("%Y-%m-%d %H:%M")%></p>
+    </div>
+  </div>
+<% end %>
+
+  <script>
+    console.log(`messageId: ${$('.message-user')[$('.message-user').length - 1].dataset.messageId}`)
+    console.log("current_user: <%= current_user.inspect %>")
+    document.addEventListener("keypress", function() {
+      if ($('.message-user')[$('.message-user').length - 1].dataset.messageId == "<%= current_user.id %>") {
+        console.log('current_user == message_user')
+        $('.msg')[$('.msg').length - 1].classList.remove('text-right');
+        $('.msg')[$('.msg').length - 1].classList.add('text-right');
+      } else {
+        $('.msg')[$('.msg').length - 1].classList.remove('text-right');
+        $('.msg')[$('.msg').length - 1].classList.add('text-left');
+      }
+    })
+  </script>
