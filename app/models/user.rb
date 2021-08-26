@@ -36,6 +36,12 @@ class User < ApplicationRecord
     end
   end
 
+  def self.guest
+    find_or_create_by!(name: 'guest', email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   validates :name, presence: true
   validates :introduction, length: { maximum: 40 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
