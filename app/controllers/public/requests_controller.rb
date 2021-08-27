@@ -17,7 +17,7 @@ class Public::RequestsController < ApplicationController
   end
 
   def index
-    @requests = @q.result.where(is_done: false)
+    @requests = @q.result.where(is_done: false).joins(:user).where("users.is_valid")
   end
 
   def show
