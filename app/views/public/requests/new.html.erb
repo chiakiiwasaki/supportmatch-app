@@ -1,14 +1,25 @@
 <div class="belt"></div>
-
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-
+    <% if @request.errors.any? %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <strong>入力内容にエラーがあります</strong>
+        <ul>
+          <% @request.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <h4>New Request</h4>
     <%= form_with model: @request, local: true do |f| %>
       <table cellpadding="10">
         <tr>
-          <td>緊急性（必須）</td>
+          <td><span>緊急性</span><span class="regard">　＊必須</span></td>
           <td colspan="3">
             <span><%= f.radio_button :urgency, :high %><%= f.label :high, "高い" %></span>&emsp;&emsp;
             <span><%= f.radio_button :urgency, :middle %><%= f.label :middle, "やや高い" %></span>&emsp;&emsp;
@@ -16,7 +27,7 @@
           </td>
         </tr>
         <tr>
-          <td>種別</td>
+          <td><span>種別</span><span class="regard">　＊必須</span></td>
           <td colspan="3">
             <span><%= f.radio_button :genre, :other %><%= f.label :other, "その他" %></span>&emsp;&emsp;
             <span><%= f.radio_button :genre, :sanitary %><%= f.label :sanitary, "生理用品" %></span>&emsp;&emsp;
@@ -26,13 +37,13 @@
           </td>
         </tr>
         <tr>
-          <td>物品名（必須）</td>
+          <td><span>物品名</span><span class="regard">　＊必須</span></td>
           <td><%= f.text_field :item, placeholder: "生理用品" %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <td>数量（必須）</td>
+          <td><span>数量</span><span class="regard">　＊必須</span></td>
           <td><%= f.text_field :quantity, placeholder: "10パック" %></td>
           <td></td>
           <td></td>
@@ -45,7 +56,7 @@
         </tr>
 
         <tr>
-          <td>郵便番号（ハイフンなし）</td>
+          <td>郵便番号(数字のみ)</td>
           <td><%= f.text_field :postal_code, placeholder: "0000000" %></td>
           <td></td>
           <td></td>
@@ -55,7 +66,7 @@
           <td colspan="3"><%= f.text_field :location, :size=>"70", placeholder: "東京都渋谷区代々木神南0-0" %></td>
         </tr>
         <tr>
-          <td>電話番号</td>
+          <td>電話番号(数字のみ)</td>
           <td><%= f.text_field :phone_number, placeholder: "09012345678" %></td>
           <td></td>
           <td></td>
@@ -72,7 +83,6 @@
           <td></td>
           <td></td>
         </tr>
-
         <tr>
           <td></td>
           <td><%= f.submit "依頼を投稿", class: "btn btn-outline-secondary" %></td>
@@ -84,10 +94,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  table{
-    margin-top: 20px;
-    width: 90%;
-  }
-</style>

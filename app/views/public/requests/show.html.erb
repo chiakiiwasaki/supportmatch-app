@@ -1,11 +1,10 @@
 <div class="belt"></div>
-
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
       <h4>Request Info</h4>
       <div class='text-right buttons'><%= link_to '一覧へ戻る', requests_path, class: "btn btn-outline-secondary" %></div>
-      <table cellpadding="10">
+      <table cellpadding="10" class="show-request-table">
         <tr>
           <th>依頼人</th>
           <td colspan="3"><%= @request.user.name %></td>
@@ -75,19 +74,12 @@
 
 
 <style>
-  table{
-    table-layout: fixed;
+  .show-request-table{
     width: 70%;
   }
   tr{
     border-width: 1px 0;
     border-color: #CCCCCC;
     border-style: solid;
-  }
-  td{
-    overflow-wrap : break-word;
-  }
-  .buttons{
-    margin-top: 10px;
   }
 </style>

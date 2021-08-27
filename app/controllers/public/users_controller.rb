@@ -13,6 +13,8 @@ class Public::UsersController < ApplicationController
     @user = current_user
     if @user.update(user_params)
       redirect_to users_my_page_path
+    else
+      render 'edit'
     end
   end
 
@@ -22,9 +24,14 @@ class Public::UsersController < ApplicationController
 
   def withdraw
     @user = current_user
-    @user.update(is_valid: false)
-    reset_session
-    redirect_to root_path
+    if @user.email == 'guest@example.com'
+      flash[:alert] = "ゲストユーザは退会できません"
+      redirect_to users_unsubscribe_path
+    else
+      @user.update(is_valid: false)
+      reset_session
+      redirect_to root_path
+    end
   end
 
   private

@@ -1,12 +1,24 @@
 <div class="belt"></div>
-
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
+    <% if @user.errors.any? %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <strong>入力内容にエラーがあります</strong>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <h4>Edit Mypage</h4>
     <br>
     <br>
-    <%= form_with model: @user do |f| %>
+    <%= form_with model: @user, local: true do |f| %>
       <table cellpadding="10">
         <tr>
           <td>
@@ -51,7 +63,6 @@
   .user-img{
     height: 80px;
     width: 80px;
-    /*border-radius: 130px;*/
     object-fit: cover;
   }
   table{
