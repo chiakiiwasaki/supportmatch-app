@@ -22,7 +22,9 @@
           <td><%= truncate(post.title, length:25) %></td>
           <td><%= truncate(post.content, length:25) %></td>
           <td>
-            <% if post.is_valid %>
+            <% if !post.user.is_valid %>
+              <div style="color: gray;">非表示（退会）</div>
+            <% elsif post.is_valid %>
               <div>表示中</div>
             <% else %>
               <div style="color: gray;">非表示</div>
