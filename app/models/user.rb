@@ -10,11 +10,15 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :follower
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
+  validates :name, presence: true, length: { maximum: 50 }
+  validates :introduction, length: { maximum: 50 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, uniqueness: true, format: { with: VALID_EMAIL_REGEX }, length: { maximum: 250 }
+
 
   def follow(user_id)
     relationships.create(followed_id: user_id)
@@ -41,9 +45,4 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
-
-  validates :name, presence: true
-  validates :introduction, length: { maximum: 40 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 end

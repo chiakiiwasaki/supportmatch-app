@@ -17,7 +17,6 @@ class Public::RequestsController < ApplicationController
   end
 
   def index
-    # @requests = Request.where(is_done: false).page(params[:page]).reverse_order
     @requests = @q.result.where(is_done: false)
   end
 
