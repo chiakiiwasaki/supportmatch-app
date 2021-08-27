@@ -15,6 +15,14 @@
         </ul>
       </div>
     <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <p><%= flash[:alert] %></p>
+      </div>
+    <% end %>
     <h4>Edit Mypage</h4>
     <br>
     <br>
@@ -50,7 +58,7 @@
         <tr>
           <td></td>
           <td><%= f.submit "　編集内容を保存　", class: "btn btn-outline-secondary" %></td>
-          <td><%= link_to "　退会する　", users_unsubscribe_path, class: "btn btn-outline-secondary" %></td>
+          <td><%= link_to "　退会する　", users_unsubscribe_path, class: "btn btn-outline-danger" %></td>
           <td></td>
         </tr>
       </table>

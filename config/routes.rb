@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
-    passwords: 'admins/passwords',
-    registrations: 'admins/registrations'
+    # passwords: 'admins/passwords',
+    # registrations: 'admins/registrations'
   }
 
   namespace :admins do
@@ -43,7 +43,7 @@ Rails.application.routes.draw do
     resources :rooms, only: [:create, :show, :index]
     resources :messages, only: [:create]
     get 'requests/her_requests/:id' => 'requests#her_requests', as: 'her_requests'
-    resources :requests, only: [:new, :create, :index, :show, :edit, :update] do
+    resources :requests, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       collection do
         get 'search'
       end

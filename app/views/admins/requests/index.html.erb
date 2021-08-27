@@ -26,6 +26,8 @@
           <td colspan="2">
             <% if request.is_done %>
               <div style="color: gray;">お届け完了</div>
+            <% elsif !request.user.is_valid %>
+              <div style="color: gray;">未了のまま退会</div>
             <% else %>
               <div>依頼中</div>
             <% end %>

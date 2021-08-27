@@ -16,7 +16,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.where(is_valid: true)
+    @posts = Post.where(is_valid: true).joins(:user).where("users.is_valid")
   end
 
   def show

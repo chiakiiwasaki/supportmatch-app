@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem "puma", ">= 4.3.8"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -89,3 +89,5 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-facebook'
 gem 'omniauth'
+
+gem 'devise-i18n'

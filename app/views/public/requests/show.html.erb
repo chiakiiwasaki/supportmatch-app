@@ -55,10 +55,11 @@
       </table>
       <br>
       <% if @user.id == current_user.id %>
-        <div><%= link_to '編集する', edit_request_path(@request), class: "btn btn-outline-secondary" %></div>
+        <span style="margin-right: 30px;"><%= link_to '編集する', edit_request_path(@request), class: "btn btn-outline-secondary" %></span>
+        <span><%= link_to '依頼を削除', request_path(@request), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-danger destroy_request_#{@request.id}", local: true %></span>
       <% else %>
           <% if @is_room == true %>
-            <p class="user-show-room"><a href="/rooms/<%= @room_id %>" class="btn btn-outline-secondary">チャットへ</a>
+            <p class="user-show-room"><a href="/rooms/<%= @room_id %>" class="btn btn-outline-secondary">チャットへ</a></p>
           <% else %>
             <%= form_for @room do |f| %>
               <%= fields_for @entry do |e| %>
