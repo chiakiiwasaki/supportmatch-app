@@ -17,8 +17,7 @@ class Public::RequestsController < ApplicationController
   end
 
   def index
-    # @requests = Request.where(is_done: false).page(params[:page]).reverse_order
-    @requests = @q.result.where(is_done: false)
+    @requests = @q.result.where(is_done: false).joins(:user).where("users.is_valid")
   end
 
   def show
@@ -62,6 +61,13 @@ class Public::RequestsController < ApplicationController
   def search
     @results = @q.result
   end
+
+  def destroy
+    @request = Request.find(params[:id])
+    @request.destroy
+    redirect_to requests_path
+  end
+
 
   private
     def set_q

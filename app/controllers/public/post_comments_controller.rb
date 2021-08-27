@@ -8,15 +8,16 @@ class Public::PostCommentsController < ApplicationController
     @post_comment.post_id = @post.id
     if @post_comment.save
       @post_comment = PostComment.new
+    else
+      flash[:alert] = "入力内容にエラーがあります"
+      redirect_back(fallback_location: root_path)
     end
-    # redirect_to post_path(@post)
   end
 
   def destroy
     @post = Post.find(params[:post_id])
     post_comment = @post.post_comments.find(params[:id])
     post_comment.destroy
-    # redirect_to post_path(@post)
   end
 
   private

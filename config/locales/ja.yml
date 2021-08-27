@@ -11,3 +11,21 @@ ja:
         cloth: '下着・衣類'
         hygiene: '衛生用品・化粧品'
         child: '子ども用品'
+  activerecord:
+    attributes:
+      user:
+        name: '表示名'
+        email: 'メールアドレス'
+        introduction: '一言'
+      request:
+        quantity: '数量'
+        comment: 'コメント'
+        postal_code: '郵便番号'
+        location: '宛先'
+        phone_number: '電話番号'
+        item: '物品名'
+        email: 'メールアドレス'
+        name: '宛名'
+      post:
+        title: 'タイトル'
+        content: '内容'

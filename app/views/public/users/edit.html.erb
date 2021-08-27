@@ -1,12 +1,32 @@
 <div class="belt"></div>
-
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
+    <% if @user.errors.any? %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <strong>入力内容にエラーがあります</strong>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <p><%= flash[:alert] %></p>
+      </div>
+    <% end %>
     <h4>Edit Mypage</h4>
     <br>
     <br>
-    <%= form_with model: @user do |f| %>
+    <%= form_with model: @user, local: true do |f| %>
       <table cellpadding="10">
         <tr>
           <td>
@@ -38,7 +58,7 @@
         <tr>
           <td></td>
           <td><%= f.submit "　編集内容を保存　", class: "btn btn-outline-secondary" %></td>
-          <td><%= link_to "　退会する　", users_unsubscribe_path, class: "btn btn-outline-secondary" %></td>
+          <td><%= link_to "　退会する　", users_unsubscribe_path, class: "btn btn-outline-danger" %></td>
           <td></td>
         </tr>
       </table>
@@ -51,7 +71,6 @@
   .user-img{
     height: 80px;
     width: 80px;
-    /*border-radius: 130px;*/
     object-fit: cover;
   }
   table{

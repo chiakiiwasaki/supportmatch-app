@@ -1,15 +1,16 @@
 class Public::ContactsController < ApplicationController
   def new
     @contact = Contact.new
-    render :action => 'new'
+    render 'new'
   end
 
   def confirm
     @contact = Contact.new(params[:contact].permit(:name, :email, :message))
     if @contact.valid?
-      render :action => 'confirm'
+      render 'confirm'
     else
-      render :action => 'new'
+      render 'new'
+      @contact = Contact.new(params[:contact].permit(:name, :email, :message))
     end
   end
 
@@ -17,6 +18,6 @@ class Public::ContactsController < ApplicationController
     @contact = Contact.new(params[:contact].permit(:name, :email, :message))
     # ContactMailer.received_email(@contact).deliver
     ContactMailer.send_email(@contact).deliver
-    render :action => 'thanks'
+    render 'thanks'
   end
 end

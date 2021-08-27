@@ -2,7 +2,7 @@
   <div class='container mt-5'>
     <div class='row'>
       <div class='mx-auto'>
-        <p><%= link_to 'PrivacyPolicy', privacy_policy_path %></p>
+        <p><%= link_to 'PrivacyPolicy', privacy_policy_path, class: "link" %></p>
       </div>
     </div>
   </div>
@@ -11,5 +11,8 @@
 <style>
   footer{
     margin-top: auto;
+  }
+  .link{
+    color: gray;
   }
 </style>

@@ -10,11 +10,13 @@ class Public::PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
       redirect_to posts_path
+    else
+      render 'new'
     end
   end
 
   def index
-    @posts = Post.where(is_valid: true)
+    @posts = Post.where(is_valid: true).joins(:user).where("users.is_valid")
   end
 
   def show
