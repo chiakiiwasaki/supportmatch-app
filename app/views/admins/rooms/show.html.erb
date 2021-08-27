@@ -6,11 +6,12 @@
     <div class="balloon"><%= @entries.find{ |e| e.user_id != @user.id }.user.introduction %></div><br>
   <% end %>
   <button type="button" class="btn btn-link" onclick="hoge();">
-    <span class="fa-stack fa-lg">
-      <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa fa-arrow-down fa-stack-1x fa-inverse"></i>
-    </span>
+    <!--<span class="fa-stack fa-lg">-->
+    <!--  <i class="fa fa-circle fa-stack-2x"></i>-->
+      <i class="fa fa-arrow-down"></i>
+    <!--</span>-->
   </button>
+
   <% @messages.each do |message| %>
   <div class='row chat-box'>
     <div class='col-md-2 col-lg-2 d-flex align-items-center justify-content-center'>
@@ -75,6 +76,7 @@
 
  i{
   color: #75c5b5;
+  font-size: 30px;
  }
 
 </style>

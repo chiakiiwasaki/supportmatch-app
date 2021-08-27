@@ -5,7 +5,7 @@ class CreateRequests < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.string :item
       t.integer :urgency, null: false, default: 0
-      t.integer :quantity
+      t.string :quantity
       t.text :comment
       t.string :postal_code
       t.string :location

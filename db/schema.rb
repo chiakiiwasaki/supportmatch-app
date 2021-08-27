@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2021_08_17_083400) do
     t.integer "user_id"
     t.string "item"
     t.integer "urgency", default: 0, null: false
-    t.integer "quantity"
+    t.string "quantity"
     t.text "comment"
     t.string "postal_code"
     t.string "location"

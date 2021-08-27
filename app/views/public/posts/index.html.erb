@@ -19,7 +19,7 @@
         <% @posts.each do |post| %>
         <tr>
           <td colspan="2"><%= link_to post.created_at.strftime("%Y-%m-%d %H:%M"), post_path(post), class: "btn btn-link request_#{post.id}" %></td>
-          <td colspan="2"><%= post.user.name %></td>
+          <td colspan="2"><%= truncate(post.user.name) %></td>
           <td colspan="3"><%= truncate(post.title) %></td>
           <td colspan="3"><%= truncate(post.content) %></td>
           <td>

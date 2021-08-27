@@ -1,5 +1,4 @@
 <div class="belt-admin"></div>
-
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12 text-right buttons'>
@@ -7,11 +6,13 @@
     </div>
     <% if @post.is_valid? %>
       <div class='col-md-12 col-lg-12 text-right buttons'>
+          <br>
           <span><strong>表示中</strong></span>&emsp;&emsp;
           <span><%= link_to '非表示', admins_post_path(@post), method: :patch, class: "btn btn-outline-danger" %></span>
       </div>
     <% else %>
       <div class='col-md-12 col-lg-12 text-right buttons'>
+          <br>
           <span><strong>非表示中</strong></span>&emsp;&emsp;
           <span><%= link_to '表示', admins_post_path(@post), method: :patch, class: "btn btn-outline-danger" %></span>
       </div>
@@ -21,57 +22,66 @@
   <h5><strong><%= @post.title %></strong></h5>
   <br>
   <div class='row'>
-    <div class='col-md-2 col-lg-2  d-flex align-items-center justify-content-center'><%= attachment_image_tag @post.user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %></div>
-    <div class='col-md-10 col-lg-10'><%= @post.user.name %>さん<br><%= @post.created_at.strftime("%Y-%m-%d %H:%M") %></div>
+    <div class='col-md-2 col-lg-2 d-flex align-items-center justify-content-center'>
+      <%= attachment_image_tag @post.user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
+    </div>
+    <div class='col-md-10 col-lg-10'>
+      <span><strong><%= @post.user.name %>さん</strong></span>
+      <span class="date"><%= @post.created_at.strftime("%Y-%m-%d %H:%M")%></span>
+      <p class="text"><%= @post.content %></p>
+      <div><i class="fas fa-heart"></i><%= @post.favorites.count %></div>
+    </div>
   </div>
-  <br>
-  <div class='row'>
-    <div class='col-md-12 col-lg-12 text'><%= @post.content %></div>
-  </div>
-  <br>
-  <div><i class="fas fa-heart"></i><%= @post.favorites.count %></div>
-  <br>
-
   <% @post.post_comments.each do |post_comment| %>
     <hr>
     <br>
-    <div class='row'>
-      <div class='col-md-2 col-lg-2  d-flex align-items-center justify-content-center'><%= attachment_image_tag post_comment.user, :image, format: 'jpeg', fallback: "no_image.jpg",size:"50x50" %></div>
-      <div class='col-md-8 col-lg-8'><%= post_comment.user.name %>さん<br><%= post_comment.created_at.strftime("%Y-%m-%d %H:%M") %></div>
-      <% if post_comment.is_valid? %>
-        <div class='col-md-2 col-lg-2 text-right'>
+    <% if post_comment.is_valid? %>
+      <div class='row'>
+        <div class='col-md-12 col-lg-12 text-right'>
           <span><strong>表示中</strong></span>&emsp;&emsp;
           <span>
             <%= link_to '非表示', admins_post_post_comment_path(post_comment.post, post_comment), method: :patch, class: "btn btn-outline-danger" %>
           </span>
         </div>
-      <% else %>
+      </div>
+    <% else %>
+      <div>
         <div class='col-md-2 col-lg-2 text-right'>
           <span><strong>非表示中</strong></span>&emsp;&emsp;
           <span>
             <%= link_to '表示', admins_post_post_comment_path(post_comment.post, post_comment), method: :patch, class: "btn btn-outline-danger" %>
           </span>
         </div>
-      <% end %>
-    </div>
-    <br>
+      </div>
+    <% end %>
     <div class='row'>
-      <div class='col-md-12 col-lg-12 text'><%= post_comment.content %></div>
+      <div class='col-md-2 col-lg-2 d-flex align-items-center justify-content-center'>
+        <%= attachment_image_tag post_comment.user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
+      </div>
+      <div class='col-md-10 col-lg-10'>
+        <span><strong><%= post_comment.user.name %>さん</strong></span>
+        <span class="date"><%= post_comment.created_at.strftime("%Y-%m-%d %H:%M")%></span>
+        <p class="text"><%= post_comment.content %></p>
+      </div>
     </div>
-    <br>
   <% end %>
-
-
-
-  </div>
-  <br>
-  <br>
-  <br>
 </div>
 
 
 <style>
-  h4, .text{
+   h5, .text{
     overflow-wrap : break-word;
   }
+
+   .date{
+  font-size: 10px;
+ }
+
+
+
+ .user-img{
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+ }
 </style>

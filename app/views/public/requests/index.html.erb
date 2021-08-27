@@ -26,9 +26,9 @@
     <table cellpadding="10" class='table table-hover table-inverse jscroll'>
       <thead>
         <tr style="background-color: #EEEEEE;">
-          <th><%= sort_link(@q, :created_at, "依頼日", default_order: :desc) %></th>
-          <th>物品名</th>
-          <th>数量</th>
+          <th colspan="2"><%= sort_link(@q, :created_at, "依頼日", default_order: :desc) %></th>
+          <th colspan="2">物品名</th>
+          <th colspan="2">数量</th>
           <th><%= sort_link(@q, :urgency, "緊急性", default_order: :desc) %></th>
          <th><%= sort_link(@q, :impressions_count, "閲覧数", default_order: :desc) %></th>
         </tr>
@@ -37,9 +37,9 @@
         <% @requests.each do |request| %>
           <% if request.user.is_valid? %>
           <tr>
-            <td><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), request_path(request), class: "btn btn-link request_#{request.id}" %></td>
-            <td><%= request.item %></td>
-            <td><%= request.quantity %></td>
+            <td colspan="2"><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), request_path(request), class: "btn btn-link request_#{request.id}" %></td>
+            <td colspan="2"><%= truncate(request.item) %></td>
+            <td colspan="2"><%= truncate(request.quantity) %></td>
             <td><%= request.urgency_i18n %></td>
             <td><%= request.impressions_count %></td>
           </tr>
