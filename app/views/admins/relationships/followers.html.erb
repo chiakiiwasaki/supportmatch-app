@@ -18,7 +18,7 @@
     　　<% @users.each do |user| %>
         <tr>
           <td><%= link_to user.name, admins_user_path(user), class: "btn btn-link" %></td>
-          <td><%= truncate(user.introduction, length:25) %></td>
+          <td><%= user.introduction %></td>
           <td><%= link_to user.requests.count, admins_her_requests_path(user), class: "btn btn-link" %></td>
           <td><%= link_to user.posts.where(is_valid: true).count, admins_her_posts_path(user), class: "btn btn-link" %></td>
         </tr>
