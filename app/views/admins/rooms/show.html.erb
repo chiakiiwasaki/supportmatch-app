@@ -65,7 +65,6 @@
  .user-img{
   height: 50px;
   width: 50px;
-  /*border-radius: 130px;*/
   object-fit: cover;
  }
 
@@ -79,9 +78,7 @@
 <script>
 function hoge(){
   var elm = document.documentElement;
-  //scrollHeight ページの高さ clientHeight ブラウザの高さ
   var bottom = elm.scrollHeight - elm.clientHeight;
-  //垂直方向へ移動
   window.scroll(0, bottom);
 }
 </script>
