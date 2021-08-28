@@ -50,12 +50,11 @@
   </div>
   <br>
   <% unless @post.user == current_user %>
-  <div id="follow_button">
-    <%#= render 'public/relationships/btn', post: @post %>
+  <div>
     <% if current_user.following?(@post.user) %>
-      <%= link_to "Unfollow", user_relationship_path(@post.user.id), method: :delete, class: "btn btn-outline-secondary" %>
+      <%= link_to "フォローを外す", user_relationship_path(@post.user.id), method: :delete, class: "btn btn-outline-secondary" %>
     <% else %>
-      <%= link_to "Follow", user_relationships_path(@post.user.id), method: :post, class: "btn btn-outline-secondary" %>
+      <%= link_to "フォローする", user_relationships_path(@post.user.id), method: :post, class: "btn btn-outline-secondary" %>
     <% end %>
   </div>
   <% end %>
@@ -70,8 +69,6 @@
    .date{
   font-size: 10px;
  }
-
-
 
  .user-img{
   height: 50px;
