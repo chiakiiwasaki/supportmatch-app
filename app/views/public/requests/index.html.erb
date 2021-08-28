@@ -13,11 +13,11 @@
         <%= search_form_for @q, url: search_requests_path do |f| %>
           <%= f.label :genre, '<種別>' %>
           <%= f.radio_button :genre, '' %>指定しない&emsp;
-          <%= f.radio_button :genre, :other %><%= f.label :other, "その他" %>&emsp;
-          <%= f.radio_button :genre, :sanitary %><%= f.label :sanitary, "生理用品" %>&emsp;
-          <%= f.radio_button :genre, :cloth %><%= f.label :cloth, "下着・衣類" %>&emsp;
-          <%= f.radio_button :genre, :hygiene %><%= f.label :hygiene, "衛生用品・化粧品" %>&emsp;
-          <%= f.radio_button :genre, :child %><%= f.label :child, "子ども用品" %><br>
+          <%= f.radio_button :genre_eq, 0 %><%= f.label :other, "その他" %>&emsp;
+          <%= f.radio_button :genre_eq, 1 %><%= f.label :sanitary, "生理用品" %>&emsp;
+          <%= f.radio_button :genre_eq, 2 %><%= f.label :cloth, "下着・衣類" %>&emsp;
+          <%= f.radio_button :genre_eq, 3 %><%= f.label :hygiene, "衛生用品・化粧品" %>&emsp;
+          <%= f.radio_button :genre_eq, 4 %><%= f.label :child, "子ども用品" %><br>
           <%= f.search_field :item_or_location_or_name_or_postal_code_or_comment_cont, placeholder: "(例)神奈川県" %>
           <%= f.submit '検索', class: "btn btn-sm btn-outline-secondary" %>
         <% end %>
