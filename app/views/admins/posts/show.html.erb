@@ -26,7 +26,7 @@
       <%= attachment_image_tag @post.user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
     </div>
     <div class='col-md-10 col-lg-10'>
-      <span><strong><%= @post.user.name %>さん</strong></span>
+      <span><strong><%= @post.user.name %></strong></span>
       <span class="date"><%= @post.created_at.strftime("%Y-%m-%d %H:%M")%></span>
       <p class="text"><%= @post.content %></p>
       <div><i class="fas fa-heart"></i><%= @post.favorites.count %></div>
@@ -59,7 +59,7 @@
         <%= attachment_image_tag post_comment.user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
       </div>
       <div class='col-md-10 col-lg-10'>
-        <span><strong><%= post_comment.user.name %>さん</strong></span>
+        <span><strong><%= post_comment.user.name %></strong></span>
         <span class="date"><%= post_comment.created_at.strftime("%Y-%m-%d %H:%M")%></span>
         <p class="text"><%= post_comment.content %></p>
       </div>
