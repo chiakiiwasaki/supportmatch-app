@@ -1,5 +1,6 @@
 class Public::RelationshipsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_current_user, {only: [:followings, :followers]}
 
   def create
     current_user.follow(params[:user_id])
@@ -20,4 +21,12 @@ class Public::RelationshipsController < ApplicationController
     user = User.find(params[:user_id])
     @users = user.followers
   end
+
+  private
+    def ensure_current_user
+      user = User.find(params[:user_id])
+      if user.id != current_user.id
+        redirect_to root_path
+      end
+    end
 end
