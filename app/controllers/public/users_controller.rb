@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_current_user, {only: [:edit, :update]}
 
   def show
     @user = current_user
@@ -42,5 +43,11 @@ class Public::UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:image, :name, :email, :introduction)
+    end
+
+    def ensure_current_user
+      if current_user.id != params[:id].to_i
+        redirect_to root_path
+      end
     end
 end

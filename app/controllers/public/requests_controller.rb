@@ -1,5 +1,6 @@
 class Public::RequestsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_current_user, {only: [:edit, :update]}
   before_action :set_q, only: [:index, :search]
 
   def new
@@ -79,5 +80,12 @@ class Public::RequestsController < ApplicationController
 
     def request_params
       params.require(:request).permit(:urgency, :item, :quantity, :comment, :postal_code, :location, :phone_number, :email, :name, :is_done, :genre)
+    end
+
+    def ensure_current_user
+      @request = Request.find(params[:id])
+      if @request.user_id != current_user.id
+        redirect_to root_path
+      end
     end
 end
