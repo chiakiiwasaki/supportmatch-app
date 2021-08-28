@@ -65,3 +65,14 @@
 - フレームワーク：Ruby on Rails
 - JS ライブラリ：jQuery
 - IDE：Cloud9
+
+## 使用素材
+【画像素材】
+- O-DAN(https://o-dan.net/ja/)
+
+【アイコン素材】
+- ICOOON MONO(https://icooon-mono.com/)
+- エーオーシステム(https://ao-system.net/alphaicon/)
+
+【フォント素材】
+- font space(https://www.fontspace.com/)
