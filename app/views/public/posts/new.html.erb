@@ -14,6 +14,11 @@
           <% end %>
         </ul>
       </div>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          history.pushState('', '', location.href + '/new')
+        });
+      </script>
     <% end %>
     <h4>New Post</h4>
     <%= form_with model: @post, local: true do |f| %>

@@ -49,8 +49,11 @@ class Public::RequestsController < ApplicationController
 
   def update
     @request = Request.find(params[:id])
-    @request.update(request_params)
-    redirect_to requests_my_requests_path
+    if @request.update(request_params)
+      redirect_to her_requests_path(@request.user)
+    else
+      render 'edit'
+    end
   end
 
   def her_requests
