@@ -1,5 +1,4 @@
 <div class="belt"></div>
-
 <div class='container'>
   <% if @contact.errors.any? %>
     <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px">
@@ -13,6 +12,11 @@
         <% end %>
       </ul>
     </div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        history.pushState('', '', '/contact')
+      });
+    </script>
   <% end %>
   <h4>Contact</h4>
   <div class='row'>
