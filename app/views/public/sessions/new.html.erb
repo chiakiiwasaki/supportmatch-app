@@ -45,7 +45,6 @@
     <div class='col-md-10 col-lg-10'>
       <%- resource_class.omniauth_providers.each do |provider| %>
         <%= link_to "Login with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %><br />
-        <%#= link_to image_tag("google2.png"), omniauth_authorize_path(resource_name, provider), method: :post %>
       <% end %>
     </div>
   </div>
@@ -58,7 +57,6 @@
 </div>
 
 <style>
-
   table{
     table-layout: fixed;
     width: 80%;

@@ -36,7 +36,6 @@
         <tr>
           <td>
             <div class="item-image text-center">
-              <%#= attachment_image_tag @user, :image, class: "img-square", fallback: "no_image.jpg", size:"50x50" %>
               <%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
             </div>
           </td>

@@ -5,25 +5,22 @@
     <div class="balloon"><%= @entries.find{ |e| e.user_id != current_user.id }.user.introduction %></div><br>
   <% end %>
   <button type="button" class="btn btn-link" onclick="hoge();">
-    <!--<span class="fa-stack fa-lg">-->
-    <!--  <i class="fa fa-circle fa-stack-2x"></i>-->
-      <i class="fa fa-arrow-down"></i>
-    <!--</span>-->
+    <i class="fa fa-arrow-down"></i>
   </button>
-  <!--<div id="userID" data-user="<%#= current_user.id %>"></div>-->
   <div id="messages">
     <%= render @messages %>
   </div>
   <br>
   <div class='row'>
     <div class='col-md-10 col-lg-10'>
-    <form>
-   <label>新規メッセージ(Enterで送信):</label><br>
-   <input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room="<%= @room.id %>" size="50">
-   </form>
-   </div>
+      <form>
+        <label>新規メッセージ(Enterで送信):</label><br>
+        <input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room="<%= @room.id %>" size="50">
+       </form>
+    </div>
   </div>
 </div>
+
 
 <style>
   .balloon {
@@ -69,7 +66,6 @@
  .user-img{
   height: 50px;
   width: 50px;
-  /*border-radius: 130px;*/
   object-fit: cover;
  }
 
@@ -82,9 +78,7 @@
 <script>
 function hoge(){
   var elm = document.documentElement;
-  //scrollHeight ページの高さ clientHeight ブラウザの高さ
   var bottom = elm.scrollHeight - elm.clientHeight;
-  //垂直方向へ移動
   window.scroll(0, bottom);
 }
 </script>
