@@ -17,8 +17,11 @@ class Admins::RequestsController < ApplicationController
 
   def update
     @request = Request.find(params[:id])
-    @request.update(request_params)
-    redirect_to admins_requests_path
+    if @request.update(request_params)
+      redirect_to admins_requests_path
+    else
+      render 'edit'
+    end
   end
 
   def her_requests
