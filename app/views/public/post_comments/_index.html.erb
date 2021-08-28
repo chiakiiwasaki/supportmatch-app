@@ -1,20 +1,22 @@
 <% post.post_comments.each do |post_comment| %>
+  <% if post_comment.is_valid %>
   <hr>
-  <% if post_comment.user == current_user %>
+    <% if post_comment.user == current_user %>
+      <div class='row'>
+        <div class='col-md-12 col-lg-12 text-right'>
+          <%= link_to '削除', post_post_comment_path(post_comment.post, post_comment), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-danger destroy_post_comment_#{post_comment.id}", remote: true %>
+        </div>
+      </div>
+    <% end %>
     <div class='row'>
-      <div class='col-md-12 col-lg-12 text-right'>
-        <%= link_to '削除', post_post_comment_path(post_comment.post, post_comment), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-danger destroy_post_comment_#{post_comment.id}", remote: true %>
+      <div class='col-md-2 col-lg-2 d-flex align-items-center justify-content-center'>
+        <%= attachment_image_tag post_comment.user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
+      </div>
+      <div class='col-md-10 col-lg-10'>
+        <span><strong><%= post_comment.user.name %></strong></span>
+        <span class="date"><%= post_comment.created_at.strftime("%Y-%m-%d %H:%M")%></span>
+        <p class="text"><%= post_comment.content %></p>
       </div>
     </div>
   <% end %>
-  <div class='row'>
-    <div class='col-md-2 col-lg-2 d-flex align-items-center justify-content-center'>
-      <%= attachment_image_tag post_comment.user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
-    </div>
-    <div class='col-md-10 col-lg-10'>
-      <span><strong><%= post_comment.user.name %></strong></span>
-      <span class="date"><%= post_comment.created_at.strftime("%Y-%m-%d %H:%M")%></span>
-      <p class="text"><%= post_comment.content %></p>
-    </div>
-  </div>
 <% end %>
