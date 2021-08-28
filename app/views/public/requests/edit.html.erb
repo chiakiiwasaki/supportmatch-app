@@ -3,6 +3,24 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
+    <% if @request.errors.any? %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <strong>入力内容にエラーがあります</strong>
+        <ul>
+          <% @request.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          history.pushState('', '', location.href + '/edit')
+        });
+      </script>
+    <% end %>
     <h4>Edit Request</h4>
     <br>
     <br>
@@ -82,7 +100,7 @@
         </tr>
         <tr>
           <td></td>
-          <td><%= f.submit "変更を保存", class: "btn btn-outline-success" %></td>
+          <td><%= f.submit "変更を保存", class: "btn btn-outline-secondary" %></td>
           <td></td>
           <td></td>
         </tr>

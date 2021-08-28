@@ -10,7 +10,6 @@ class Public::ContactsController < ApplicationController
       render 'confirm'
     else
       render 'new'
-      @contact = Contact.new(params[:contact].permit(:name, :email, :message))
     end
   end
 
