@@ -1,17 +1,12 @@
 <div class="belt-admin"></div>
-
 <div class='container'>
   <h4>Chatting with <%= @entries.find{ |e| e.user_id != @user.id }.user.name %></h4>
   <% if @entries.find{ |e| e.user_id != @user.id }.user.introduction.present? %>
     <div class="balloon"><%= @entries.find{ |e| e.user_id != @user.id }.user.introduction %></div><br>
   <% end %>
   <button type="button" class="btn btn-link" onclick="hoge();">
-    <!--<span class="fa-stack fa-lg">-->
-    <!--  <i class="fa fa-circle fa-stack-2x"></i>-->
-      <i class="fa fa-arrow-down"></i>
-    <!--</span>-->
+    <i class="fa fa-arrow-down"></i>
   </button>
-
   <% @messages.each do |message| %>
   <div class='row chat-box'>
     <div class='col-md-2 col-lg-2 d-flex align-items-center justify-content-center'>
