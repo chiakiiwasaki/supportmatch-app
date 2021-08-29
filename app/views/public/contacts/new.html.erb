@@ -22,17 +22,17 @@
   <div class='row'>
     <div class="field col-md-12 col-lg-12">
       <%= form_for @contact, :url => contact_confirm_path do |f| %>
-      <table cellpadding="10">
+      <table cellpadding="10" class="rowtable">
         <tr>
-          <td><%= f.label :name, "名前(必須)" %></td>
-          <td colspan="3"><%= f.text_field :name, autofocus: true, :size => "45", placeholder: "令和道子" %></td>
+          <td><%= f.label :name, "お名前(必須)" %></td>
+          <td colspan="3"><%= f.text_field :name, autofocus: true, :size => "45", placeholder: "令和道子", class: "text-form" %></td>
         </tr>        <tr>
           <td><%= f.label :email, "メールアドレス（必須）" %></td>
-          <td colspan="3"><%= f.email_field :email, :size => "45", placeholder: "michiko@email.com" %></td>
+          <td colspan="3"><%= f.email_field :email, :size => "45", placeholder: "michiko@email.com", class: "text-form" %></td>
         </tr>
         <tr>
           <td><%= f.label :message, "お問い合わせ内容(必須)" %></td>
-          <td colspan="3"><%= f.text_area :message, :size => "45", placeholder: "問い合わせ内容をご記載ください" %></td>
+          <td colspan="3"><%= f.text_area :message, :size => "45", placeholder: "問い合わせ内容をご記載ください", class: "text-form" %></td>
         </tr>
         <tr>
           <td></td>
@@ -43,11 +43,3 @@
       <% end %>
     </div>
   </div>
-
-  <style>
-    table{
-      table-layout: fixed;
-      width: 80%;
-      margin-top: 20px;
-    }
-  </style>

@@ -4,9 +4,9 @@
     <div class='col-md-12 col-lg-12'>
     <h4>Search</h4>
     <div class="text-right buttons"><%= link_to '一覧へ戻る', requests_path, class: "btn btn-outline-secondary" %></div>
-    <table cellpadding="10" class='table table-hover table-inverse'>
+    <table cellpadding="10" class='table table-hover table-inverse request-index-table'>
       <thead>
-        <tr style="background-color: #EEEEEE;">
+        <tr style="background-color: #EEEEEE;" class="tr-border">
           <th colspan="1">依頼日</th>
           <th>物品名</th>
           <th>数量</th>
@@ -16,7 +16,7 @@
       </thead>
       <tbody>
         <% @results.each do |request| %>
-        <tr>
+        <tr class="tr-border">
           <td><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), request_path(request), class: "btn btn-link request_#{request.id}" %></td>
           <td><%= request.item %></td>
           <td><%= request.quantity %></td>
@@ -29,17 +29,3 @@
     </div>
   </div>
 </div>
-
-
-<style>
-  table{
-    table-layout: fixed;
-    width: 100%;
-    margin-top: 20px;
-  }
-  tr{
-    border-width: 1px 0;
-    border-color: #CCCCCC;
-    border-style: solid;
-  }
-</style>

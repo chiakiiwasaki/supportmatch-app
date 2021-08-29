@@ -370,6 +370,41 @@ h1{
 }
 
 
+// public/requests/index
+.request-index-table, .post-index-table{
+  margin-top: 20px;
+}
+
+
+// public/requests/index
+.search-btn{
+  margin-top: 10px;
+}
+
+.loupe{
+  color: #75c5b5;
+  font-size: 30px;
+}
+
+
+// public/posts/show
+h5, .text{
+  overflow-wrap : break-word;
+}
+
+.post-user-img{
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+}
+
+
+// public/contacts/thanks
+.thanx{
+  text-align:center;
+  margin-top: 150px;
+}
+
 
 
 @media screen and (max-width:576px) {
@@ -526,5 +561,7 @@ h1{
 .show-request-table th, .show-request-table td{
   display: block;
 }
+
+
 
 }
