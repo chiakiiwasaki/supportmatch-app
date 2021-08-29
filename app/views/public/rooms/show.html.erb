@@ -5,7 +5,7 @@
     <div class="balloon"><%= @entries.find{ |e| e.user_id != current_user.id }.user.introduction %></div><br>
   <% end %>
   <button type="button" class="btn btn-link" onclick="hoge();">
-    <i class="fa fa-arrow-down"></i>
+    <i class="fa fa-arrow-down arrow"></i>
   </button>
   <div id="messages">
     <%= render @messages %>
@@ -15,65 +15,12 @@
     <div class='col-md-10 col-lg-10'>
       <form>
         <label>新規メッセージ(Enterで送信):</label><br>
-        <input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room="<%= @room.id %>" size="50">
+        <input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room="<%= @room.id %>" size="45">
        </form>
     </div>
   </div>
 </div>
 
-
-<style>
-  .balloon {
-   position: relative;
-   display: inline-block;
-   margin-left: 240px;
-   padding: 10px;
-   max-width: 75%;
-   color: #555;
-   font-size: 15px;
-   background: #EEEEEE;
-   border-radius: 15px;
-   overflow-wrap : break-word;
-   text-align: left;
- }
-
- .balloon:before {
-  content: "";
-  position: absolute;
-  top: -20px;
-  left: 30px;
-  margin-left: -15px;
-  border: 10px solid transparent;
-  border-bottom: 10px solid #EEEEEE;
-}
-
- .date{
-  font-size: 10px;
- }
-
- .chat-box{
-  padding: 50px;
- }
-
- .chat-box:not(:last-child){
-  border-bottom: solid 1px #75c5b5;
- }
-
- .chat-box p{
-  overflow-wrap : break-word;
- }
-
- .user-img{
-  height: 50px;
-  width: 50px;
-  object-fit: cover;
- }
-
- i{
-  color: #75c5b5;
-  font-size: 30px;
- }
-</style>
 
 <script>
 function hoge(){

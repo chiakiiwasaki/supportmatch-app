@@ -1,6 +1,6 @@
   <div class='row chat-box'>
     <div class='col-md-2 col-lg-2 d-flex align-items-center justify-content-center'>
-      <%= attachment_image_tag message.user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
+      <%= attachment_image_tag message.user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "chat-user-img" %>
     </div>
     <div class='col-md-10 col-lg-10 text-left'>
       <span><strong><%= message.user.name %></strong></span>

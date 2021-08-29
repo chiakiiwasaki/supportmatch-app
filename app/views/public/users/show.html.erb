@@ -8,15 +8,15 @@
     </div>
     <div class='col-md-8 col-lg-8'>
       <table cellpadding="10" class="user-info">
-        <tr>
+        <tr class="tr-border">
           <td>表示名</td>
           <td colspan="2"><%= @user.name %></td>
         </tr>
-        <tr>
-          <td>メールアドレス（非公開）</td>
+        <tr class="tr-border">
+          <td>メールアドレス</td>
           <td colspan="2"><%= @user.email %></td>
         </tr>
-        <tr>
+        <tr class="tr-border">
           <td>一言</td>
           <td colspan="2"><%= @user.introduction %></td>
         </tr>
@@ -68,65 +68,3 @@
     </div>
   </div>
 </div>
-
-
-<style>
-  td{
-   overflow-wrap : break-word;
-  }
-  .user-table{
-    margin-top: 50px;
-  }
-  .user-img{
-    height: 80px;
-    width: 80px;
-    object-fit: cover;
-  }
-  .user-info{
-    table-layout: fixed;
-    width: 100%;
-  }
-  tr{
-    border-width: 1px 0;
-    border-color: #CCCCCC;
-    border-style: solid;
-  }
-  .button{
-    margin-right: 30px;
-  }
-  .flowers{
-    margin-top: 100px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-  }
-  .flowers img{
-    height: 180px;
-    width: 180px;
-    border-radius: 130px;
-    object-fit: cover;
-    overflow:	hidden;
-	  position: relative;
-  }
-  .flowers .img p{
-	  text-align: center;
-	  padding-top: 80px;
-	  color: #fff;
-  }
-  .mask {
-	  width: 180px;
-	  height:	180px;
-    border-radius: 130px;
-	  position: absolute;
-	  top: 0;
-	  left: 15;
-	  opacity: 0;
-	  background-color:	rgba(0,0,0,0.4);
-	  -webkit-transition:	all 0.2s ease;
-	  transition:		all 0.2s ease;
-  }
-  .img:hover .mask {
-	  opacity: 1;
-  }
-</style>

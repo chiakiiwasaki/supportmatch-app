@@ -82,6 +82,7 @@ h4{
   background-position: 0 0 , 24px 24px;
 }
 
+// 共通
 .buttons{
   margin-top: 10px;
 }
@@ -96,12 +97,18 @@ table{
   width: 100%;
 }
 
-td{
+.tr-border{
+  border-width: 1px 0;
+  border-color: #CCCCCC;
+  border-style: solid;
+}
+
+th, td{
   overflow-wrap : break-word;
 }
 
 
-// トップページ
+// public/homes/topページ
 .top{
   position: relative;
 }
@@ -184,7 +191,7 @@ i{
   transform: translate(0, 0);
 }
 
-// aboutページ
+// public/homes/aboutページ
 .about{
   position: relative;
 }
@@ -233,6 +240,138 @@ h1{
   justify-content: center;
 }
 
+
+// public/homes/resultページ
+.pagination{
+  justify-content: center;
+  padding-top: 10px;
+}
+
+
+// public/users/showページ
+.user-table{
+  margin-top: 50px;
+}
+
+.user-img{
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+}
+
+.user-info{
+  table-layout: fixed;
+  width: 100%;
+}
+
+.flowers{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.flowers img{
+  height: 180px;
+  width: 180px;
+  border-radius: 130px;
+  object-fit: cover;
+  overflow:	hidden;
+	position: relative;
+}
+
+.flowers .img p{
+	text-align: center;
+	padding-top: 80px;
+	color: #fff;
+}
+
+.mask {
+	width: 180px;
+	height:	180px;
+  border-radius: 130px;
+	position: absolute;
+	top: 0;
+	left: 15;
+	opacity: 0;
+	background-color:	rgba(0,0,0,0.4);
+	-webkit-transition:	all 0.2s ease;
+	transition:		all 0.2s ease;
+}
+
+.flowers .img:hover .mask {
+	opacity: 1;
+}
+
+
+// public/users/editページ
+.edit-user-img{
+  height: 150px;
+}
+
+
+// public/rooms/show
+.balloon {
+  position: relative;
+  display: inline-block;
+  margin-left: 240px;
+  padding: 10px;
+  max-width: 75%;
+  color: #555;
+  font-size: 15px;
+  background: #EEEEEE;
+  border-radius: 15px;
+  overflow-wrap : break-word;
+  text-align: left;
+}
+
+.balloon:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 30px;
+  margin-left: -15px;
+  border: 10px solid transparent;
+  border-bottom: 10px solid #EEEEEE;
+}
+
+.date{
+  font-size: 10px;
+}
+
+.chat-box{
+  padding: 50px;
+}
+
+.chat-box:not(:last-child){
+  border-bottom: solid 1px #75c5b5;
+}
+
+.chat-box p{
+  overflow-wrap : break-word;
+}
+
+.chat-user-img{
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+}
+
+.arrow{
+  color: #75c5b5;
+  font-size: 30px;
+}
+
+
+// public/requests/show
+.show-request-table{
+  width: 70%;
+}
+
+
+
+
 @media screen and (max-width:576px) {
   // ヘッダー
   .logo{
@@ -243,7 +382,18 @@ h1{
     font-size: 25px;
   }
 
-  // トップページ
+  // 共通
+  h4{
+    font-size: 35px;
+  }
+
+  th, td{
+    overflow-wrap : break-word;
+    font-size: 18px;
+  }
+
+
+  // public/homes/topページ
   .top p{
     font-size: 35px;
     left: 20%;
@@ -252,6 +402,10 @@ h1{
 
   .top-content{
     margin-bottom: 50px;
+  }
+
+  .top-content p{
+    font-size: 20px;
   }
 
   .top-content2{
@@ -265,7 +419,7 @@ h1{
   }
 
   p{
-    font-size: 20px;
+    font-size: 18px;
   }
 
 
@@ -273,7 +427,7 @@ h1{
     font-size: 20px;
   }
 
-  // aboutページ
+  // public/homes/aboutページ
   .about p{
     top: 60%;
     left: 39%;
@@ -311,8 +465,66 @@ h1{
     margin-right: 38%;
   }
 
+  // public/users/showページ
+  .flowers{
+    flex-wrap: wrap;
+  }
+  .flowers img{
+    position: absolute;
+    height: 170px;
+    width: 170px;
+   }
+
+  .flowers .img p{
+    padding-top: 80px;
+  }
+
+  .mask{
+    height: 170px;
+    width: 170px;
+    position: relative;
+  }
+
+  .user-img{
+    margin-bottom: 30px;
+    height: 170px;
+    width: 170px;
+  }
+
+// public/users/edit
+.rowtable td{
+  display: block;
+}
+
+.edit-user-img{
+  height: 180px;
+}
+
+.text-form{
+  width: 350px;
+}
+
+// public/sessions/new
+.login{
+  text-align: center;
+}
 
 
+// public/rooms/show
+.balloon{
+  margin-left: 0;
+  margin-bottom: 30px;
+}
 
+
+// public/requests/show
+.show-request-table{
+  width: 100%;
+  margin-top: 20px;
+}
+
+.show-request-table th, .show-request-table td{
+  display: block;
+}
 
 }
