@@ -82,6 +82,18 @@ h4{
   background-position: 0 0 , 24px 24px;
 }
 
+// 共通
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+}
+
+main{
+  margin-top: 10px;
+}
+
+
 .buttons{
   margin-top: 10px;
 }
@@ -96,6 +108,537 @@ table{
   width: 100%;
 }
 
-td{
+.tr-border{
+  border-width: 1px 0;
+  border-color: #CCCCCC;
+  border-style: solid;
+}
+
+th, td{
   overflow-wrap : break-word;
+}
+
+
+// public/homes/top
+.top{
+  position: relative;
+}
+
+@keyframes fade{
+  0%{
+    opacity: 0;
+  }
+  100%{
+  opacity: 1;
+  }
+}
+
+.top img{
+  width: 100%;
+  height: 650px;
+  object-fit: cover;
+  margin-bottom: 50px;
+}
+
+.top p{
+  position: absolute;
+  color: white;
+  top: 70%;
+  left: 39%;
+  font-size: 40px;
+  animation-name: fade;
+  animation-duration: 5s;
+ }
+
+.top-content{
+  height: 300px;
+  font-size: 20px;
+  line-height: 3em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-content p{
+  margin: 0;
+}
+
+.top-content2{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.icons{
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+i{
+  color: #75c5b5;
+}
+
+.content-left, .content-center, .content-right{
+  width: 30%;
+}
+
+.fade-in {
+  opacity: 0;
+  transition-duration: 500ms;
+  transition-property: opacity, transform;
+}
+
+.fade-in-up {
+  transform: translate(0, 50px);
+}
+
+.scroll-in {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+// public/homes/about
+.about{
+  position: relative;
+}
+
+.about p{
+  position: absolute;
+  color: white;
+  top: 70%;
+  left: 46%;
+  font-size: 40px;
+  animation-name: fade;
+  animation-duration: 3s;
+}
+
+.about img{
+  width: 100%;
+  height: 650px;
+  object-fit: cover;
+}
+
+.about-content{
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.vision{
+  margin-top: 50px;
+	columns: 2;
+	column-gap: 2em;
+}
+
+h1{
+  color: #75c5b5;
+}
+
+.usages{
+  margin: 30px 0;
+  height:  250px;
+}
+
+.usages-icons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+// public/homes/result
+.pagination{
+  justify-content: center;
+  padding-top: 10px;
+}
+
+
+// public/users/show
+.user-table{
+  margin-top: 50px;
+}
+
+.user-img{
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+}
+
+.user-info{
+  table-layout: fixed;
+  width: 100%;
+}
+
+.flowers{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.flowers img{
+  height: 180px;
+  width: 180px;
+  border-radius: 130px;
+  object-fit: cover;
+  overflow:	hidden;
+	position: relative;
+}
+
+.flowers .img p{
+	text-align: center;
+	padding-top: 80px;
+	color: #fff;
+}
+
+.mask {
+	width: 180px;
+	height:	180px;
+  border-radius: 130px;
+	position: absolute;
+	top: 0;
+	left: 15;
+	opacity: 0;
+	background-color:	rgba(0,0,0,0.4);
+	-webkit-transition:	all 0.2s ease;
+	transition:		all 0.2s ease;
+}
+
+.flowers .img:hover .mask {
+	opacity: 1;
+}
+
+
+// public/users/edit
+.edit-user-img{
+  height: 150px;
+}
+
+
+// public/rooms/show
+.balloon {
+  position: relative;
+  display: inline-block;
+  margin-left: 240px;
+  padding: 10px;
+  max-width: 75%;
+  color: #555;
+  font-size: 15px;
+  background: #EEEEEE;
+  border-radius: 15px;
+  overflow-wrap : break-word;
+  text-align: left;
+}
+
+.balloon:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 30px;
+  margin-left: -15px;
+  border: 10px solid transparent;
+  border-bottom: 10px solid #EEEEEE;
+}
+
+.date{
+  font-size: 10px;
+}
+
+.chat-box{
+  padding: 50px;
+}
+
+.chat-box:not(:last-child){
+  border-bottom: solid 1px #75c5b5;
+}
+
+.chat-box p{
+  overflow-wrap : break-word;
+}
+
+.chat-user-img{
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+}
+
+.arrow{
+  color: #75c5b5;
+  font-size: 30px;
+}
+
+
+// public/requests/show
+.show-request-table{
+  width: 70%;
+}
+
+
+// public/requests/index
+.request-index-table, .post-index-table{
+  margin-top: 20px;
+}
+
+
+// public/requests/index
+.search-btn{
+  margin-top: 10px;
+}
+
+.loupe{
+  color: #75c5b5;
+  font-size: 30px;
+}
+
+
+// public/posts/show
+h5, .text{
+  overflow-wrap : break-word;
+}
+
+.post-user-img{
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+}
+
+
+// public/contacts/thanks
+.thanx{
+  text-align:center;
+  margin-top: 150px;
+}
+
+
+// admins/users/show
+.admin-user-table{
+  margin-top: 30px;
+}
+
+.admin-flowers{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.admin-flowers img{
+  height: 180px;
+  width: 180px;
+  border-radius: 130px;
+  object-fit: cover;
+  overflow:	hidden;
+	 position: relative;
+}
+
+.admin-flowers .img p{
+	text-align: center;
+	padding-top: 80px;
+	color: #fff;
+}
+
+.admin-mask {
+	width: 180px;
+	height:	180px;
+  border-radius: 130px;
+	position: absolute;
+	top: 0;
+	left: 15;
+	opacity: 0;
+	background-color:	rgba(0,0,0,0.4);
+	-webkit-transition:	all 0.2s ease;
+	transition:		all 0.2s ease;
+}
+
+.admin-flowers .img:hover .admin-mask {
+	opacity: 1;
+}
+
+
+@media screen and (max-width:576px) {
+  // ヘッダー
+  .logo{
+    font-size: 35px;
+   }
+
+  .navbar-collapse li{
+    font-size: 25px;
+  }
+
+  // 共通
+  h4{
+    font-size: 35px;
+  }
+
+  th, td{
+    overflow-wrap : break-word;
+    font-size: 18px;
+  }
+
+
+  // public/homes/top
+  .top p{
+    font-size: 35px;
+    left: 20%;
+    top: 60%;
+  }
+
+  .top-content{
+    margin-bottom: 50px;
+  }
+
+  .top-content p{
+    font-size: 20px;
+  }
+
+  .top-content2{
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+  }
+
+  .content-left, .content-center, .content-right{
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  p{
+    font-size: 18px;
+  }
+
+
+  .btn{
+    font-size: 18px;
+  }
+
+  // public/homes/about
+  .about p{
+    top: 60%;
+    left: 39%;
+    font-size: 35px;
+  }
+
+  .about-content{
+    margin-top: 50px;
+  }
+
+  .vision{
+  margin-top: 30px;
+  margin-bottom: 100px;
+	columns: 1;
+  }
+
+  h1{
+    font-size: 35px;
+  }
+
+  .usages{
+    height: auto;
+    margin-bottom: 50px;
+  }
+
+  .usages-icons{
+    height: 250px;
+  }
+
+  .about-btn{
+    margin-right: 36%;
+  }
+
+  .about-btn-more{
+    margin-right: 38%;
+  }
+
+  // public/users/show
+  .flowers{
+    flex-wrap: wrap;
+  }
+  .flowers img{
+    position: absolute;
+    height: 170px;
+    width: 170px;
+   }
+
+  .flowers .img p{
+    padding-top: 80px;
+  }
+
+  .mask{
+    height: 170px;
+    width: 170px;
+    position: relative;
+  }
+
+  .user-img{
+    margin-bottom: 30px;
+    height: 170px;
+    width: 170px;
+  }
+
+  // public/users/edit
+  .rowtable td{
+    display: block;
+  }
+
+  .edit-user-img{
+    height: 180px;
+  }
+
+  .text-form{
+    width: 350px;
+  }
+
+  // public/sessions/new
+  .login{
+    text-align: center;
+  }
+
+  // public/rooms/show
+  .balloon{
+    margin-left: 0;
+    margin-bottom: 30px;
+  }
+
+  // public/requests/show
+  .show-request-table{
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .show-request-table th, .show-request-table td{
+    display: block;
+  }
+
+  // admin/users/show
+  .admin-flowers{
+    flex-wrap: wrap;
+  }
+
+  .admin-flowers img{
+    position: absolute;
+    height: 170px;
+    width: 170px;
+  }
+
+  .admin-flowers .img p{
+    padding-top: 80px;
+  }
+
+  .admin-mask{
+    height: 170px;
+    width: 170px;
+    position: relative;
+  }
+
+  // admin/posts/show
+  .post-btn{
+    margin-bottom: 30px;
+  }
 }

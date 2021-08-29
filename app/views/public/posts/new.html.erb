@@ -22,18 +22,14 @@
     <% end %>
     <h4>New Post</h4>
     <%= form_with model: @post, local: true do |f| %>
-      <table cellpadding="10">
+      <table cellpadding="10" class="rowtable">
         <tr>
           <td>タイトル</td>
-          <td><%= f.text_field :title %></td>
-          <td></td>
-          <td></td>
+          <td colspan="3"><%= f.text_field :title, class: "text-form" %></td>
         </tr>
         <tr>
           <td>内容</td>
-          <td><%= f.text_area :content, :size=>"70" %></td>
-          <td></td>
-          <td></td>
+          <td colspan="3"><%= f.text_area :content, :size=>"70", class: "text-form" %></td>
         </tr>
         <tr>
           <td></td>
@@ -46,9 +42,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  table{
-    margin-top: 20px;
-  }
-</style>

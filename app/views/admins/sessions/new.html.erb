@@ -13,14 +13,14 @@
     <div class="col-md-2 col-lg-2"></div>
     <div class="field col-md-10 col-lg-10">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <table cellpadding="10">
+      <table cellpadding="10" class="rowtable">
         <tr>
           <td><%= f.label :email, "メールアドレス" %></td>
-          <td><%= f.email_field :email, autofocus: true, :size => "45", autocomplete: "email" %></td>
+          <td><%= f.email_field :email, autofocus: true, :size => "45", autocomplete: "email", class: "text-form" %></td>
         </tr>
         <tr>
           <td><%= f.label :password, "パスワード" %></td>
-          <td><%= f.password_field :password, :size => "45", autocomplete: "current-password" %></td>
+          <td><%= f.password_field :password, :size => "45", autocomplete: "current-password", class: "text-form" %></td>
         </tr>
         <tr>
           <td></td>
@@ -32,11 +32,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  table{
-    table-layout: fixed;
-    width: 80%;
-    margin-top: 20px;
-  }
-</style>

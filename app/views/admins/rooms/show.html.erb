@@ -5,12 +5,12 @@
     <div class="balloon"><%= @entries.find{ |e| e.user_id != @user.id }.user.introduction %></div><br>
   <% end %>
   <button type="button" class="btn btn-link" onclick="hoge();">
-    <i class="fa fa-arrow-down"></i>
+    <i class="fa fa-arrow-down arrow"></i>
   </button>
   <% @messages.each do |message| %>
   <div class='row chat-box'>
     <div class='col-md-2 col-lg-2 d-flex align-items-center justify-content-center'>
-      <%= attachment_image_tag message.user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
+      <%= attachment_image_tag message.user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "chat-user-img" %>
     </div>
     <div class='col-md-10 col-lg-10 text-left'>
       <span><strong><%= message.user.name %></strong></span>
@@ -21,59 +21,6 @@
   <% end %>
 </div>
 
-<style>
-  .balloon {
-   position: relative;
-   display: inline-block;
-   margin-left: 240px;
-   padding: 10px;
-   max-width: 75%;
-   color: #555;
-   font-size: 15px;
-   background: #EEEEEE;
-   border-radius: 15px;
-   overflow-wrap : break-word;
-   text-align: left;
- }
-
- .balloon:before {
-  content: "";
-  position: absolute;
-  top: -20px;
-  left: 30px;
-  margin-left: -15px;
-  border: 10px solid transparent;
-  border-bottom: 10px solid #EEEEEE;
-}
-
- .date{
-  font-size: 10px;
- }
-
- .chat-box{
-  padding: 50px;
- }
-
- .chat-box:not(:last-child){
-  border-bottom: solid 1px #75c5b5;
- }
-
- .chat-box p{
-  overflow-wrap : break-word;
- }
-
- .user-img{
-  height: 50px;
-  width: 50px;
-  object-fit: cover;
- }
-
- i{
-  color: #75c5b5;
-  font-size: 30px;
- }
-
-</style>
 
 <script>
 function hoge(){

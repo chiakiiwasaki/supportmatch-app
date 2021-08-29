@@ -6,7 +6,7 @@
     <% if @users.exists? %>
     <table cellpadding="10" class='table table-hover table-inverse'>
       <thead>
-        <tr style="background-color: #EEEEEE;">
+        <tr style="background-color: #EEEEEE;" class="tr-border">
           <th>名前</th>
           <th>一言</th>
           <th>依頼数</th>
@@ -15,7 +15,7 @@
       </thead>
       <tbody>
     　　<% @users.each do |user| %>
-        <tr>
+        <tr class="tr-border">
           <td><%= link_to user.name, admins_user_path(user), class: "btn btn-link" %></td>
           <td><%= user.introduction %></td>
           <td><%= link_to user.requests.count, admins_her_requests_path(user), class: "btn btn-link" %></td>
@@ -29,18 +29,4 @@
     <% end %>
     </div>
   </div>
-</div>
-
-
-<style>
-  table{
-    table-layout: fixed;
-    width: 100%;
-    margin-top: 20px;
-  }
-  tr{
-    border-width: 1px 0;
-    border-color: #CCCCCC;
-    border-style: solid;
-  }
-</style>
+</div>s

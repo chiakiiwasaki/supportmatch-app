@@ -22,7 +22,7 @@
     <% end %>
     <h4>Edit Request</h4>
     <%= form_with model: @request, url: admins_request_path(@request), local: true do |f| %>
-      <table cellpadding="10">
+      <table cellpadding="10" class="rowtable">
         <tr>
           <td>緊急性</td>
           <td colspan="3">
@@ -43,57 +43,42 @@
         </tr>
         <tr>
           <td>物品名</td>
-          <td><%= f.text_field :item %></td>
-          <td></td>
-          <td></td>
+          <td colspan="3"><%= f.text_field :item, class: "text-form" %></td>
         </tr>
         <tr>
           <td>数量</td>
-          <td><%= f.text_field :quantity %></td>
-          <td></td>
-          <td></td>
+          <td colspan="3"><%= f.text_field :quantity, class: "text-form" %></td>
         </tr>
         <tr>
           <td>コメント</td>
-          <td><%= f.text_area :comment, :size=>"70" %></td>
-          <td></td>
-          <td></td>
+          <td colspan="3"><%= f.text_area :comment, :size=>"70", class: "text-form" %></td>
         </tr>
         <tr>
           <td>郵便番号</td>
-          <td><%= f.text_field :postal_code %></td>
-          <td></td>
-          <td></td>
+          <td colspan="3"><%= f.text_field :postal_code, class: "text-form" %></td>
         </tr>
         <tr>
           <td>宛先</td>
-          <td colspan="3"><%= f.text_field :location, :size=>"70" %></td>
+          <td colspan="3"><%= f.text_field :location, :size=>"70", class: "text-form" %></td>
         </tr>
         <tr>
           <td>電話番号</td>
-          <td><%= f.text_field :phone_number %></td>
-          <td></td>
-          <td></td>
+          <td colspan="3"><%= f.text_field :phone_number, class: "text-form" %></td>
         </tr>
         <tr>
           <td>メールアドレス</td>
-          <td><%= f.text_field :email %></td>
-          <td></td>
-          <td></td>
+          <td colspan="3"><%= f.text_field :email, class: "text-form" %></td>
         </tr>
         <tr>
           <td>宛名</td>
-          <td><%= f.text_field :name %></td>
-          <td></td>
-          <td></td>
+          <td colspan="3"><%= f.text_field :name, class: "text-form" %></td>
         </tr>
         <tr>
           <td>ステータス</td>
-          <td colspan="2">
+          <td colspan="3">
             <span><%= f.radio_button :is_done, :false %><%= f.label :false, "依頼中" %></span>&emsp;&emsp;
             <span><%= f.radio_button :is_done, :true %><%= f.label :true, "お届け完了" %></span>
           </td>
-          <td></td>
         </tr>
         <tr>
           <td></td>
@@ -106,10 +91,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  table{
-    table-layout: fixed;
-    width: 100%;
-  }
-</style>

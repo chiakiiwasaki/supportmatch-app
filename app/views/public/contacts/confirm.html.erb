@@ -4,9 +4,9 @@
   <div class='row'>
     <div class="field col-md-12 col-lg-12">
       <%= form_for @contact, :url => contact_thanks_path do |f| %>
-      <table cellpadding="10">
+      <table cellpadding="10" class="rowtable">
         <tr>
-          <td>名前</td>
+          <td>お名前</td>
           <td colspan="4">
             <%= f.hidden_field :name %>
             <%= @contact.name %>
@@ -35,12 +35,3 @@
       <% end %>
     </div>
   </div>
-
-  <style>
-    table{
-      table-layout: fixed;
-      width: 80%;
-      margin-top: 20px;
-      overflow-wrap : break-word;
-    }
-  </style>

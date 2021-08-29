@@ -26,7 +26,7 @@
   <br>
   <div class='row'>
     <div class='col-md-2 col-lg-2 d-flex align-items-center justify-content-center'>
-      <%= attachment_image_tag @post.user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
+      <%= attachment_image_tag @post.user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "post-user-img" %>
     </div>
     <div class='col-md-10 col-lg-10'>
       <span><strong><%= @post.user.name %></strong></span>
@@ -62,17 +62,5 @@
 
 
 <style>
-  h5, .text{
-    overflow-wrap : break-word;
-  }
 
-   .date{
-  font-size: 10px;
- }
-
- .user-img{
-  height: 50px;
-  width: 50px;
-  object-fit: cover;
- }
 </style>

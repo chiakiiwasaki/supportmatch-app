@@ -2,29 +2,29 @@
 <div class='container'>
   <h4>User info</h4>
   <div class="text-right"><%= link_to '編集する', edit_admins_user_path(@user), class: "btn btn-outline-secondary" %></div>
-  <div class='row user-table'>
+  <div class='row admin-user-table'>
     <div class='col-md-4 col-lg-4 d-flex align-items-center justify-content-center'>
       <div><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %></div>
     </div>
     <div class='col-md-8 col-lg-8'>
       <table cellpadding="10" class="user-info">
-        <tr>
+        <tr class="tr-border">
           <td>会員ID</td>
           <td><%= @user.id %></td>
         </tr>
-        <tr>
+        <tr class="tr-border">
           <td>表示名</td>
           <td><%= @user.name %></td>
         </tr>
-        <tr>
+        <tr class="tr-border">
           <td>メールアドレス</td>
           <td><%= @user.email %></td>
         </tr>
-        <tr class="item">
+        <tr class="tr-border">
           <td>一言</td>
           <td><%= @user.introduction %></td>
         </tr>
-        <tr>
+        <tr class="tr-border">
           <td>ステータス</td>
           <td>
             <% if @user.is_valid %>
@@ -38,20 +38,19 @@
     </div>
   </div>
   <div class='row'>
-    <div class='col-md-12 col-lg-12 flowers'>
+    <div class='col-md-12 col-lg-12 admin-flowers'>
       <div class="img">
         <%= link_to admins_her_rooms_path do %>
           <%= image_tag "pinkflower2.jpg" %>
-          <div class="mask">
+          <div class="admin-mask">
             <p>チャット一覧</p>
           </div>
         <% end %>
       </div>
-
       <div class="img">
         <%= link_to admins_her_requests_path(@user) do %>
           <%= image_tag "greenflower.jpg" %>
-          <div class="mask">
+          <div class="admin-mask">
             <p>依頼履歴一覧</p>
           </div>
         <% end %>
@@ -59,7 +58,7 @@
       <div class="img">
         <%= link_to admins_her_posts_path(@user) do %>
           <%= image_tag "blueflower.jpg" %>
-          <div class="mask">
+          <div class="admin-mask">
             <p>投稿一覧</p>
           </div>
         <% end %>
@@ -67,7 +66,7 @@
       <div class="img">
         <%= link_to admins_user_followings_path(@user) do %>
           <%= image_tag "yellowflower.jpg" %>
-          <div class="mask">
+          <div class="admin-mask">
             <p>フォロー一覧</p>
           </div>
         <% end %>
@@ -75,7 +74,7 @@
       <div class="img">
         <%= link_to admins_user_followers_path(@user) do %>
           <%= image_tag "orangeflower.jpg" %>
-          <div class="mask">
+          <div class="admin-mask">
             <p>フォロワー一覧</p>
           </div>
         <% end %>
@@ -83,61 +82,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  td{
-   overflow-wrap : break-word;
-  }
-  .user-table{
-    margin-top: 30px;
-  }
-  .user-img{
-    height: 80px;
-    width: 80px;
-    object-fit: cover;
-  }
-  .user-info{
-    table-layout: fixed;
-    width: 100%;
-  }
-  tr{
-    border-width: 1px 0;
-    border-color: #CCCCCC;
-    border-style: solid;
-  }
-  .flowers{
-    margin-top: 50px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-  }
-  .flowers img{
-    height: 180px;
-    width: 180px;
-    border-radius: 130px;
-    object-fit: cover;
-    overflow:	hidden;
-	  position: relative;
-  }
-  .flowers .img p{
-	  text-align: center;
-	  padding-top: 80px;
-	  color: #fff;
-  }
-  .mask {
-	  width: 180px;
-	  height:	180px;
-    border-radius: 130px;
-	  position: absolute;
-	  top: 0;
-	  left: 15;
-	  opacity: 0;
-	  background-color:	rgba(0,0,0,0.4);
-	  -webkit-transition:	all 0.2s ease;
-	  transition:		all 0.2s ease;
-  }
-  .img:hover .mask {
-	  opacity: 1;
-  }
-</style>
