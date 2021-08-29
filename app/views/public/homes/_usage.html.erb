@@ -1,6 +1,6 @@
 <div class='row usages'>
   <div class='col-md-4 col-lg-4'>
-    <div class="icons">
+    <div class="usages-icons">
       <span class="fa-stack fa-3x">
         <i class="fa fa-circle fa-stack-2x"></i>
         <i class="fa fa-hand-paper fa-stack-1x fa-inverse"></i>
@@ -16,13 +16,13 @@
       配送されたら、依頼編集画面でステータスを「完了」にしてください。
       ご利用には会員登録が必要です。
     </p>
-    <div class="text-right"><%= link_to 'Request', new_request_path, class: "btn btn-outline-secondary" %></div>
+    <div class="text-right"><%= link_to 'Request', new_request_path, class: "btn btn-outline-secondary about-btn" %></div>
   </div>
 </div>
 
 <div class='row usages'>
   <div class='col-md-4 col-lg-4'>
-    <div class="icons">
+    <div class="usages-icons">
       <span class="fa-stack fa-3x">
         <i class="fa fa-circle fa-stack-2x"></i>
         <i class="fa fa-hand-holding-heart fa-stack-1x fa-inverse"></i>
@@ -37,13 +37,13 @@
       配送に掛かる費用は支援者がご負担ください。
       ご利用には会員登録が必要です。
     </p>
-    <div class="text-right"><%= link_to 'Support', requests_path, class: "btn btn-outline-secondary" %></div>
+    <div class="text-right"><%= link_to 'Support', requests_path, class: "btn btn-outline-secondary about-btn" %></div>
   </div>
 </div>
 
 <div class='row usages'>
   <div class='col-md-4 col-lg-4'>
-    <div class="icons">
+    <div class="usages-icons">
       <span class="fa-stack fa-3x">
         <i class="fa fa-circle fa-stack-2x"></i>
         <i class="fa fa-people-carry fa-stack-1x fa-inverse"></i>
@@ -58,24 +58,6 @@
       本サービスの趣旨にご賛同いただける場合は、ぜひご協力をご検討ください。
       これまでにお届けが完了した依頼一覧はMoreから会員登録なしでご覧いただけます。
     </p>
-    <div class="text-right"><%= link_to 'More', result_path, class: "btn btn-outline-secondary" %></div>
+    <div class="text-right"><%= link_to 'More', result_path, class: "btn btn-outline-secondary about-btn-more" %></div>
   </div>
 </div>
-
-
-<style>
-.usages{
-  margin: 30px 0;
-  height:  250px;
-}
-
-.icons{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-i{
-  color: #75c5b5;
-}
-</style>
