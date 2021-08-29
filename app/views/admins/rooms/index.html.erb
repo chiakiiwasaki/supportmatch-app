@@ -6,7 +6,7 @@
     <% if @entries.exists? %>
     <table cellpadding="10" class='table table-hover table-inverse'>
       <thead>
-        <tr style="background-color: #EEEEEE;">
+        <tr style="background-color: #EEEEEE;" class="tr-border">
           <th colspan="1">更新日</th>
           <th>名前</th>
           <th></th>
@@ -14,7 +14,7 @@
       </thead>
       <tbody>
         <% @entries.each do |entry| %>
-        <tr>
+        <tr class="tr-border">
           <td><%= entry.room.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
           <td><%= entry.room.entries.find{ |e| e.user_id != @user.id }.user.name %>さん</td>
           <!--<td><%#= entry.room.messages.content.order(created_at: :desc).limit(1) %></td>-->
@@ -29,17 +29,3 @@
     </div>
   </div>
 </div>
-
-
-<style>
-  table{
-    table-layout: fixed;
-    width: 100%;
-    margin-top: 20px;
-  }
-  tr{
-    border-width: 1px 0;
-    border-color: #CCCCCC;
-    border-style: solid;
-  }
-</style>

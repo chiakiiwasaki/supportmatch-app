@@ -3,9 +3,9 @@
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
     <h4>Posts</h4>
-    <table cellpadding="10" class='table table-hover table-inverse'>
+    <table cellpadding="10" class='table table-hover table-inverse post-index-table'>
       <thead>
-        <tr style="background-color: #EEEEEE;">
+        <tr style="background-color: #EEEEEE;" class="tr-border">
           <th>投稿日</th>
           <th>投稿者</th>
           <th>タイトル</th>
@@ -15,7 +15,7 @@
       </thead>
       <tbody>
         <% @posts.each do |post| %>
-        <tr>
+        <tr class="tr-border">
           <td><%= link_to post.created_at.strftime("%Y-%m-%d %H:%M"), admins_post_path(post), class: "btn btn-link admins_post_#{post.id}" %></td>
           <td><%= post.user.name %></td>
           <td><%= truncate(post.title, length:25) %></td>
@@ -36,18 +36,3 @@
     </div>
   </div>
 </div>
-
-
-<style>
-  table{
-    table-layout: fixed;
-    width: 100%;
-    margin-top: 20px;
-    overflow-wrap : break-word;
-  }
-  tr{
-    border-width: 1px 0;
-    border-color: #CCCCCC;
-    border-style: solid;
-  }
-</style>

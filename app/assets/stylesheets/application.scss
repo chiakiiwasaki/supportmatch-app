@@ -83,6 +83,17 @@ h4{
 }
 
 // 共通
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+}
+
+main{
+  margin-top: 10px;
+}
+
+
 .buttons{
   margin-top: 10px;
 }
@@ -108,7 +119,7 @@ th, td{
 }
 
 
-// public/homes/topページ
+// public/homes/top
 .top{
   position: relative;
 }
@@ -191,7 +202,7 @@ i{
   transform: translate(0, 0);
 }
 
-// public/homes/aboutページ
+// public/homes/about
 .about{
   position: relative;
 }
@@ -241,14 +252,14 @@ h1{
 }
 
 
-// public/homes/resultページ
+// public/homes/result
 .pagination{
   justify-content: center;
   padding-top: 10px;
 }
 
 
-// public/users/showページ
+// public/users/show
 .user-table{
   margin-top: 50px;
 }
@@ -305,7 +316,7 @@ h1{
 }
 
 
-// public/users/editページ
+// public/users/edit
 .edit-user-img{
   height: 150px;
 }
@@ -406,6 +417,51 @@ h5, .text{
 }
 
 
+// admins/users/show
+.admin-user-table{
+  margin-top: 30px;
+}
+
+.admin-flowers{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.admin-flowers img{
+  height: 180px;
+  width: 180px;
+  border-radius: 130px;
+  object-fit: cover;
+  overflow:	hidden;
+	 position: relative;
+}
+
+.admin-flowers .img p{
+	text-align: center;
+	padding-top: 80px;
+	color: #fff;
+}
+
+.admin-mask {
+	width: 180px;
+	height:	180px;
+  border-radius: 130px;
+	position: absolute;
+	top: 0;
+	left: 15;
+	opacity: 0;
+	background-color:	rgba(0,0,0,0.4);
+	-webkit-transition:	all 0.2s ease;
+	transition:		all 0.2s ease;
+}
+
+.admin-flowers .img:hover .admin-mask {
+	opacity: 1;
+}
+
 
 @media screen and (max-width:576px) {
   // ヘッダー
@@ -428,7 +484,7 @@ h5, .text{
   }
 
 
-  // public/homes/topページ
+  // public/homes/top
   .top p{
     font-size: 35px;
     left: 20%;
@@ -459,10 +515,10 @@ h5, .text{
 
 
   .btn{
-    font-size: 20px;
+    font-size: 18px;
   }
 
-  // public/homes/aboutページ
+  // public/homes/about
   .about p{
     top: 60%;
     left: 39%;
@@ -500,7 +556,7 @@ h5, .text{
     margin-right: 38%;
   }
 
-  // public/users/showページ
+  // public/users/show
   .flowers{
     flex-wrap: wrap;
   }
@@ -526,42 +582,63 @@ h5, .text{
     width: 170px;
   }
 
-// public/users/edit
-.rowtable td{
-  display: block;
-}
+  // public/users/edit
+  .rowtable td{
+    display: block;
+  }
 
-.edit-user-img{
-  height: 180px;
-}
+  .edit-user-img{
+    height: 180px;
+  }
 
-.text-form{
-  width: 350px;
-}
+  .text-form{
+    width: 350px;
+  }
 
-// public/sessions/new
-.login{
-  text-align: center;
-}
+  // public/sessions/new
+  .login{
+    text-align: center;
+  }
 
+  // public/rooms/show
+  .balloon{
+    margin-left: 0;
+    margin-bottom: 30px;
+  }
 
-// public/rooms/show
-.balloon{
-  margin-left: 0;
-  margin-bottom: 30px;
-}
+  // public/requests/show
+  .show-request-table{
+    width: 100%;
+    margin-top: 20px;
+  }
 
+  .show-request-table th, .show-request-table td{
+    display: block;
+  }
 
-// public/requests/show
-.show-request-table{
-  width: 100%;
-  margin-top: 20px;
-}
+  // admin/users/show
+  .admin-flowers{
+    flex-wrap: wrap;
+  }
 
-.show-request-table th, .show-request-table td{
-  display: block;
-}
+  .admin-flowers img{
+    position: absolute;
+    height: 170px;
+    width: 170px;
+  }
 
+  .admin-flowers .img p{
+    padding-top: 80px;
+  }
 
+  .admin-mask{
+    height: 170px;
+    width: 170px;
+    position: relative;
+  }
 
+  // admin/posts/show
+  .post-btn{
+    margin-bottom: 30px;
+  }
 }

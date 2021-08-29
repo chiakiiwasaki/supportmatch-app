@@ -10,7 +10,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag('favicon.ico') %>
   </head>
-
   <body>
     <%= render 'layouts/header' %>
     <div class="wrapper">
@@ -21,15 +20,3 @@
     <%= render 'layouts/footer' %>
   </body>
 </html>
-
-
-<style>
-  .wrapper{
-    display: flex;
-    flex-direction: column;
-    min-height: 80vh;
-  }
-  main{
-    margin-top: 10px;
-  }
-</style>

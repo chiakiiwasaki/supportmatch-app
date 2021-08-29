@@ -20,38 +20,40 @@
         });
       </script>
     <% end %>
-
     <h4>Edit user</h4>
     <br>
     <br>
     <%= form_with model: @user,url: admins_user_path(@user), local: true do |f| %>
-      <table cellpadding="10">
+      <table cellpadding="10" class="rowtable">
         <tr>
-          <td>アイコン</td>
+          <td>
+            <div class="edit-user-img text-center">
+              <%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
+            </div>
+          </td>
           <td colspan="3"><%= f.attachment_field :image %></td>
         </tr>
         <tr>
           <td>会員ID</td>
-          <td><%= @user.id %></td>
+          <td colspan="3"><%= @user.id %></td>
         </tr>        <tr>
           <td>氏名</td>
-          <td colspan="3"><%= f.text_field :name %></td>
+          <td colspan="3"><%= f.text_field :name, class: "text-form" %></td>
         </tr>
         <tr>
           <td>メールアドレス</td>
-          <td colspan="3"><%= f.text_field :email %></td>
+          <td colspan="3"><%= f.text_field :email, class: "text-form" %></td>
         </tr>
         <tr>
           <td>一言</td>
-          <td colspan="3"><%= f.text_area :introduction, :size => "45" %></td>
+          <td colspan="3"><%= f.text_area :introduction, :size => "45", class: "text-form" %></td>
         </tr>
         <tr>
           <td>ステータス</td>
-          <td colspan="2">
+          <td colspan="3">
             <span><%= f.radio_button :is_valid, :true %><%= f.label :true, "有効" %></span>&emsp;&emsp;
             <span><%= f.radio_button :is_valid, :false %><%= f.label :false, "退会" %></span>
           </td>
-          <td></td>
         </tr>
         <tr>
           <td></td>
@@ -64,10 +66,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  table{
-    table-layout: fixed;
-    width: 100%;
-  }
-</style>
