@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>SupportMatch</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/d2fff909d3.js" crossorigin="anonymous"></script>
@@ -9,7 +10,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag('favicon.ico') %>
   </head>
-
   <body>
     <%= render 'layouts/header' %>
     <div class="wrapper">
@@ -20,15 +20,3 @@
     <%= render 'layouts/footer' %>
   </body>
 </html>
-
-
-<style>
-  .wrapper{
-    display: flex;
-    flex-direction: column;
-    min-height: 80vh;
-  }
-  main{
-    margin-top: 10px;
-  }
-</style>

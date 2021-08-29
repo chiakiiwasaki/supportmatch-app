@@ -5,7 +5,7 @@
     <h4>Users</h4>
     <table cellpadding="10" class='table table-hover table-inverse'>
       <thead>
-        <tr style="background-color: #EEEEEE;">
+        <tr style="background-color: #EEEEEE;" class="tr-border">
           <th>会員ID</th>
           <th colspan="2">名前</th>
           <th colspan="2">メールアドレス</th>
@@ -16,7 +16,7 @@
       </thead>
       <tbody>
     　　<% @users.each do |user| %>
-        <tr>
+        <tr class="tr-border">
           <td><%= user.id %></td>
           <td colspan="2"><%= link_to truncate(user.name, length:25), admins_user_path(user), class: "btn btn-link" %></td>
           <td colspan="2"><%= truncate(user.email, length:25) %></td>
@@ -36,16 +36,3 @@
     </div>
   </div>
 </div>
-
-
-<style>
-  table{
-    table-layout: fixed;
-    width: 100%;
-  }
-  tr{
-    border-width: 1px 0;
-    border-color: #CCCCCC;
-    border-style: solid;
-  }
-</style>

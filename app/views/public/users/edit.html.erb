@@ -32,32 +32,26 @@
     <br>
     <br>
     <%= form_with model: @user, local: true do |f| %>
-      <table cellpadding="10">
+      <table cellpadding="10" class="rowtable">
         <tr>
           <td>
-            <div class="item-image text-center">
+            <div class="edit-user-img text-center">
               <%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
             </div>
           </td>
-          <td><%= f.attachment_field :image %></td>
-          <td></td>
-          <td></td>
+          <td colspan="3"><%= f.attachment_field :image %></td>
         </tr>
         <tr>
           <td>表示名</td>
-          <td><%= f.text_field :name %></td>
-          <td></td>
-          <td></td>
+          <td colspan="3"><%= f.text_field :name, class: "text-form" %></td>
         </tr>
         <tr>
           <td>メールアドレス</td>
-          <td><%= f.text_field :email %></td>
-          <td></td>
-          <td></td>
+          <td colspan="3"><%= f.text_field :email, class: "text-form" %></td>
         </tr>
         <tr>
           <td>一言</td>
-          <td colspan="3"><%= f.text_area :introduction, :size => "45" %></td>
+          <td colspan="3"><%= f.text_area :introduction, :size => "45", class: "text-form" %></td>
         </tr>
         <tr>
           <td></td>
@@ -70,18 +64,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  .user-img{
-    height: 80px;
-    width: 80px;
-    object-fit: cover;
-  }
-  table{
-    table-layout: fixed;
-    width: 100%;
-  }
-  .item-image{
-    height: 150px;
-  }
-</style>

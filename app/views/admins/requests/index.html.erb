@@ -5,7 +5,7 @@
     <h4>Requests</h4>
     <table cellpadding="10" class='table table-hover table-inverse'>
       <thead>
-        <tr style="background-color: #EEEEEE;">
+        <tr style="background-color: #EEEEEE;" class="tr-border">
           <th colspan="2"><%= sort_link(@q, :created_at, "依頼日", default_order: :desc) %></th>
           <th colspan="2">依頼者</th>
           <th colspan="2">物品名</th>
@@ -16,7 +16,7 @@
       </thead>
       <tbody>
         <% @requests.each do |request| %>
-        <tr>
+        <tr class="tr-border">
           <td colspan="2"><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), admins_request_path(request), class: "btn btn-link admins_request_#{request.id}" %></td>
           <td colspan="2"><%= truncate(request.user.name) %></td>
           <td colspan="2"><%= truncate(request.item) %></td>
@@ -38,17 +38,3 @@
     </div>
   </div>
 </div>
-
-
-<style>
-  table{
-    table-layout: fixed;
-    width: 100%;
-    margin-top: 20px;
-  }
-  tr{
-    border-width: 1px 0;
-    border-color: #CCCCCC;
-    border-style: solid;
-  }
-</style>

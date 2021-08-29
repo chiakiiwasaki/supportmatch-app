@@ -5,50 +5,51 @@
       <h4>Request Info</h4>
       <div class='text-right buttons'><%= link_to '一覧へ', requests_path, class: "btn btn-outline-secondary" %></div>
       <table cellpadding="10" class="show-request-table">
-        <tr>
+        <tr class="tr-border">
           <th>依頼人</th>
           <td colspan="3"><%= @request.user.name %></td>
         </tr>
-        <tr>
+        <tr class="tr-border">
           <th>依頼日</th>
           <td colspan="3"><%= @request.created_at.strftime("%Y-%m-%d %H:%M") %></td>
         </tr>
-        <tr>
+        <tr class="tr-border">
           <th>緊急性</th>
           <td colspan="3"><%= @request.urgency_i18n %></td>
         </tr>
-        <tr>
+        <tr class="tr-border">
           <th>種別</th>
           <td colspan="3"><%= @request.genre_i18n %></td>
         </tr>
-        <tr>
+        <tr class="tr-border">
           <th>物品名</th>
           <td colspan="3"><%= @request.item %></td>
         </tr>
-        <tr>
+        <tr class="tr-border">
           <th>数量</th>
           <td colspan="3"><%= @request.quantity %></td>
         </tr>
-        <tr>
+        <tr class="tr-border">
           <th>コメント</th>
           <td colspan="3"><%= @request.comment %></td>
         </tr>
-        <tr>
+        <tr class="tr-border">
           <th>郵便番号</th>
           <td colspan="3"><%= @request.postal_code %></td>
         </tr>
-        <tr>
+        <tr class="tr-border">
           <th>宛先</th>
           <td colspan="3"><%= @request.location %></td>
         </tr>
-        <tr>
+        <tr class="tr-border">
           <th>宛名</th>
           <td colspan="3"><%= @request.name %></td>
-        </tr>        <tr>
+        </tr>
+        <tr class="tr-border">
           <th>電話番号</th>
           <td colspan="3"><%= @request.phone_number %></td>
         </tr>
-        <tr>
+        <tr class="tr-border">
           <th>メールアドレス</th>
           <td colspan="3"><%= @request.email %></td>
         </tr>
@@ -72,15 +73,3 @@
     </div>
   </div>
 </div>
-
-
-<style>
-  .show-request-table{
-    width: 70%;
-  }
-  tr{
-    border-width: 1px 0;
-    border-color: #CCCCCC;
-    border-style: solid;
-  }
-</style>

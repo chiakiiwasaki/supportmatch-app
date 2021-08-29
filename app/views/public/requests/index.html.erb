@@ -6,7 +6,7 @@
     <div class="text-right buttons"><%= link_to '依頼する', new_request_path, class: "btn btn-outline-secondary" %></div>
     <br>
     <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';" class="text-right">
-      <a style="cursor:pointer;"><i class="fas fa-search"></i></a>
+      <a style="cursor:pointer;"><i class="fas fa-search loupe"></i></a>
     </div>
     <div id="open" style="display:none;clear:both;">
       <div class="text-right search-btn">
@@ -23,9 +23,9 @@
         <% end %>
       </div>
     </div>
-    <table cellpadding="10" class='table table-hover table-inverse jscroll'>
+    <table cellpadding="10" class='table table-hover table-inverse jscroll request-index-table'>
       <thead>
-        <tr style="background-color: #EEEEEE;">
+        <tr style="background-color: #EEEEEE;" class="tr-border">
           <th colspan="2"><%= sort_link(@q, :created_at, "依頼日", default_order: :desc) %></th>
           <th colspan="2">物品名</th>
           <th colspan="2">数量</th>
@@ -36,7 +36,7 @@
       <tbody>
         <% @requests.each do |request| %>
           <% if request.user.is_valid? %>
-          <tr>
+          <tr class="tr-border">
             <td colspan="2"><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), request_path(request), class: "btn btn-link request_#{request.id}" %></td>
             <td colspan="2"><%= truncate(request.item) %></td>
             <td colspan="2"><%= truncate(request.quantity) %></td>
@@ -50,22 +50,3 @@
     </div>
   </div>
 </div>
-
-
-<style>
-  table{
-    margin-top: 20px;
-  }
-  tr{
-    border-width: 1px 0;
-    border-color: #CCCCCC;
-    border-style: solid;
-  }
-  .search-btn{
-    margin-top: 10px;
-  }
-  i{
-    color: #75c5b5;
-    font-size: 30px;
-  }
-</style>
