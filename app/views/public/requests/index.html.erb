@@ -12,7 +12,7 @@
       <div class="text-right search-btn">
         <%= search_form_for @q, url: search_requests_path do |f| %>
           <%= f.label :genre, '<種別>' %>
-          <%= f.radio_button :genre, '' %>指定しない&emsp;
+          <%= f.radio_button :genre_eq, '' %>指定しない&emsp;
           <%= f.radio_button :genre_eq, 0 %><%= f.label :other, "その他" %>&emsp;
           <%= f.radio_button :genre_eq, 1 %><%= f.label :sanitary, "生理用品" %>&emsp;
           <%= f.radio_button :genre_eq, 2 %><%= f.label :cloth, "下着・衣類" %>&emsp;
