@@ -13,10 +13,14 @@
   <br>
   <div class='row'>
     <div class='col-md-10 col-lg-10'>
-      <form>
-        <label>新規メッセージ(Enterで送信):</label><br>
-        <input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room="<%= @room.id %>" size="45">
-       </form>
+      <% if @entries.find{ |e| e.user_id != current_user.id }.user.is_valid %>
+        <form>
+          <label>新規メッセージ(Enterで送信):</label><br>
+          <input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room="<%= @room.id %>" size="45">
+        </form>
+      <% else %>
+        <p><%= @entries.find{ |e| e.user_id != current_user.id }.user.name %>さんとのチャットは終了しました</p>
+      <% end %>
     </div>
   </div>
 </div>

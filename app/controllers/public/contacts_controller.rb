@@ -15,7 +15,6 @@ class Public::ContactsController < ApplicationController
 
   def thanks
     @contact = Contact.new(params[:contact].permit(:name, :email, :message))
-    # ContactMailer.received_email(@contact).deliver
     ContactMailer.send_email(@contact).deliver
     render 'thanks'
   end
