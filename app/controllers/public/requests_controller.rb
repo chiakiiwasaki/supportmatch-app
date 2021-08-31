@@ -41,7 +41,7 @@ class Public::RequestsController < ApplicationController
         @entry = Entry.new
       end
     end
-    impressionist(@request, nil, unique: [:session_hash.to_s])
+    impressionist(@request, nil, unique: [:impressionable_id, :ip_address])
   end
 
   def edit
