@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   namespace :admins do
     get 'requests/her_requests/:id' => 'requests#her_requests', as: 'her_requests'
-    resources :requests, only: [:index, :show, :edit, :update]
+    resources :requests, only: [:index, :show, :edit, :update] do
+      collection do
+        get 'search'
+      end
+    end
     get 'posts/her_posts/:id' => 'posts#her_posts', as: 'her_posts'
     resources :posts, only: [:index, :show, :update] do
       resources :post_comments, only: [:update]

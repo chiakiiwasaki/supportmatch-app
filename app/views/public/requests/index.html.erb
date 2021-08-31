@@ -5,13 +5,18 @@
     <h4>Requests</h4>
     <div class="text-right buttons"><%= link_to '依頼する', new_request_path, class: "btn btn-outline-secondary" %></div>
     <br>
-    <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';" class="text-right">
+    <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';" class="text-left">
       <a style="cursor:pointer;"><i class="fas fa-search loupe"></i></a>
     </div>
     <div id="open" style="display:none;clear:both;">
-      <div class="text-right search-btn">
+      <div class="text-left search-btn">
         <%= search_form_for @q, url: search_requests_path do |f| %>
-          <%= f.label :genre, '<種別>' %>
+          <%= f.label :urgency_eq, '<緊急性>' %>
+          <%= f.radio_button :urgency_eq, '' %>指定しない&emsp;
+          <%= f.radio_button :urgency_eq, 0 %><%= f.label :high, "高い" %>&emsp;
+          <%= f.radio_button :urgency_eq, 1 %><%= f.label :middole, "やや高い" %>&emsp;
+          <%= f.radio_button :urgency_eq, 2 %><%= f.label :low, "低い" %><br>
+          <%= f.label :genre_eq, '<種別>' %>
           <%= f.radio_button :genre_eq, '' %>指定しない&emsp;
           <%= f.radio_button :genre_eq, 0 %><%= f.label :other, "その他" %>&emsp;
           <%= f.radio_button :genre_eq, 1 %><%= f.label :sanitary, "生理用品" %>&emsp;

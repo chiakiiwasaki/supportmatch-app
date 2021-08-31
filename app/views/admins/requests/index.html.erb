@@ -3,7 +3,30 @@
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
     <h4>Requests</h4>
-    <table cellpadding="10" class='table table-hover table-inverse rowtable-index'>
+    <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';" class="text-left">
+      <a style="cursor:pointer;"><i class="fas fa-search loupe"></i></a>
+    </div>
+    <div id="open" style="display:none;clear:both;">
+      <div class="text-left search-btn">
+        <%= search_form_for @q, url: search_admins_requests_path do |f| %>
+          <%= f.label :urgency_eq, '<緊急性>' %>
+          <%= f.radio_button :urgency_eq, '' %>指定しない&emsp;
+          <%= f.radio_button :urgency_eq, 0 %><%= f.label :high, "高い" %>&emsp;
+          <%= f.radio_button :urgency_eq, 1 %><%= f.label :middole, "やや高い" %>&emsp;
+          <%= f.radio_button :urgency_eq, 2 %><%= f.label :low, "低い" %><br>
+          <%= f.label :genre_eq, '<種別>' %>
+          <%= f.radio_button :genre_eq, '' %>指定しない&emsp;
+          <%= f.radio_button :genre_eq, 0 %><%= f.label :other, "その他" %>&emsp;
+          <%= f.radio_button :genre_eq, 1 %><%= f.label :sanitary, "生理用品" %>&emsp;
+          <%= f.radio_button :genre_eq, 2 %><%= f.label :cloth, "下着・衣類" %>&emsp;
+          <%= f.radio_button :genre_eq, 3 %><%= f.label :hygiene, "衛生用品・化粧品" %>&emsp;
+          <%= f.radio_button :genre_eq, 4 %><%= f.label :child, "子ども用品" %><br>
+          <%= f.search_field :item_or_location_or_name_or_postal_code_or_comment_cont, placeholder: "(例)神奈川県" %>
+          <%= f.submit '検索', class: "btn btn-sm btn-outline-secondary" %>
+        <% end %>
+      </div>
+    </div>
+    <table cellpadding="10" class='table table-hover table-inverse request-index-table rowtable-index'>
       <thead>
         <tr style="background-color: #EEEEEE;" class="tr-border">
           <th colspan="2"><%= sort_link(@q, :created_at, "依頼日", default_order: :desc) %></th>
