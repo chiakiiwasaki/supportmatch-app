@@ -4,7 +4,7 @@
     <div class='col-md-12 col-lg-12'>
     <h4><%= @user.name %>'s Posts</h4>
     <% if @posts.exists? %>
-    <table cellpadding="10" class='table table-hover table-inverse'>
+    <table cellpadding="10" class='table table-hover table-inverse rowtable-index'>
       <thead>
         <tr style="background-color: #EEEEEE;" class="tr-border">
           <th colspan="2">投稿日</th>
@@ -19,10 +19,10 @@
         <% @posts.each do |post| %>
         <tr class="tr-border">
           <td colspan="2"><%= link_to post.created_at.strftime("%Y-%m-%d %H:%M"), admins_post_path(post), class: "btn btn-link request_#{post.id}" %></td>
-          <td colspan="2"><%= truncate(post.title) %></td>
-          <td colspan="2"><%= truncate(post.content) %></td>
-          <td><%= post.post_comments.where(is_valid: true).count %></td>
-          <td><%= post.favorites.count %></td>
+          <td colspan="2" data-title="タイトル"><%= truncate(post.title) %></td>
+          <td colspan="2" data-title="内容"><%= truncate(post.content) %></td>
+          <td data-title="コメント数"><%= post.post_comments.where(is_valid: true).count %></td>
+          <td data-title="いいね数"><%= post.favorites.count %></td>
         </tr>
         <% end %>
         <% end %>

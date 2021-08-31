@@ -3,7 +3,7 @@
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
     <h4>Results</h4>
-    <table cellpadding="10" class='table table-hover table-inverse'>
+    <table cellpadding="10" class='table table-hover table-inverse rowtable-index'>
       <thead>
         <tr class="tr-border" style="background-color: #EEEEEE;">
           <th colspan="1">依頼日</th>
@@ -16,9 +16,9 @@
         <% @requests.each do |request| %>
         <tr class="tr-border">
           <td><%= request.created_at.strftime("%Y-%m-%d %H:%M") %></td>
-          <td><%= truncate(request.item) %></td>
-          <td><%= truncate(request.quantity) %></td>
-          <td><%= request.urgency_i18n %></td>
+          <td data-title="物品名"><%= truncate(request.item) %></td>
+          <td data-title="数量"><%= truncate(request.quantity) %></td>
+          <td data-title="緊急性"><%= request.urgency_i18n %></td>
         </tr>
         <% end %>
       </tbody>
@@ -27,3 +27,7 @@
     </div>
   </div>
 </div>
+
+<style>
+
+</style>

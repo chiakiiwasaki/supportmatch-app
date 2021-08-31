@@ -4,7 +4,7 @@
     <div class='col-md-12 col-lg-12'>
     <h4>Followers</h4>
     <% if @users.exists? %>
-    <table cellpadding="10" class='table table-hover table-inverse'>
+    <table cellpadding="10" class='table table-hover table-inverse rowtable-index'>
       <thead>
         <tr style="background-color: #EEEEEE;" class="tr-border">
           <th>名前</th>
@@ -16,10 +16,10 @@
       <tbody>
     　　<% @users.each do |user| %>
         <tr class="tr-border">
-          <td><%= link_to user.name, admins_user_path(user), class: "btn btn-link" %></td>
-          <td><%= user.introduction %></td>
-          <td><%= link_to user.requests.count, admins_her_requests_path(user), class: "btn btn-link" %></td>
-          <td><%= link_to user.posts.where(is_valid: true).count, admins_her_posts_path(user), class: "btn btn-link" %></td>
+          <td data-title="名前"><%= link_to user.name, admins_user_path(user), class: "btn btn-link" %></td>
+          <td data-title="一言"><%= user.introduction %></td>
+          <td data-title="依頼数"><%= link_to user.requests.count, admins_her_requests_path(user), class: "btn btn-link" %></td>
+          <td data-title="投稿数"><%= link_to user.posts.where(is_valid: true).count, admins_her_posts_path(user), class: "btn btn-link" %></td>
         </tr>
         <% end %>
       </tbody>

@@ -93,7 +93,6 @@ main{
   margin-top: 10px;
 }
 
-
 .buttons{
   margin-top: 10px;
 }
@@ -117,7 +116,6 @@ table{
 th, td{
   overflow-wrap : break-word;
 }
-
 
 // public/homes/top
 .top{
@@ -144,7 +142,7 @@ th, td{
   position: absolute;
   color: white;
   top: 70%;
-  left: 39%;
+  left: 40%;
   font-size: 40px;
   animation-name: fade;
   animation-duration: 5s;
@@ -251,15 +249,13 @@ h1{
   justify-content: center;
 }
 
-
 // public/homes/result
 .pagination{
   justify-content: center;
   padding-top: 10px;
 }
 
-
-// public/users/show
+// public/users/show, admins/users/show
 .user-table{
   margin-top: 50px;
 }
@@ -275,7 +271,7 @@ h1{
   width: 100%;
 }
 
-.flowers{
+.flowers, .admin-flowers{
   margin-top: 100px;
   display: flex;
   flex-direction: row;
@@ -283,7 +279,7 @@ h1{
   justify-content: space-between;
 }
 
-.flowers img{
+.flowers img, .admin-flowers img{
   height: 180px;
   width: 180px;
   border-radius: 130px;
@@ -292,13 +288,13 @@ h1{
 	position: relative;
 }
 
-.flowers .img p{
+.flowers .img p, .admin-flowers .img p{
 	text-align: center;
 	padding-top: 80px;
 	color: #fff;
 }
 
-.mask {
+.mask, .admin-mask{
 	width: 180px;
 	height:	180px;
   border-radius: 130px;
@@ -308,19 +304,26 @@ h1{
 	opacity: 0;
 	background-color:	rgba(0,0,0,0.4);
 	-webkit-transition:	all 0.2s ease;
-	transition:		all 0.2s ease;
+	transition:	all 0.2s ease;
 }
 
-.flowers .img:hover .mask {
+.flowers .img:hover .mask, .admin-flowers .img:hover .admin-mask{
 	opacity: 1;
 }
 
+// admins/users/show
+.admin-user-table{
+  margin-top: 30px;
+}
+
+.admin-flowers{
+  margin-top: 50px;
+}
 
 // public/users/edit
 .edit-user-img{
   height: 150px;
 }
-
 
 // public/rooms/show
 .balloon {
@@ -374,18 +377,15 @@ h1{
   font-size: 30px;
 }
 
-
 // public/requests/show
 .show-request-table{
   width: 70%;
 }
 
-
 // public/requests/index
 .request-index-table, .post-index-table{
   margin-top: 20px;
 }
-
 
 // public/requests/index
 .search-btn{
@@ -396,7 +396,6 @@ h1{
   color: #75c5b5;
   font-size: 30px;
 }
-
 
 // public/posts/show
 h5, .text{
@@ -409,7 +408,6 @@ h5, .text{
   object-fit: cover;
 }
 
-
 // public/contacts/thanks
 .thanx{
   text-align:center;
@@ -417,56 +415,70 @@ h5, .text{
 }
 
 
-// admins/users/show
-.admin-user-table{
-  margin-top: 30px;
-}
+@media screen and (max-width:1024px) {
+  // public/users/show, admins/users/show
+  .flowers .img p, .admin-flowers .img p{
+    z-index: 1;
+  }
 
-.admin-flowers{
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-}
+  .mask, .admin-mask {
+	  opacity: initial;
+	  background-color:	initial;
+	  -webkit-transition:	initial;
+	  transition: initial;
+  }
 
-.admin-flowers img{
-  height: 180px;
-  width: 180px;
-  border-radius: 130px;
-  object-fit: cover;
-  overflow:	hidden;
-	 position: relative;
-}
-
-.admin-flowers .img p{
-	text-align: center;
-	padding-top: 80px;
-	color: #fff;
-}
-
-.admin-mask {
-	width: 180px;
-	height:	180px;
-  border-radius: 130px;
-	position: absolute;
-	top: 0;
-	left: 15;
-	opacity: 0;
-	background-color:	rgba(0,0,0,0.4);
-	-webkit-transition:	all 0.2s ease;
-	transition:		all 0.2s ease;
-}
-
-.admin-flowers .img:hover .admin-mask {
-	opacity: 1;
+  .flowers .img:hover .mask, .admin-flowers .img:hover .admin-mask{
+	  opacity: initial;
+  }
 }
 
 
-@media screen and (max-width:576px) {
-  // ヘッダー
+@media screen and (max-width:768px) {
+  // public/homes/top
+  .top p{
+    top: 60%;
+    left: 31%;
+  }
+
+  // public/homes/about
+  .about p{
+    top: 60%;
+    left: 44%;
+  }
+
+  .flowers, .admin-flowers{
+    margin-top: 50px;
+  }
+
+  .flowers img, .admin-flowers img{
+    position: absolute;
+    height: 135px;
+    width: 135px;
+   }
+
+  .blank{
+    width: 135px;
+    height: 135px;
+    background-color: white;
+  }
+
+  .flowers .img p, .admin-flowers .img p{
+    padding-top: 55px;
+  }
+
+  .mask, .admin-mask{
+    height: 135px;
+    width: 135px;
+    position: relative;
+  }
+}
+
+
+@media screen and (max-width:540px) {
+    // ヘッダー
   .logo{
-    font-size: 35px;
+    font-size: 30px;
    }
 
   .navbar-collapse li{
@@ -475,7 +487,7 @@ h5, .text{
 
   // 共通
   h4{
-    font-size: 35px;
+    font-size: 30px;
   }
 
   th, td{
@@ -483,12 +495,34 @@ h5, .text{
     font-size: 18px;
   }
 
+  .rowtable-index,
+  .rowtable-index td,
+  .rowtable-index th{
+    text-align: center;
+  }
+
+  .rowtable-index thead th{
+    display: none;
+  }
+
+  .rowtable-index td:first-child{
+    background: #EEEEEE;
+    display: block;
+  }
+
+  .rowtable-index td{
+    display: block;
+  }
+
+  .rowtable-index td[data-title]::before{
+    color: gray;
+    content: attr(data-title) " : ";
+    display: inline;
+  }
 
   // public/homes/top
   .top p{
-    font-size: 35px;
-    left: 20%;
-    top: 60%;
+  left: 24%;
   }
 
   .top-content{
@@ -512,7 +546,6 @@ h5, .text{
   p{
     font-size: 18px;
   }
-
 
   .btn{
     font-size: 18px;
@@ -556,21 +589,28 @@ h5, .text{
     margin-right: 38%;
   }
 
-  // public/users/show
-  .flowers{
+  // public/users/show, admin/users/show
+  .flowers, .admin-flowers{
     flex-wrap: wrap;
   }
-  .flowers img{
+
+  .flowers img, .admin-flowers img{
     position: absolute;
     height: 170px;
     width: 170px;
    }
 
-  .flowers .img p{
+  .blank{
+    width: 170px;
+    height: 170px;
+    background-color: white;
+  }
+
+  .flowers .img p, .admin-flowers .img p{
     padding-top: 80px;
   }
 
-  .mask{
+  .mask, .admin-mask{
     height: 170px;
     width: 170px;
     position: relative;
@@ -578,8 +618,8 @@ h5, .text{
 
   .user-img{
     margin-bottom: 30px;
-    height: 170px;
-    width: 170px;
+    height: 100px;
+    width: 100px;
   }
 
   // public/users/edit
@@ -592,7 +632,7 @@ h5, .text{
   }
 
   .text-form{
-    width: 350px;
+    width: 300px;
   }
 
   // public/sessions/new
@@ -616,29 +656,140 @@ h5, .text{
     display: block;
   }
 
-  // admin/users/show
-  .admin-flowers{
-    flex-wrap: wrap;
-  }
-
-  .admin-flowers img{
-    position: absolute;
-    height: 170px;
-    width: 170px;
-  }
-
-  .admin-flowers .img p{
-    padding-top: 80px;
-  }
-
-  .admin-mask{
-    height: 170px;
-    width: 170px;
-    position: relative;
-  }
-
   // admin/posts/show
   .post-btn{
     margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width:425px) {
+  // public/homes/top
+  .top p{
+    font-size: 35px;
+    left: 20%;
+    top: 60%;
+  }
+  .text-form{
+    width: 240px;
+  }
+}
+
+
+@media screen and (max-width:414px) {
+  .flowers, .admin-flowers{
+    margin-top: 50px;
+  }
+
+  .flowers img, .admin-flowers img{
+    position: absolute;
+    height: 120px;
+    width: 120px;
+   }
+
+  .blank{
+    width: 120px;
+    height: 120px;
+    background-color: white;
+  }
+
+  .flowers .img p, .admin-flowers .img p{
+    padding-top: 50px;
+  }
+
+  .mask, .admin-mask{
+    height: 120px;
+    width: 120px;
+    position: relative;
+  }
+}
+
+
+@media screen and (max-width:375px) {
+  .flowers, .admin-flowers{
+    margin-top: 50px;
+  }
+
+  .flowers img, .admin-flowers img{
+    position: absolute;
+    height: 160px;
+    width: 160px;
+   }
+
+  .blank{
+    width: 160px;
+    height: 160px;
+    background-color: white;
+  }
+
+  .flowers .img p, .admin-flowers .img p{
+    padding-top: 70px;
+  }
+
+  .mask, .admin-mask{
+    height: 160px;
+    width: 160px;
+    position: relative;
+  }
+}
+
+
+@media screen and (max-width:320px) {
+  .flowers, .admin-flowers{
+    margin-top: 50px;
+  }
+
+  .flowers img, .admin-flowers img{
+    position: absolute;
+    height: 140px;
+    width: 140px;
+   }
+
+  .blank{
+    width: 140px;
+    height: 140px;
+    background-color: white;
+  }
+
+  .flowers .img p, .admin-flowers .img p{
+    padding-top: 60px;
+  }
+
+  .mask, .admin-mask{
+    height: 140px;
+    width: 140px;
+    position: relative;
+  }
+
+  // public/users/edit, admins/users/edit
+  .user-img-btn{
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width:280px) {
+  .flowers, .admin-flowers{
+    margin-top: 50px;
+  }
+
+  .flowers img, .admin-flowers img{
+    position: absolute;
+    height: 120px;
+    width: 120px;
+   }
+
+  .blank{
+    width: 120px;
+    height: 120px;
+    background-color: white;
+  }
+
+  .flowers .img p, .admin-flowers .img p{
+    padding-top: 50px;
+  }
+
+  .mask, .admin-mask{
+    height: 120px;
+    width: 120px;
+    position: relative;
   }
 }

@@ -31,7 +31,9 @@
               <%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "user-img" %>
             </div>
           </td>
-          <td colspan="3"><%= f.attachment_field :image %></td>
+          <td colspan="3">
+            <%= f.attachment_field :image, class: "user-img-btn" %>
+          </td>
         </tr>
         <tr>
           <td>会員ID</td>
