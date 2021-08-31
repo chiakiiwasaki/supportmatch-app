@@ -1,6 +1,6 @@
 class Admins::RequestsController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_q, only: [:index]
+  before_action :set_q, only: [:index, :search]
 
   def index
     # @requests = Request.all
@@ -28,6 +28,11 @@ class Admins::RequestsController < ApplicationController
     @user = User.find(params[:id])
     @requests = Request.where(user_id: @user.id)
   end
+
+  def search
+    @results = @q.result
+  end
+
 
   private
     def set_q
