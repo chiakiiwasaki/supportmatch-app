@@ -5,7 +5,7 @@
     <div class='col-md-12 col-lg-12'>
     <h4>Chats</h4>
     <% if @entries.exists? %>
-    <table cellpadding="10" class='table table-hover table-inverse'>
+    <table cellpadding="10" class='table table-hover table-inverse rowtable-index'>
       <thead>
         <tr style="background-color: #EEEEEE;" class="tr-border">
           <th colspan="1">更新日</th>
@@ -16,9 +16,8 @@
       <tbody>
         <% @entries.each do |entry| %>
         <tr class="tr-border">
-          <td><%= entry.room.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
-          <td><%= truncate(entry.room.entries.find{ |e| e.user_id != current_user.id }.user.name) %>さん</td>
-          <!--<td><%#= entry.room.messages.content.order(created_at: :desc).limit(1) %></td>-->
+          <td data-title="更新日"><%= entry.room.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+          <td data-title="名前"><%= truncate(entry.room.entries.find{ |e| e.user_id != current_user.id }.user.name) %>さん</td>
           <td><%= link_to 'チャットへ', room_path(entry.room), class: "btn btn-link request_#{entry.room.id}" %></td>
         </tr>
         <% end %>
