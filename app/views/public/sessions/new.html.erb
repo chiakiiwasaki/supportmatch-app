@@ -43,10 +43,9 @@
   <div class='row'>
     <div class='col-md-2 col-lg-2'></div>
     <div class='col-md-10 col-lg-10'>
-      <%= link_to image_tag("google2.png"), user_google_oauth2_omniauth_authorize_path, method: :post %><br><br>
-      <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
-      <div id="fb-root"></div>
-      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v11.0&appId=978618102712862&autoLogAppEvents=1" nonce="Ib0FbqJk"></script>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+        <p class="login"><%= link_to "Login with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %></p>
+      <% end %>
     </div>
   </div>
   <br>
@@ -56,5 +55,3 @@
     <div class='col-md-10 col-lg-10'><p class="login"><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %></p></div>
   </div>
 </div>
-
-
