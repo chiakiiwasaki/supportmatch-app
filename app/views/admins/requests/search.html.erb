@@ -1,10 +1,9 @@
-<div class="belt"></div>
+<div class="belt-admin"></div>
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
     <h4>Search</h4>
     <% if @results.exists? %>
-      <div class="text-right buttons"><%= link_to '一覧へ戻る', requests_path, class: "btn btn-outline-secondary" %></div>
       <table cellpadding="10" class='table table-hover table-inverse request-index-table rowtable-index'>
         <thead>
           <tr style="background-color: #EEEEEE;" class="tr-border">
@@ -30,7 +29,6 @@
       </div>
     <% else %>
       <p>該当する依頼はありません</p>
-      <div class="text-right buttons"><%= link_to '一覧へ戻る', requests_path, class: "btn btn-outline-secondary" %></div>
     <% end %>
   </div>
 </div>
