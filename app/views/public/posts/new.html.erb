@@ -2,24 +2,7 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-    <% if @post.errors.any? %>
-      <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-        <strong>入力内容にエラーがあります</strong>
-        <ul>
-          <% @post.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-      <script type="text/javascript">
-        $(document).ready(function() {
-          history.pushState('', '', location.href + '/new')
-        });
-      </script>
-    <% end %>
+    <%= render 'error/new_message', model: @post %>
     <h4>New Post</h4>
     <%= form_with model: @post, local: true do |f| %>
       <table cellpadding="10" class="rowtable">
