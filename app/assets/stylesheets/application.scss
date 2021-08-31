@@ -416,6 +416,19 @@ h5, .text{
 
 
 @media screen and (max-width:1024px) {
+  // public/homes/top
+  .top p{
+    left: 36%;
+    top: 60%;
+  }
+
+  // public/homes/about
+  .about p{
+    left: 45%;
+    top: 60%;
+  }
+
+
   // public/users/show, admins/users/show
   .flowers .img p, .admin-flowers .img p{
     z-index: 1;
@@ -447,6 +460,7 @@ h5, .text{
     left: 44%;
   }
 
+  // public/users/show, admins/users/show
   .flowers, .admin-flowers{
     margin-top: 50px;
   }
@@ -525,8 +539,8 @@ h5, .text{
   left: 24%;
   }
 
-  .top-content{
-    margin-bottom: 50px;
+  .top img{
+    height: 600px;
   }
 
   .top-content p{
@@ -535,13 +549,17 @@ h5, .text{
 
   .top-content2{
     flex-wrap: wrap;
-    margin-bottom: 50px;
   }
 
   .content-left, .content-center, .content-right{
     width: 100%;
     margin-bottom: 50px;
   }
+
+  .icons{
+    height: 200px;
+  }
+
 
   p{
     font-size: 18px;
@@ -558,14 +576,19 @@ h5, .text{
     font-size: 35px;
   }
 
+  .about img{
+    height: 600px;
+  }
+
+
   .about-content{
     margin-top: 50px;
   }
 
   .vision{
-  margin-top: 30px;
-  margin-bottom: 100px;
-	columns: 1;
+    margin-top: 30px;
+    margin-bottom: 30px;
+	  columns: 1;
   }
 
   h1{
@@ -578,15 +601,15 @@ h5, .text{
   }
 
   .usages-icons{
-    height: 250px;
+    height: 200px;
   }
 
   .about-btn{
-    margin-right: 36%;
+    margin-right: 41%;
   }
 
   .about-btn-more{
-    margin-right: 38%;
+    margin-right: 43%;
   }
 
   // public/users/show, admin/users/show
@@ -669,6 +692,18 @@ h5, .text{
     left: 20%;
     top: 60%;
   }
+
+  // public/homes/about
+    .about-btn{
+    margin-right: 36%;
+  }
+
+  .about-btn-more{
+    margin-right: 38%;
+  }
+
+
+  // 共通
   .text-form{
     width: 240px;
   }
@@ -676,6 +711,12 @@ h5, .text{
 
 
 @media screen and (max-width:414px) {
+  // public/homes/top
+  .top-content{
+    margin-bottom: 50px;
+  }
+
+  // public/users/show, admins/users/show
   .flowers, .admin-flowers{
     margin-top: 50px;
   }
@@ -705,6 +746,25 @@ h5, .text{
 
 
 @media screen and (max-width:375px) {
+  // public/homes/top
+  .top img{
+    height: 550px;
+  }
+
+  .icons{
+    height: 150px;
+  }
+
+  // public/homes/about
+  .about img{
+    height: 550px;
+  }
+
+  .usages-icons{
+    height: 150px;
+  }
+
+  // public/users/show, admins/users/show
   .flowers, .admin-flowers{
     margin-top: 50px;
   }
@@ -734,6 +794,38 @@ h5, .text{
 
 
 @media screen and (max-width:320px) {
+  // public/homes/top
+  .top img{
+    height: 430px;
+  }
+
+  .top p{
+    left: 10%;
+  }
+
+  .top-content p{
+    font-size: 18px;
+  }
+
+  // public/homes/about
+  .about img{
+    height: 430px;
+  }
+
+  .about p{
+    left: 35%;
+  }
+
+  .about-btn{
+    margin-right: 32%;
+  }
+
+  .about-btn-more{
+    margin-right: 35%;
+  }
+
+
+  // public/users/show, admins/users/show
   .flowers, .admin-flowers{
     margin-top: 50px;
   }
@@ -767,6 +859,26 @@ h5, .text{
 }
 
 @media screen and (max-width:280px) {
+    // public/homes/top
+  .top p{
+    left: 5%;
+  }
+
+  // public/homes/about
+  .about p{
+    left: 33%;
+  }
+
+  .about-btn{
+    margin-right: 30%;
+  }
+
+  .about-btn-more{
+    margin-right: 34%;
+  }
+
+
+  // public/users/show, admins/users/show
   .flowers, .admin-flowers{
     margin-top: 50px;
   }
