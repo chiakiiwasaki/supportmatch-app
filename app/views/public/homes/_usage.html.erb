@@ -1,6 +1,6 @@
 <div class='row usages'>
   <div class='col-md-4 col-lg-4'>
-    <div class="usages-icons">
+    <div class="usages-icons fade-in fade-in-up">
       <span class="fa-stack fa-3x">
         <i class="fa fa-circle fa-stack-2x"></i>
         <i class="fa fa-hand-paper fa-stack-1x fa-inverse"></i>
@@ -19,10 +19,9 @@
     <div class="text-right"><%= link_to 'Request', new_request_path, class: "btn btn-outline-secondary about-btn" %></div>
   </div>
 </div>
-
 <div class='row usages'>
   <div class='col-md-4 col-lg-4'>
-    <div class="usages-icons">
+    <div class="usages-icons fade-in fade-in-up">
       <span class="fa-stack fa-3x">
         <i class="fa fa-circle fa-stack-2x"></i>
         <i class="fa fa-hand-holding-heart fa-stack-1x fa-inverse"></i>
@@ -40,10 +39,9 @@
     <div class="text-right"><%= link_to 'Support', requests_path, class: "btn btn-outline-secondary about-btn" %></div>
   </div>
 </div>
-
 <div class='row usages'>
   <div class='col-md-4 col-lg-4'>
-    <div class="usages-icons">
+    <div class="usages-icons fade-in fade-in-up">
       <span class="fa-stack fa-3x">
         <i class="fa fa-circle fa-stack-2x"></i>
         <i class="fa fa-people-carry fa-stack-1x fa-inverse"></i>
@@ -61,3 +59,19 @@
     <div class="text-right"><%= link_to 'More', result_path, class: "btn btn-outline-secondary about-btn-more" %></div>
   </div>
 </div>
+
+
+<script>
+  let fadeInTarget = document.querySelectorAll('.fade-in');
+  window.addEventListener('scroll', () => {
+    for (let i = 0; i < fadeInTarget.length; i++){
+      const rect = fadeInTarget[i].getBoundingClientRect().top;
+      const scroll = window.pageYOffset || document.documentElement.scrollTop;
+      const offset = rect + scroll;
+      const windowHeight = window.innerHeight;
+      if (scroll > offset - windowHeight + 150) {
+        fadeInTarget[i].classList.add('scroll-in');
+      }
+    }
+  });
+</script>
