@@ -444,6 +444,11 @@ h5, .text{
   .flowers .img:hover .mask, .admin-flowers .img:hover .admin-mask{
 	  opacity: initial;
   }
+
+  // public/registrations/new
+  .regard{
+    margin-top: 50px;
+  }
 }
 
 
@@ -677,6 +682,11 @@ h5, .text{
 
   .show-request-table th, .show-request-table td{
     display: block;
+  }
+
+  // public/registrations/new
+  .regard{
+    margin-top: initial;
   }
 
   // admin/posts/show
