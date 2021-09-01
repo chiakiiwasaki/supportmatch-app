@@ -16,7 +16,7 @@
       <% if @entries.find{ |e| e.user_id != current_user.id }.user.is_valid %>
         <form>
           <label>新規メッセージ(Enterで送信):</label><br>
-          <input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room="<%= @room.id %>" size="45">
+          <input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room="<%= @room.id %>" size="45" class="text-form">
         </form>
       <% else %>
         <p><%= @entries.find{ |e| e.user_id != current_user.id }.user.name %>さんとのチャットは終了しました</p>
