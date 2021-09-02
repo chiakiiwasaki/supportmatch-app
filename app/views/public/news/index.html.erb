@@ -1,0 +1,54 @@
+<h1 class="text-center">「防災」関連ニュース️</h1>
+<p class="text-center">Powered by <a href="https://newsapi.org">News API</a></p>
+<br>
+<div class="articles">
+  <% @articles["articles"].each do |article| %>
+    <div class="article">
+      <div class="article-title">
+        <%= link_to article["title"], article["url"] %>
+      </div>
+      <div class="articles-wrapper">
+        <div class="date text-right">
+          <%= article["publishedAt"] %>
+        </div>
+        <div class="text-right">
+          <%= article["source"]["name"]%>
+        </div>
+        <div class="image">
+          <%= image_tag article["urlToImage"],:size =>'240x160' %>
+        </div>
+        <div>
+          <%= article["description"] %>
+        </div >
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<style>
+.articles {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.articles-wrapper {
+  padding: 5px;
+}
+
+.article-title {
+  padding: 10px;
+}
+
+.image {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.article {
+  width: 30%;
+  padding: 10px;
+  margin: 20px 15px;
+  border: 1px solid #EEEEEE;
+}
+</style>

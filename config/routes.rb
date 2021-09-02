@@ -57,6 +57,7 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
+    get "news/index"
   end
 
   devise_for :users, controllers: {
