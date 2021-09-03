@@ -6,6 +6,7 @@ class Public::PostCommentsController < ApplicationController
     @post_comment = PostComment.new(post_comment_params)
     @post_comment.user_id = current_user.id
     @post_comment.post_id = @post.id
+    @post_comment.score = Language.get_data(post_comment_params[:content])
     if @post_comment.save
       @post_comment = PostComment.new
     else
