@@ -1,0 +1,9 @@
+<% if post.user == current_user %>
+  <br>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12 text-right'>
+      <%= link_to '投稿を削除', post_path(post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-danger destroy_post_#{post.id}", local: true %>
+    </div>
+  </div>
+<% end %>
+<br>

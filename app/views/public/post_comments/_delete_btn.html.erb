@@ -1,0 +1,7 @@
+<% if post_comment.user == current_user %>
+  <div class='row'>
+    <div class='col-md-12 col-lg-12 text-right'>
+      <%= link_to '削除', post_post_comment_path(post_comment.post, post_comment), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-danger destroy_post_comment_#{post_comment.id}", remote: true %>
+    </div>
+  </div>
+<% end %>
