@@ -23,6 +23,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
+    @bad_words = ["死", "しね", "殺", "ばか", "気持ち悪い", "うっせえ"]
   end
 
   def destroy

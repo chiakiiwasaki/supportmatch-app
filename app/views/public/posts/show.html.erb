@@ -13,7 +13,7 @@
       <%= link_to '一覧へ戻る', posts_path, class: "btn btn-outline-secondary" %>
     </div>
   </div>
-  <% if @post.score <= 0.3 %>
+  <% if @post.score <= 0.3 || @bad_words.any?{ |m| @post.content.include? m } %>
     <div onclick="obj=document.getElementById('open-post').style; obj.display=(obj.display=='none')?'block':'none';" class="text-left">
       <a style="cursor:pointer;" class="btn btn-link">この投稿はセンシティブな内容を含む可能性があります。表示しますか？</a>
     </div>
@@ -26,7 +26,7 @@
     <%= render 'public/posts/content', post: @post %>
   <% end %>
   <div id="post_comments">
-    <%= render 'public/post_comments/index', post: @post %>
+    <%= render 'public/post_comments/index', post: @post, bad_words: @bad_words %>
   </div>
   <br>
   <br>
