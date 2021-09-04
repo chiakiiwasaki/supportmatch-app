@@ -21,3 +21,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+  $(".parent").on('click', function(){
+    let element = $(this).next()
+    element.toggle()
+  })
+})

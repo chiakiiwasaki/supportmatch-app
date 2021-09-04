@@ -7,6 +7,7 @@ class Public::PostCommentsController < ApplicationController
     @post_comment.user_id = current_user.id
     @post_comment.post_id = @post.id
     @post_comment.score = Language.get_data(post_comment_params[:content])
+    @bad_words = ["死", "しね", "殺", "ばか", "気持ち悪い", "うっせえ"]
     if @post_comment.save
       @post_comment = PostComment.new
     else
@@ -17,6 +18,7 @@ class Public::PostCommentsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:post_id])
+    @bad_words = ["死", "しね", "殺", "ばか", "気持ち悪い", "うっせえ"]
     post_comment = @post.post_comments.find(params[:id])
     post_comment.destroy
   end
