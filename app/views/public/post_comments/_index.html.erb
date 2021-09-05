@@ -1,22 +1,18 @@
-<% post.post_comments.each do |post_comment| %>
+<% post_comments.each_with_index do |post_comment, idx| %>
   <% if post_comment.is_valid %>
-  <hr>
-    <% if post_comment.user == current_user %>
-      <div class='row'>
-        <div class='col-md-12 col-lg-12 text-right'>
-          <%= link_to '削除', post_post_comment_path(post_comment.post, post_comment), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-danger destroy_post_comment_#{post_comment.id}", remote: true %>
-        </div>
+    <hr>
+    <% if post_comment.score <= 0.3 || bad_words.any?{ |m| post_comment.content.include? m } %>
+      <div id="open_comment_<%= idx %>" class="parent text-left">
+      <!--<div class="parent" onclick="obj=document.getElementById('open_comment_<%#= idx %>').style; obj.display=(obj.display=='none')?'block':'none';" class="text-left">-->
+        <a class="btn btn-link">このコメントはセンシティブな内容を含む可能性があります。表示しますか？</a>
       </div>
+      <div class="hidden" id="open_comment_<%= idx %>">
+        <%= render 'public/post_comments/delete_btn', post_comment: post_comment %>
+        <%= render 'public/post_comments/content', post_comment: post_comment %>
+      </div>
+    <% else %>
+      <%= render 'public/post_comments/delete_btn', post_comment: post_comment %>
+      <%= render 'public/post_comments/content', post_comment: post_comment %>
     <% end %>
-    <div class='row'>
-      <div class='col-md-2 col-lg-2 d-flex align-items-center justify-content-center'>
-        <%= attachment_image_tag post_comment.user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "post-user-img" %>
-      </div>
-      <div class='col-md-10 col-lg-10'>
-        <span><strong><%= post_comment.user.name %></strong></span>
-        <span class="date"><%= post_comment.created_at.strftime("%Y-%m-%d %H:%M")%></span>
-        <p class="text"><%= post_comment.content %></p>
-      </div>
-    </div>
   <% end %>
 <% end %>

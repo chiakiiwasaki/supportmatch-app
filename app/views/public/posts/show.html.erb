@@ -13,33 +13,20 @@
       <%= link_to '一覧へ戻る', posts_path, class: "btn btn-outline-secondary" %>
     </div>
   </div>
-  <% if @post.user == current_user %>
-    <br>
-    <div class='row'>
-      <div class='col-md-12 col-lg-12 text-right'>
-        <%= link_to '投稿を削除', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-danger destroy_post_#{@post.id}", local: true %>
-      </div>
+  <% if @post.score <= 0.3 || @bad_words.any?{ |m| @post.content.include? m } %>
+    <div onclick="obj=document.getElementById('open-post').style; obj.display=(obj.display=='none')?'block':'none';" class="text-left">
+      <a class="btn btn-link">この投稿はセンシティブな内容を含む可能性があります。表示しますか？</a>
     </div>
+    <div id="open-post" style="display:none;clear:both;">
+      <%= render 'public/posts/delete_btn', post: @post %>
+      <%= render 'public/posts/content', post: @post %>
+    </div>
+  <% else %>
+    <%= render 'public/posts/delete_btn', post: @post %>
+    <%= render 'public/posts/content', post: @post %>
   <% end %>
-  <br>
-  <h5><strong><%= @post.title %></strong></h5>
-  <br>
-  <div class='row'>
-    <div class='col-md-2 col-lg-2 d-flex align-items-center justify-content-center'>
-      <%= attachment_image_tag @post.user, :image, format: 'jpeg', fallback: "no_image.jpg", class: "post-user-img" %>
-    </div>
-    <div class='col-md-10 col-lg-10'>
-      <span><strong><%= @post.user.name %></strong></span>
-      <span class="date"><%= @post.created_at.strftime("%Y-%m-%d %H:%M")%></span>
-      <p class="text"><%= @post.content %></p>
-      <div id="likes_buttons_<%= @post.id %>">
-        <%= render 'public/favorites/btn', post: @post %>
-      </div>
-    </div>
-  </div>
-
   <div id="post_comments">
-    <%= render 'public/post_comments/index', post: @post %>
+    <%= render 'public/post_comments/index', post_comments: @post.post_comments, bad_words: @bad_words %>
   </div>
   <br>
   <br>
@@ -59,8 +46,3 @@
   </div>
   <% end %>
 </div>
-
-
-<style>
-
-</style>

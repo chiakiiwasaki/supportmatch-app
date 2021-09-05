@@ -8,6 +8,7 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    @post.score = Language.get_data(post_params[:content])
     if @post.save
       redirect_to posts_path
     else
@@ -22,6 +23,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
+    @bad_words = ["死", "しね", "殺", "ばか", "気持ち悪い", "うっせえ"]
   end
 
   def destroy

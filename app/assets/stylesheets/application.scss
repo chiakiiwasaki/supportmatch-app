@@ -145,7 +145,7 @@ th, td{
   left: 40%;
   font-size: 40px;
   animation-name: fade;
-  animation-duration: 5s;
+  animation-duration: 1s;
  }
 
 .top-content{
@@ -212,7 +212,7 @@ i{
   left: 46%;
   font-size: 40px;
   animation-name: fade;
-  animation-duration: 3s;
+  animation-duration: 1s;
 }
 
 .about img{
@@ -914,4 +914,8 @@ h5, .text{
     width: 120px;
     position: relative;
   }
+}
+
+.hidden{
+ display: none;
 }
