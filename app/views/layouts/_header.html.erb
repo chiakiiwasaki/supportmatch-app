@@ -15,19 +15,19 @@
           </ul>
         </div>
       <% else %>
-        <a class="navbar-brand logo" href="/"><span>SupportMatch</span></a>
+        <a class="navbar-brand logo" href="/", data-turbolinks="false"><span>SupportMatch</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
-            <li><%= link_to 'About', about_path, class: 'nav-link' %></li>
+            <li><%= link_to 'About', about_path, data: {"turbolinks" => false}, class: 'nav-link' %></li>
             <li><%= link_to 'Mypage', users_my_page_path, class: 'nav-link' %></li>
             <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
             <li><%= link_to 'Contact', contact_path, class: 'nav-link' %></li>
           <% else %>
-            <li><%= link_to 'About', about_path, class: 'nav-link' %></li>
+            <li><%= link_to 'About', about_path, data: {"turbolinks" => false}, class: 'nav-link' %></li>
             <li><%= link_to 'Signup', new_user_registration_path, class: 'nav-link' %></li>
             <li><%= link_to 'Login', new_user_session_path, class: 'nav-link' %></li>
             <li><%= link_to 'Contact', contact_path, class: 'nav-link' %></li>
