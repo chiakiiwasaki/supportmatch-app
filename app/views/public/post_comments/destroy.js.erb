@@ -1,1 +1,15 @@
-$('#post_comments').html("<%= j(render partial: 'public/post_comments/index', locals: {post: @post}) %>");
+$('#post_comments').html("<%= j(render partial: 'public/post_comments/index', locals: {post_comments: @post.post_comments, bad_words: @bad_words}) %>");
+
+$(function(){
+  $(".parent").off('click', function(){
+    let element = $(this).next()
+    element.toggle()
+  })
+})
+
+$(function(){
+  $(".parent").on('click', function(){
+    let element = $(this).next()
+    element.toggle()
+  })
+})
