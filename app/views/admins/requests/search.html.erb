@@ -17,7 +17,7 @@
         <tbody>
           <% @results.each do |request| %>
           <tr class="tr-border">
-            <td><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), request_path(request), class: "btn btn-link request_#{request.id}" %></td>
+            <td><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), admins_request_path(request), class: "btn btn-link request_#{request.id}" %></td>
             <td data-title="物品名"><%= request.item %></td>
             <td data-title="数量"><%= request.quantity %></td>
             <td data-title="緊急性"><%= request.urgency_i18n %></td>
