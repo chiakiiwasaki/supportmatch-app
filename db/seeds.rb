@@ -129,6 +129,35 @@ User.create!(name: "かつまた",
              introduction: "神奈川県に住んでいます",
              created_at: "2021-08-01 00:00")
 
+User.create!(name: "あこ",
+             email: "ako@email.com",
+             password: "aaaaaa",
+             introduction: "東京都に住んでいます",
+             created_at: "2021-08-01 00:00")
+
+User.create!(name: "いとう",
+             email: "ito@email.com",
+             password: "aaaaaa",
+             introduction: "神奈川県に住んでいます",
+             created_at: "2021-08-01 00:00")
+
+User.create!(name: "かとう",
+             email: "kato@email.com",
+             password: "aaaaaa",
+             introduction: "千葉県に住んでいます",
+             created_at: "2021-08-01 00:00")
+
+User.create!(name: "佐藤",
+             email: "sato@email.com",
+             password: "aaaaaa",
+             introduction: "埼玉県に住んでいます",
+             created_at: "2021-08-01 00:00")
+
+User.create!(name: "中田",
+             email: "nakata@email.com",
+             password: "aaaaaa",
+             introduction: "神奈川県に住んでいます",
+             created_at: "2021-08-01 00:00")
 
 Request.create!(user_id: 7,
                 urgency: 1,
@@ -256,3 +285,34 @@ Request.create!(user_id: 1,
                 name: "鈴木花子",
                 genre: 2,
                 created_at: "2021-08-25 10:36")
+
+Request.create!(user_id: 4,
+                urgency: 0,
+                item: "屋内用テント",
+                quantity: "1",
+                location: "神奈川県内",
+                comment: "避難所でプライバシー確保のため使用したいです。",
+                genre: 0,
+                created_at: "2021-08-26 13:02")
+
+Request.create!(user_id: 21,
+                urgency: 0,
+                item: "ベビーフード",
+                quantity: "5日分",
+                genre: 4,
+                created_at: "2021-08-27 07:05")
+
+Request.create!(user_id: 22,
+                urgency: 0,
+                item: "化粧水",
+                quantity: "1本",
+                location: "神奈川避難所",
+                genre: 3,
+                created_at: "2021-08-27 14:31")
+
+Request.create!(user_id: 23,
+                urgency: 0,
+                item: "生理用品",
+                quantity: "10パック",
+                genre: 1,
+                created_at: "2021-08-28 10:10")
