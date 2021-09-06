@@ -36,6 +36,7 @@ class Public::PostsController < ApplicationController
   def her_posts
     @user = User.find(params[:id])
     @posts = Post.where(user_id: @user.id, is_valid: true)
+    @bad_words = ["死", "しね", "殺", "ばか", "気持ち悪い", "うっせえ"]
   end
 
 

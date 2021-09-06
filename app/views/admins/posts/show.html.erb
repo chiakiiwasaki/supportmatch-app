@@ -4,7 +4,7 @@
     <% if @post.is_valid? %>
       <div class='col-md-12 col-lg-12 text-right buttons'>
           <br>
-          <div style="color: gray">＊感情分析スコア0.3以下は表示前アラートを設定中</div>
+          <div style="color: gray">＊感情分析スコア0.3以下またはセンシティブな投稿は表示前アラートを設定中</div>
           <br>
           <span><%= @post.score %></span>&emsp;
           <span><strong>表示中</strong></span>&emsp;
@@ -13,7 +13,7 @@
     <% else %>
       <div class='col-md-12 col-lg-12 text-right buttons'>
           <br>
-          <div style="color: gray">＊感情分析スコア0.3以下は表示前アラートを設定中</div>
+          <div style="color: gray">＊感情分析スコア0.3以下またはセンシティブな投稿は表示前アラートを設定中</div>
           <br>
           <span><%= @post.score %></span>&emsp;
           <span><strong>非表示中</strong></span>&emsp;
