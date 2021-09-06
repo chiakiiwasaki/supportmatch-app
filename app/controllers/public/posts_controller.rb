@@ -18,6 +18,7 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.where(is_valid: true).joins(:user).where("users.is_valid")
+    @bad_words = ["死", "しね", "殺", "ばか", "気持ち悪い", "うっせえ"]
   end
 
   def show

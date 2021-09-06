@@ -10,7 +10,7 @@
   <% end %>
   <div class='row'>
     <div class='col-md-12 col-lg-12 text-right buttons'>
-      <%= link_to '一覧へ戻る', posts_path, class: "btn btn-outline-secondary" %>
+      <%= link_to '一覧へ', posts_path, class: "btn btn-outline-secondary" %>
     </div>
   </div>
   <% if @post.score <= 0.3 || @bad_words.any?{ |m| @post.content.include? m } %>
