@@ -19,8 +19,13 @@
         <tr class="tr-border">
           <td colspan="2"><%= link_to post.created_at.strftime("%Y-%m-%d %H:%M"), post_path(post), data: {"turbolinks" => false}, class: "btn btn-link request_#{post.id}" %></td>
           <td colspan="2" data-title="投稿者"><%= truncate(post.user.name) %></td>
-          <td colspan="3" data-title="タイトル"><%= truncate(post.title) %></td>
-          <td colspan="3" data-title="内容"><%= truncate(post.content) %></td>
+          <% if post.score <= 0.3 || @bad_words.any?{ |m| post.content.include? m } %>
+            <td colspan="3" data-title="タイトル">-</td>
+            <td colspan="3" data-title="内容">-</td>
+          <% else %>
+            <td colspan="3" data-title="タイトル"><%= truncate(post.title) %></td>
+            <td colspan="3" data-title="内容"><%= truncate(post.content) %></td>
+          <% end %>
           <td colspan="2">
             <div id="likes_buttons_<%= post.id %>"><%= render 'public/favorites/btn', post: post %></div>
           </td>
