@@ -3,11 +3,11 @@
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
     <h4>Requests</h4>
-    <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';" class="text-left">
+    <div class="open">
       <a style="cursor:pointer;"><i class="fas fa-search loupe"></i></a>
     </div>
-    <div id="open" style="display:none;clear:both;">
-      <div class="text-left search-btn">
+    <div class="hidden">
+      <div class="search-btn">
         <%= search_form_for @q, url: search_admins_requests_path do |f| %>
           <%= f.label :urgency_eq, '<緊急性>' %>
           <%= f.radio_button :urgency_eq, '' %>指定しない&emsp;
