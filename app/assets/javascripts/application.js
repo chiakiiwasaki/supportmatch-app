@@ -28,3 +28,42 @@ $(function(){
     element.toggle()
   })
 })
+
+
+$(function(){
+  $(".openpost").on('click', function(){
+    let element = $(this).next()
+    element.toggle()
+  })
+})
+
+
+$(function(){
+  $(".arrowbtn").on('click', function(){
+    $('html, body').animate(
+      { scrollTop: $('body').get(0).scrollHeight}
+      )
+  })
+})
+
+
+$(function(){
+  $(".open").on('click', function(){
+    let element = $(this).next()
+    element.toggle()
+  })
+})
+
+
+$(function(){
+  $(window).scroll(function(){
+    const wHeight = $(window).height()
+    const scrollAmount = $(window).scrollTop()
+    $(".scrollanime").each(function(){
+      const targetPosition = $(this).offset().top
+      if(scrollAmount > targetPosition - wHeight + 40){
+        $(this).addClass("fadeInUp")
+      }
+    })
+  })
+})

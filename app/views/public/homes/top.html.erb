@@ -14,7 +14,7 @@
   <div class="row">
     <div class="col-md-12 col-lg-12 top-content2">
       <div class="content-left">
-        <div class="icons fade-in fade-in-up">
+        <div class="icons scrollanime downup">
           <span class="fa-stack fa-3x">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-hands-helping fa-stack-1x fa-inverse"></i>
@@ -23,12 +23,12 @@
         <p>「支援が必要」な方は依頼内容をお寄せください。「支援したい」方は依頼一覧をご覧いただき、依頼者とチャット上でやり取りをした上で、伝えられた希望配送先にご郵送ください。</p>
         <br>
         <div class="text-center">
-          <span style="margin-right: 30px;"><%= link_to 'Support', requests_path, class: "btn btn-outline-secondary" %></span>
+          <span style="margin-right: 30px;"><%= link_to 'Support', requests_path, data: {"turbolinks" => false}, class: "btn btn-outline-secondary" %></span>
           <span><%= link_to 'Request', new_request_path, class: "btn btn-outline-secondary" %></span>
         </div>
       </div>
       <div class="content-center">
-        <div class="icons fade-in fade-in-up">
+        <div class="icons scrollanime downup">
           <span class="fa-stack fa-3x">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-comments fa-stack-1x fa-inverse"></i>
@@ -42,7 +42,7 @@
         </div>
       </div>
       <div class="content-right">
-        <div class="icons fade-in fade-in-up">
+        <div class="icons scrollanime downup">
           <span class="fa-stack fa-3x">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
@@ -57,19 +57,3 @@
     </div>
   </div>
 </div>
-
-
-<script>
-  let fadeInTarget = document.querySelectorAll('.fade-in');
-  window.addEventListener('scroll', () => {
-    for (let i = 0; i < fadeInTarget.length; i++){
-      const rect = fadeInTarget[i].getBoundingClientRect().top;
-      const scroll = window.pageYOffset || document.documentElement.scrollTop;
-      const offset = rect + scroll;
-      const windowHeight = window.innerHeight;
-      if (scroll > offset - windowHeight + 150) {
-        fadeInTarget[i].classList.add('scroll-in');
-      }
-    }
-  });
-</script>

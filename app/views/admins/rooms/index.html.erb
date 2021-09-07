@@ -17,7 +17,7 @@
         <tr class="tr-border">
           <td data-title="更新"><%= entry.room.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
           <td data-title="名前"><%= entry.room.entries.find{ |e| e.user_id != @user.id }.user.name %>さん</td>
-          <td><%= link_to 'チャットへ', admins_her_room_path(entry.room), class: "btn btn-link request_#{entry.room.id}" %></td>
+          <td><%= link_to 'チャットへ', admins_her_room_path(entry.room), data: {"turbolinks" => false}, class: "btn btn-link request_#{entry.room.id}" %></td>
         </tr>
         <% end %>
       </tbody>

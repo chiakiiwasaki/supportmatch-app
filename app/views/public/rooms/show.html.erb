@@ -4,7 +4,7 @@
   <% if @entries.find{ |e| e.user_id != current_user.id }.user.introduction.present? %>
     <div class="balloon"><%= @entries.find{ |e| e.user_id != current_user.id }.user.introduction %></div><br>
   <% end %>
-  <button type="button" class="btn btn-link" onclick="hoge();">
+  <button class="btn btn-link arrowbtn">
     <i class="fa fa-arrow-down arrow"></i>
   </button>
   <div id="messages">
@@ -24,12 +24,3 @@
     </div>
   </div>
 </div>
-
-
-<script>
-function hoge(){
-  var elm = document.documentElement;
-  var bottom = elm.scrollHeight - elm.clientHeight;
-  window.scroll(0, bottom);
-}
-</script>
