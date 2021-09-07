@@ -14,10 +14,10 @@
     </div>
   </div>
   <% if @post.score <= 0.3 || @bad_words.any?{ |m| @post.content.include? m } %>
-    <div onclick="obj=document.getElementById('open-post').style; obj.display=(obj.display=='none')?'block':'none';" class="text-left">
+    <div class="openpost">
       <a class="btn btn-link">この投稿はセンシティブな内容を含む可能性があります。表示しますか？</a>
     </div>
-    <div id="open-post" style="display:none;clear:both;">
+    <div class="hidden">
       <%= render 'public/posts/delete_btn', post: @post %>
       <%= render 'public/posts/content', post: @post %>
     </div>

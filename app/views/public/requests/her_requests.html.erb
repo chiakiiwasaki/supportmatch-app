@@ -2,41 +2,39 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-    <h4><%= @user.name %>'s Requests</h4>
-    <% if @requests.exists? %>
-    <div class="jscroll">
-    <table cellpadding="10" class='table table-hover table-inverse rowtable-index'>
-      <thead>
-        <tr style="background-color: #EEEEEE;" class="tr-border">
-          <th colspan="2">依頼日</th>
-          <th colspan="2">物品名</th>
-          <th colspan="2">数量</th>
-          <th>緊急性</th>
-          <th>ステータス</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @requests.each do |request| %>
-        <tr class="tr-border">
-          <td colspan="2"><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), request_path(request), class: "btn btn-link request_#{request.id}" %></td>
-          <td colspan="2" data-title="物品名"><%= truncate(request.item) %></td>
-          <td colspan="2" data-title="数量"><%= truncate(request.quantity) %></td>
-          <td data-title="緊急性"><%= request.urgency_i18n %></td>
-          <td>
-            <% if request.is_done %>
-              <div style="color: gray;">お届け完了</div>
-            <% else %>
-              <div>依頼中</div>
+      <h4><%= @user.name %>'s Requests</h4>
+      <% if @requests.exists? %>
+        <table cellpadding="10" class='table table-hover table-inverse rowtable-index'>
+          <thead>
+            <tr style="background-color: #EEEEEE;" class="tr-border">
+              <th colspan="2">依頼日</th>
+              <th colspan="2">物品名</th>
+              <th colspan="2">数量</th>
+              <th>緊急性</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @requests.each do |request| %>
+              <tr class="tr-border">
+                <td colspan="2"><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), request_path(request), class: "btn btn-link request_#{request.id}" %></td>
+                <td colspan="2" data-title="物品名"><%= truncate(request.item) %></td>
+                <td colspan="2" data-title="数量"><%= truncate(request.quantity) %></td>
+                <td data-title="緊急性"><%= request.urgency_i18n %></td>
+                <td>
+                  <% if request.is_done %>
+                    <div style="color: gray;">お届け完了</div>
+                  <% else %>
+                    <div>依頼中</div>
+                  <% end %>
+                </td>
+              </tr>
             <% end %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-    </div>
-    <% else %>
-      <p>依頼はありません</p>
-    <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p>依頼はありません</p>
+      <% end %>
     </div>
   </div>
 </div>

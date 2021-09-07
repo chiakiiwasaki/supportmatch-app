@@ -2,8 +2,7 @@
   <% if post_comment.is_valid %>
     <hr>
     <% if post_comment.score <= 0.3 || bad_words.any?{ |m| post_comment.content.include? m } %>
-      <div id="open_comment_<%= idx %>" class="parent text-left">
-      <!--<div class="parent" onclick="obj=document.getElementById('open_comment_<%#= idx %>').style; obj.display=(obj.display=='none')?'block':'none';" class="text-left">-->
+      <div id="open_comment_<%= idx %>" class="parent">
         <a class="btn btn-link">このコメントはセンシティブな内容を含む可能性があります。表示しますか？</a>
       </div>
       <div class="hidden" id="open_comment_<%= idx %>">
