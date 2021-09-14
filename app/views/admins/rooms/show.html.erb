@@ -1,9 +1,14 @@
 <div class="belt-admin"></div>
 <div class='container'>
-  <h4>Chatting with <%= @entries.find{ |e| e.user_id != @user.id }.user.name %></h4>
-  <% if @entries.find{ |e| e.user_id != @user.id }.user.introduction.present? %>
-    <div class="balloon"><%= @entries.find{ |e| e.user_id != @user.id }.user.introduction %></div><br>
-  <% end %>
+  <h4>
+    Chat Room of
+    <% @entries.each_with_index do |e, idx| %>
+      <%= e.user.name %>
+      <% if idx == 0 %>
+        and
+      <% end %>
+    <% end %>
+  </h4>
   <button class="btn btn-link arrowbtn">
     <i class="fa fa-arrow-down arrow"></i>
   </button>

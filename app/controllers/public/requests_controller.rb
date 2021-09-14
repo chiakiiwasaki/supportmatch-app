@@ -69,7 +69,7 @@ class Public::RequestsController < ApplicationController
   def destroy
     @request = Request.find(params[:id])
     @request.destroy
-    redirect_to requests_path
+    redirect_to her_requests_path(@request.user)
   end
 
 
