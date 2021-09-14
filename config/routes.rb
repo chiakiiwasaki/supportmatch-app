@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
   devise_for :admins, controllers: {
-    sessions: 'admins/sessions',
-    # passwords: 'admins/passwords',
-    # registrations: 'admins/registrations'
+    sessions: 'admins/sessions'
   }
 
   namespace :admins do
@@ -61,7 +59,6 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
     sessions: 'public/sessions',
-    # passwords: 'public/passwords',
     registrations: 'public/registrations',
     omniauth_callbacks: 'public/omniauth_callbacks'
   }
