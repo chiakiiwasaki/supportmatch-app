@@ -46,6 +46,11 @@
 - 被災者のニーズを把握したい行政・企業など
 
 
+## 機能一覧
+|  機能  |  非ログイン時  |  ログイン時  |
+| ----- | ------------ | --------  | 
+|  TD   |    TD        |   Td      |
+
 ## 設計書
 
 - UI Flows（https://drive.google.com/file/d/1R4oIfvaZ4VUC5iA95cqhyqkUk1CoF44e/view?usp=sharing）
