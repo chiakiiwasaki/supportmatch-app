@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
-  devise_for :admins, controllers: {
-    sessions: 'admins/sessions'
-  }
+  devise_for :admins, skip: :all
+  devise_scope :admin do
+    get 'admins/sign_in' => 'admins/sessions#new', as: 'new_admin_session'
+    post 'admins/sign_in' => 'admins/sessions#create', as: 'admin_session'
+    delete 'admins/sign_out' => 'admins/sessions#destroy', as: 'destroy_admin_session'
+  end
+
 
   namespace :admins do
     get 'requests/her_requests/:id' => 'requests#her_requests', as: 'her_requests'
@@ -57,13 +61,15 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users, controllers: {
-    sessions: 'public/sessions',
-    registrations: 'public/registrations',
+  devise_for :users, skip: [:sessions, :registrations, :passwords], controllers: {
     omniauth_callbacks: 'public/omniauth_callbacks'
   }
-
   devise_scope :user do
+    get 'users/sign_up' => 'public/registrations#new', as: 'new_user_registration'
+    post 'users' => 'public/registrations#create', as: 'user_registration'
+    get 'users/sign_in' => 'public/sessions#new', as: 'new_user_session'
+    post 'users/sign_in' => 'public/sessions#create', as: 'user_session'
+    delete 'users/sign_out' => 'public/sessions#destroy', as: 'destroy_user_session'
     post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
 
