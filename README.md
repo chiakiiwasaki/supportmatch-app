@@ -1,5 +1,5 @@
 # SupportMatch
-**SupportMatch**は災害時の「支援したい」「支援が必要」をつなぐ**女性向け**サービスです。
+**SupportMatchは災害時の「支援したい」「支援が必要」をつなぐ女性向けサービスです。**
 
 ![6BC8132C-55D5-47B6-BF96-71823A816A86_1_105_c](https://user-images.githubusercontent.com/83531077/133929370-6db3845f-2a9c-459f-93e0-34f169943808.jpeg)
 
