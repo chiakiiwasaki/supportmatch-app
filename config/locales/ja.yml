@@ -29,3 +29,10 @@ ja:
       post:
         title: 'タイトル'
         content: '内容'
+  views:
+    pagination:
+        first: <i class="fas fa-angle-double-left page-arrows"></i>
+        last: <i class="fas fa-angle-double-right page-arrows"></i>
+        previous: <i class="fas fa-angle-left page-arrows"></i>
+        next: <i class="fas fa-angle-right page-arrows"></i>
+        truncate: "..."

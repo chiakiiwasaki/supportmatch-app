@@ -2,37 +2,38 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-    <h4>Posts</h4>
-    <div class="text-right buttons"><%= link_to '投稿する', new_post_path, class: "btn btn-outline-secondary" %></div>
-    <table cellpadding="10" class='table table-hover table-inverse post-index-table rowtable-index'>
-      <thead>
-        <tr style="background-color: #EEEEEE;" class="tr-border">
-          <th colspan="2">投稿日</th>
-          <th colspan="2">投稿者</th>
-          <th colspan="3">タイトル</th>
-          <th colspan="3">内容</th>
-          <th colspan="2"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @posts.each do |post| %>
-        <tr class="tr-border">
-          <td colspan="2"><%= link_to post.created_at.strftime("%Y-%m-%d %H:%M"), post_path(post), data: {"turbolinks" => false}, class: "btn btn-link request_#{post.id}" %></td>
-          <td colspan="2" data-title="投稿者"><%= truncate(post.user.name) %></td>
-          <% if post.score <= 0.3 || @bad_words.any?{ |m| post.content.include? m } %>
-            <td colspan="3" data-title="タイトル">-</td>
-            <td colspan="3" data-title="内容">-</td>
-          <% else %>
-            <td colspan="3" data-title="タイトル"><%= truncate(post.title) %></td>
-            <td colspan="3" data-title="内容"><%= truncate(post.content) %></td>
+      <h4>Posts</h4>
+      <div class="text-right buttons"><%= link_to '投稿する', new_post_path, class: "btn btn-outline-secondary" %></div>
+      <table cellpadding="10" class='table table-hover table-inverse post-index-table rowtable-index'>
+        <thead>
+          <tr style="background-color: #EEEEEE;" class="tr-border">
+            <th colspan="2">投稿日</th>
+            <th colspan="2">投稿者</th>
+            <th colspan="3">タイトル</th>
+            <th colspan="3">内容</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @posts.each do |post| %>
+            <tr class="tr-border">
+              <td colspan="2"><%= link_to post.created_at.strftime("%Y-%m-%d %H:%M"), post_path(post), data: {"turbolinks" => false}, class: "btn btn-link request_#{post.id}" %></td>
+              <td colspan="2" data-title="投稿者"><%= truncate(post.user.name) %></td>
+              <% if post.score <= 0.3 || @bad_words.any?{ |m| post.content.include? m } %>
+                <td colspan="3" data-title="タイトル">-</td>
+                <td colspan="3" data-title="内容">-</td>
+              <% else %>
+                <td colspan="3" data-title="タイトル"><%= truncate(post.title) %></td>
+                <td colspan="3" data-title="内容"><%= truncate(post.content) %></td>
+              <% end %>
+              <td colspan="2">
+                <div id="likes_buttons_<%= post.id %>"><%= render 'public/favorites/btn', post: post %></div>
+              </td>
+            </tr>
           <% end %>
-          <td colspan="2">
-            <div id="likes_buttons_<%= post.id %>"><%= render 'public/favorites/btn', post: post %></div>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+      <div class="pagination"><%= paginate @posts %></div>
     </div>
   </div>
 </div>

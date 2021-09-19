@@ -3,7 +3,7 @@ class Admins::RoomsController < ApplicationController
 
   def index
     @user = User.find(params[:id])
-    @entries = Entry.where(user_id: @user)
+    @entries = Entry.where(user_id: @user).page(params[:page])
   end
 
   def show

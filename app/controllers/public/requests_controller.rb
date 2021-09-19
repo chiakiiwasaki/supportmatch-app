@@ -18,7 +18,7 @@ class Public::RequestsController < ApplicationController
   end
 
   def index
-    @requests = @q.result.where(is_done: false).joins(:user).where("users.is_valid")
+    @requests = @q.result.where(is_done: false).joins(:user).where("users.is_valid").page(params[:page])
   end
 
   def show
@@ -59,11 +59,11 @@ class Public::RequestsController < ApplicationController
 
   def her_requests
     @user = User.find(params[:id])
-    @requests = Request.where(user_id: @user.id)
+    @requests = Request.where(user_id: @user.id).page(params[:page])
   end
 
   def search
-    @results = @q.result
+    @results = @q.result.page(params[:page])
   end
 
   def destroy

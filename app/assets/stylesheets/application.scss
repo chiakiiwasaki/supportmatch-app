@@ -277,6 +277,24 @@ h1{
   padding-top: 10px;
 }
 
+.pagination>li>a {
+  border: none;
+  color: gray;
+}
+
+.pagination>.active>a {
+  background: gray;
+}
+
+.page-item.active .page-link {
+  background-color: gray;
+}
+
+.page-arrows{
+  color: gray;
+}
+
+
 // public/users/show, admins/users/show
 .user-table{
   margin-top: 50px;
