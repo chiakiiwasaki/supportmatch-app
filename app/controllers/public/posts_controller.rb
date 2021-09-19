@@ -17,7 +17,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.where(is_valid: true).joins(:user).where("users.is_valid")
+    @posts = Post.where(is_valid: true).joins(:user).where("users.is_valid").page(params[:page])
     @bad_words = ["死", "しね", "殺", "ばか", "気持ち悪い", "うっせえ"]
   end
 
@@ -35,7 +35,7 @@ class Public::PostsController < ApplicationController
 
   def her_posts
     @user = User.find(params[:id])
-    @posts = Post.where(user_id: @user.id, is_valid: true)
+    @posts = Post.where(user_id: @user.id, is_valid: true).page(params[:page])
     @bad_words = ["死", "しね", "殺", "ばか", "気持ち悪い", "うっせえ"]
   end
 

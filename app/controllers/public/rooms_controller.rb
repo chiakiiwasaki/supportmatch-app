@@ -20,6 +20,6 @@ class Public::RoomsController < ApplicationController
   end
 
   def index
-    @entries = Entry.where(user_id: current_user)
+    @entries = Entry.where(user_id: current_user).page(params[:page])
   end
 end
