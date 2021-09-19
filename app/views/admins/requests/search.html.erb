@@ -2,33 +2,34 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-12 col-lg-12'>
-    <h4>Search</h4>
-    <% if @results.exists? %>
-      <table cellpadding="10" class='table table-hover table-inverse request-index-table rowtable-index'>
-        <thead>
-          <tr style="background-color: #EEEEEE;" class="tr-border">
-            <th colspan="1"><%= sort_link(@q, :created_at, "依頼日", default_order: :desc) %></th>
-            <th>物品名</th>
-            <th>数量</th>
-            <th><%= sort_link(@q, :urgency, "緊急性", default_order: :desc) %></th>
-            <th><%= sort_link(@q, :impressions_count, "閲覧数", default_order: :desc) %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @results.each do |request| %>
-          <tr class="tr-border">
-            <td><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), admins_request_path(request), class: "btn btn-link request_#{request.id}" %></td>
-            <td data-title="物品名"><%= request.item %></td>
-            <td data-title="数量"><%= request.quantity %></td>
-            <td data-title="緊急性"><%= request.urgency_i18n %></td>
-            <td data-title="閲覧数"><%= request.impressions_count %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-      </div>
-    <% else %>
-      <p>該当する依頼はありません</p>
-    <% end %>
+      <h4>Search</h4>
+      <% if @results.exists? %>
+        <table cellpadding="10" class='table table-hover table-inverse request-index-table rowtable-index'>
+          <thead>
+            <tr style="background-color: #EEEEEE;" class="tr-border">
+              <th colspan="1"><%= sort_link(@q, :created_at, "依頼日", default_order: :desc) %></th>
+              <th>物品名</th>
+              <th>数量</th>
+              <th><%= sort_link(@q, :urgency, "緊急性", default_order: :desc) %></th>
+              <th><%= sort_link(@q, :impressions_count, "閲覧数", default_order: :desc) %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @results.each do |request| %>
+              <tr class="tr-border">
+                <td><%= link_to request.created_at.strftime("%Y-%m-%d %H:%M"), admins_request_path(request), class: "btn btn-link request_#{request.id}" %></td>
+                <td data-title="物品名"><%= request.item %></td>
+                <td data-title="数量"><%= request.quantity %></td>
+                <td data-title="緊急性"><%= request.urgency_i18n %></td>
+                <td data-title="閲覧数"><%= request.impressions_count %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="pagination"><%= paginate @results %></div>
+      <% else %>
+        <p>該当する依頼はありません</p>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -2,7 +2,7 @@ class Admins::PostsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page])
   end
 
   def show
@@ -21,7 +21,7 @@ class Admins::PostsController < ApplicationController
 
   def her_posts
     @user = User.find(params[:id])
-    @posts = Post.where(user_id: @user.id, is_valid: true)
+    @posts = Post.where(user_id: @user.id, is_valid: true).page(params[:page])
   end
 
 end

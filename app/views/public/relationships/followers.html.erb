@@ -11,6 +11,7 @@
           <th>一言</th>
           <th>依頼数</th>
           <th>投稿数</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -20,10 +21,18 @@
           <td data-title="一言"><%= user.introduction %></td>
           <td data-title="依頼数"><%= link_to user.requests.count, her_requests_path(user), class: "btn btn-link" %></td>
           <td data-title="投稿数"><%= link_to user.posts.where(is_valid: true).count, her_posts_path(user), class: "btn btn-link" %></td>
+          <td>
+            <% if current_user.following?(user) %>
+              <%= link_to "フォローを外す", user_relationship_path(user, user.id), method: :delete, class: "btn btn-link" %>
+            <% else %>
+              <%= link_to "フォローする", user_relationships_path(user, user.id), method: :post, class: "btn btn-link" %>
+            <% end %>
+          </td>
         </tr>
         <% end %>
       </tbody>
     </table>
+    <div class="pagination"><%= paginate @users %></div>
     <% else %>
       <p>ユーザーはいません</p>
     <% end %>

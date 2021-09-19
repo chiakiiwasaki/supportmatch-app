@@ -3,8 +3,7 @@ class Admins::RequestsController < ApplicationController
   before_action :set_q, only: [:index, :search]
 
   def index
-    # @requests = Request.all
-    @requests = @q.result
+    @requests = @q.result.page(params[:page])
   end
 
   def show
@@ -26,11 +25,11 @@ class Admins::RequestsController < ApplicationController
 
   def her_requests
     @user = User.find(params[:id])
-    @requests = Request.where(user_id: @user.id)
+    @requests = Request.where(user_id: @user.id).page(params[:page])
   end
 
   def search
-    @results = @q.result
+    @results = @q.result.page(params[:page])
   end
 
 

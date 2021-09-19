@@ -48,7 +48,7 @@
     <div class='col-md-2 col-lg-2'></div>
     <div class='col-md-10 col-lg-10'>
       <%- resource_class.omniauth_providers.each do |provider| %>
-        <p class="login"><%= link_to "Signup with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %></p><br>
+        <p class="login"><%= link_to "Signup with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %></p>
       <% end %>
     </div>
   </div>
