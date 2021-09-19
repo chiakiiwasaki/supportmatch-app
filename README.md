@@ -1,5 +1,6 @@
 # SupportMatch
-<img width="1440" alt="85DAD654-A57A-4B12-AC35-2C11412B26D5" src="https://user-images.githubusercontent.com/83531077/133929085-a1daaf99-af11-4c1d-8d8a-ba4fcadc27f1.png">
+
+![85DAD654-A57A-4B12-AC35-2C11412B26D5_1_105_c](https://user-images.githubusercontent.com/83531077/133929143-26183dc9-4160-4922-98c9-c951f75db579.jpeg)
 
 
 ## サイト概要
