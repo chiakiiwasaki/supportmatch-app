@@ -6,11 +6,12 @@
 URL:https://support-match.com/
 
 ```
-【会員ユーザーアカウント】※入力不要のゲストログインもご利用いただけます
+【会員アカウント】※入力不要のゲストログインもご利用いただけます
 メールアドレス：example@email.com
 パスワード：aaaaaa
 
 【管理者アカウント】
+ログインURL:https://support-match.com/admins/sign_in
 メールアドレス：admin@email.com
 パスワード：aaaaaa
 ```
