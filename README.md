@@ -116,19 +116,6 @@ SupportMatchは災害時の支援物資のマッチングサイトです。大�
 - ActionMailer(問い合わせ)
 
 
-## 設計書
-
-- UI Flows（https://drive.google.com/file/d/1R4oIfvaZ4VUC5iA95cqhyqkUk1CoF44e/view?usp=sharing）
-- ER図（https://drive.google.com/file/d/1Q6K_SY_tvTUosS7zTfJP8M6uILOiuU-A/view?usp=sharing）
-- テーブル定義書（https://docs.google.com/spreadsheets/d/1DIKNc0RZxmG3-hrE_V1sbrTD7_tAhxm1SSyMcKbAl1k/edit?usp=sharing）
-- アプリケーション詳細設計（https://docs.google.com/spreadsheets/d/11o15hrfZVM_wNU5SKUcY3N2HVLePS8z1b8TeEU9QH6U/edit?usp=sharing）
-
-
-## チャレンジ要素一覧
-
-<https://docs.google.com/spreadsheets/d/1vWFefWEORxEut2yM5uv-iDBp1n3b1lR-tn4BUSPFsmg/edit?usp=sharing>
-
-
 ## 開発環境
 
 - OS：Linux(CentOS)
