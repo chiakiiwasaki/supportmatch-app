@@ -36,7 +36,8 @@ SupportMatchは災害時の支援物資のマッチングサイトです。大�
 - 被災者のニーズを把握したい行政・企業など
 
 ## 工夫したポイント
-### ActionCableによるリアルタイムチャット
+### リアルタイムチャット
+スピード感のあるやり取りができるよう、ActionCableによるリアルタイムチャットを実装しました。
 ![chatdemo](https://user-images.githubusercontent.com/83531077/134024673-29a729b4-9ebf-4105-8269-3ea7dd5dfb18.gif)
 
 
