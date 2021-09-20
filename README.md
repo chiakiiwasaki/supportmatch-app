@@ -44,6 +44,8 @@ SupportMatchは災害時の支援物資のマッチングサイトです。大�
 ### センシティブな投稿を非表示に
 誹謗中傷などから会員を守るため、Google Natural Language APIの感情分析を活用し、センシティブな内容が含まれる可能性がある投稿やコメントについてはデフォルトで非表示とし、表示・非表示の切り替えを会員側で行えるようにしました。
 
+![postdemo](https://user-images.githubusercontent.com/83531077/134028206-de35c4ee-e5f5-4fdb-9fb7-adeda5f65a8d.gif)
+
 ## 設計書
 ### ◆ER図
 
