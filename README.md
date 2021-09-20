@@ -37,11 +37,14 @@ SupportMatchは災害時の支援物資のマッチングサイトです。大�
 
 ## 設計書
 ### ◆ER図
-![3CC838A2-8FCC-4ED3-A19A-0822D5CC6BFA_1_105_c](https://user-images.githubusercontent.com/83531077/133997507-6dfd20ad-6d81-465c-9896-255ae0189419.jpeg)
+
+![77642443-1B88-43C7-831A-20B6C5C9E614_1_201_a](https://user-images.githubusercontent.com/83531077/133998654-c27dbd06-abc9-45f4-8833-b66e4479e0df.jpeg)
 
 ### ◆UI Flows
-![5140C73B-EB0B-499C-8720-8C241D748925_1_105_c](https://user-images.githubusercontent.com/83531077/133997301-9a2e8364-e7fb-424e-a81f-12816f0d8436.jpeg)
-![4ED43CCB-F5B0-4E62-ADD4-BCB223DD8FC1_1_201_a](https://user-images.githubusercontent.com/83531077/133997418-3542340a-61bd-43b5-9d93-b9d8be42ab27.jpeg)
+
+![10335824-65E8-4248-8C70-1EA889DD40C6_1_201_a](https://user-images.githubusercontent.com/83531077/133998574-e5756f9c-06fd-4271-b428-62d765d15883.jpeg)
+
+![42F53C8E-A927-43DD-A516-F215D689D0B9_1_201_a](https://user-images.githubusercontent.com/83531077/133998515-10129f58-6074-40b6-832e-ffa88041214d.jpeg)
 
 
 ## 機能一覧
