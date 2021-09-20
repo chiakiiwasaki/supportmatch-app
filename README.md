@@ -54,7 +54,7 @@ SupportMatchは災害時の支援物資のマッチングサイトです。大�
 ## 設計書
 ### ◆ER図
 
-![77642443-1B88-43C7-831A-20B6C5C9E614_1_201_a](https://user-images.githubusercontent.com/83531077/133998654-c27dbd06-abc9-45f4-8833-b66e4479e0df.jpeg)
+![F2B8E8CD-9AF9-4B47-B1A1-73BD5032A3FE_1_105_c](https://user-images.githubusercontent.com/83531077/134041688-663e9170-6ecb-40a0-a528-181130124eb9.jpeg)
 
 ### ◆UI Flows
 
