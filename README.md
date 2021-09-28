@@ -121,6 +121,8 @@ SupportMatchは災害時の支援物資のマッチングサイトです。大�
 - ActionCable(リアルタイムチャット)
 - ActionMailer(問い合わせ)
 
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1vWFefWEORxEut2yM5uv-iDBp1n3b1lR-tn4BUSPFsmg/edit?usp=sharing
 
 ## 開発環境
 
