@@ -1,5 +1,6 @@
 class Public::PostCommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_current_user, {only: [:destroy]}
 
   def create
     @post = Post.find(params[:post_id])
