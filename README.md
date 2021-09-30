@@ -110,6 +110,7 @@ SupportMatchは災害時の支援物資のマッチングサイトです。大�
 |投稿一覧・詳細を表示|○|×|
 |投稿・コメントの表示・非表示を切り替え|○|×|
 
+
 ### ◆使用技術等
 - Google Natural Language API
 - kaminari(ページング)
