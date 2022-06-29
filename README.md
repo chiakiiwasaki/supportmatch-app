@@ -4,7 +4,8 @@
 
 ![AD8F6DB3-64C5-474F-B2F7-2501C269C029_1_105_c](https://user-images.githubusercontent.com/83531077/133929735-08046693-34b6-4831-ad4b-d20f4f4b5404.jpeg)
 
-URL:https://support-match.com/
+URL:https://support-match.com/  
+※2021年末に停止
 
 
 ```
